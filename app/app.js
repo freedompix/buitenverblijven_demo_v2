@@ -2,20 +2,7 @@ var modelsLoadingStatuses=[];
 
 var ArchetypeUI = class {};
 
-function closeLoader()
-{
-document.getElementById('loader1').style.display='none';
-document.getElementById('loader2').style.display='none';
-document.getElementById('loaderBG').style.display='none';
 
-}
-
-function switchUIsummary()
-{
-if (document.getElementById('optionsBox').style.display=='none')
-document.getElementById('optionsBox').style.display='block'; else document.getElementById('optionsBox').style.display='none';
-
-}
 
 function openUIblock(id)
 {
@@ -26,54 +13,7 @@ function closeUIblock(id)
 }
 
 
-function buildingType1Select()
-{
-window.appState['rooftype']=0;
-setSizes();
-//window.scene.getMeshByName('canopy2').setEnabled(false);
-//window.scene.getMeshByName('canopy1').setEnabled(true);
 
-//window.scene.getMeshByName('canopy2').visibility=false;
-
-//document.getElementById('loader1').style.display='none';
-//document.getElementById('loader2').style.display='none';
-
-
-document.getElementById('optionHouse1').classList.remove('optionHouseInactive');
-document.getElementById('optionHouse1').classList.add('optionHouseActive');
-document.getElementById('optionHouse2').classList.remove('optionHouseActive');
-document.getElementById('optionHouse2').classList.add('optionHouseInactive');
-
-
-document.getElementById('optionHouse1Checkbox').classList.remove('optionHouseCheckboxInctive');
-document.getElementById('optionHouse1Checkbox').classList.add('optionHouseCheckboxActive');
-document.getElementById('optionHouse2Checkbox').classList.remove('optionHouseCheckboxActive');
-document.getElementById('optionHouse2Checkbox').classList.add('optionHouseCheckboxInctive');
-
-}
-
-function buildingType2Select()
-{
-window.appState['rooftype']=1;
-setSizes();
-//window.scene.getMeshByName('canopy1').setEnabled(false);
-//window.scene.getMeshByName('canopy2').setEnabled(true);
-
-document.getElementById('optionHouse2').classList.remove('optionHouseInactive');
-document.getElementById('optionHouse2').classList.add('optionHouseActive');
-document.getElementById('optionHouse1').classList.remove('optionHouseActive');
-document.getElementById('optionHouse1').classList.add('optionHouseInactive');
-
-
-document.getElementById('optionHouse2Checkbox').classList.remove('optionHouseCheckboxInctive');
-document.getElementById('optionHouse2Checkbox').classList.add('optionHouseCheckboxActive');
-document.getElementById('optionHouse1Checkbox').classList.remove('optionHouseCheckboxActive');
-document.getElementById('optionHouse1Checkbox').classList.add('optionHouseCheckboxInctive');
-
-
-
-
-}
 
 
 ArchetypeUI.load3DModelByPath=function(importModelFilePath,importModelFileName, importedNewName) {
