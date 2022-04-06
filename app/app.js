@@ -10,6 +10,12 @@ document.getElementById('loaderBG').style.display='none';
 
 }
 
+function switchUIsummary()
+{
+if (document.getElementById('optionsBox').style.display=='none')
+document.getElementById('optionsBox').style.display='block'; else document.getElementById('optionsBox').style.display='none';
+
+}
 
 function openUIblock(id)
 {
