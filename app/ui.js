@@ -175,3 +175,10 @@ document.getElementById("rangeDeepth").value=value;
 setSizes();
 }
 }
+
+
+function zoom(direction)
+{
+if (direction==1) window.scene.getCameraByID('camera1').spinTo("radius", window.scene.getCameraByID('camera1').radius - 2, 200);
+if (direction==0) window.scene.getCameraByID('camera1').spinTo("radius", window.scene.getCameraByID('camera1').radius + 2, 200);
+}

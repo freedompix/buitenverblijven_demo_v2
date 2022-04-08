@@ -14,10 +14,10 @@ window.appState['uiMenu2']=1;
 function buildRound(x,z)
 {
 var zBack=z/2;
-var quantity=Math.floor(x/3500)+2;
-if (x % 3500 ==0) quantity = x/3500+1;
+var quantity=Math.floor(x/4000)+2;
+if (x % 4000 ==0) quantity = x/4000+1;
 //console.log(x % 3500);
-if (x<3500)       quantity = 2;
+if (x<4000)       quantity = 2;
 
 
 var sectionWidth=x/(quantity-1);
