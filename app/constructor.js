@@ -4,7 +4,7 @@ window.appState['deepth']=3000;
 window.appState['rooftype']=0;
 
 
-window.appState['rooftype']=0;
+window.appState['rooftype']=1;
 
 window.appState['uiMenu1']=1;
 window.appState['uiMenu2']=1;
@@ -99,7 +99,63 @@ window.scene.getMeshByName('balk_small_back_left_' + i).rotation=new BABYLON.Vec
 
 }
 
-//%%
+
+
+
+
+if (window.appState['rooftype']==1)
+{
+ window.scene.getMeshByName("roofPlane").setEnabled(false);
+
+ for(let roofNum=1;roofNum<=5;roofNum++)
+ {
+ for (let i=0; i<=81; i++)
+ {
+ window.scene.getMeshByName(roofNum + 'roof_tile_' + i).position=new BABYLON.Vector3(xStart + i * 0.25, 0.5, -0.5);
+ if (x<(i*250-250)) window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);
+ else window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(true);
+
+ if (z==3000 ){if(roofNum!=1){window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);  }}
+ if (z==3500 ){if(roofNum!=2){window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);  }}
+ if (z==4000 ){if(roofNum!=3){window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);  }}
+ if (z==4500 ){if(roofNum!=4){window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);  }}
+ if (z==5000 ){if(roofNum!=5){window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);  }}
+
+ }
+
+ }
+
+}
+
+if (window.appState['rooftype']==0)
+{
+window.scene.getMeshByName("roofPlane").setEnabled(true);
+window.scene.getMeshByName("roofPlane").scaling=new BABYLON.Vector3(x/1000 + 0.6, 1, z/1000 + 0.6);
+window.scene.getMeshByName("roofPlane").position.y=2.30;
+
+
+
+for(let roofNum=1;roofNum<=5;roofNum++)
+{
+for (let i=0; i<=81; i++)
+{
+window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);
+}
+
+}
+
+
+
+}
+
+
+window.scene.getMeshByName("groundPlane").scaling=new BABYLON.Vector3(x/1000 + 2, 1, z/1000 + 2);
+
+
+
+window.scene.getCameraByID('camera1').spinTo("radius", 9+x/2000, 200);
+window.scene.getCameraByID('camera1').lowerRadiusLimit=5+x/2000;
+
 }
 
 function isInt(value) {
@@ -112,6 +168,11 @@ function setSizes(){
 
 	if (isInt(x)==false)x=3000;
 	if (isInt(z)==false)z=3000;
+
+x=Math.round(x/500)*500;
+z=Math.round(z/500)*500;
+
+
 if(x<3000){x=3000;}
 if(x>20000){x=20000;}
 if(z<3000){z=3000;}
