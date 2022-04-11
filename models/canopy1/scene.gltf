@@ -70,7 +70,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material #10709.001",
+            "name" : "RoofTileMaterial",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
                     0.019607843831181526,
