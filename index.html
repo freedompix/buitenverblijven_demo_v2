@@ -65,16 +65,16 @@ box-shadow: inset 0 0 2px rgba(255,233,233,1.75), 0 0 2px rgba(255, 233, 233, 1.
 <div class="builderOptionText">Kies uw overkapping</div>
 
 
-<div class="optionHouseInactive" id="optionHouse1" onclick="buildingType1Select(); return false;">
-<div class="optionHouseInactive" id="optionHouse1Checkbox"></div>
+<div class="optionHouseActive" id="optionHouse1" onclick="buildingType1Select(); return false;">
+<div class="optionHouseCheckboxActive" id="optionHouse1Checkbox"></div>
 <div id="optionHouse1image"></div>
 <div class="optionHouseText">Platdak</div>
 </div>
 
 
 
-<div class="optionHouseActive" id="optionHouse2" onclick="buildingType2Select(); return false;">
-<div class="optionHouseCheckboxActive" id="optionHouse2Checkbox"></div>
+<div class="optionHouseInactive" id="optionHouse2" onclick="buildingType2Select(); return false;">
+<div class="optionHouseCheckboxInative" id="optionHouse2Checkbox"></div>
 <div id="optionHouse2image"></div>
 <div class="optionHouseText">Kapschuur</div>
 </div>
@@ -144,6 +144,75 @@ box-shadow: inset 0 0 2px rgba(255,233,233,1.75), 0 0 2px rgba(255, 233, 233, 1.
 
 
 <div id="builderOptions2_1">
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="inputblock">
+	<div class="inputIcon" id="inputIcon2"></div>
+	<div class="inputLabel">Overstek Links</div>
+	<div class="inputBorder"></div>
+	<div class="inputMM">mm</div>
+	<div class="inputMinMaxLabel">(min 0 - max 350)</div>
+	<input type="text" class="inputValue" id="overhangLeft" name="quantWash" size="5" tabindex="13" value="200" onblur=""/   onkeydown="setDeepthByEnter()">
+	<div id="minusD"  onclick="uiPlus('overhangLeft','overhangLeft', -50, 200);" class="waves-effect waves-light z-depth-0"></div>
+	<div id="plusD"  onclick="uiPlus('overhangLeft','overhangLeft', 50, 200);" class="waves-effect waves-light z-depth-0"></div>
+	</div>
+
+	<div class="inputblock">
+	<div class="inputIcon" id="inputIcon2"></div>
+	<div class="inputLabel">Overstek Rechts</div>
+	<div class="inputBorder"></div>
+	<div class="inputMM">mm</div>
+	<div class="inputMinMaxLabel">(min 0 - max 350)</div>
+	<input type="text" class="inputValue" id="overhangRight" name="quantWash" size="5" tabindex="13" value="200" onblur=""/   onkeydown="setDeepthByEnter()">
+	<div id="minusD"  onclick="uiPlus('overhangRight','overhangRight', -50, 200);" class="waves-effect waves-light z-depth-0"></div>
+	<div id="plusD"  onclick="uiPlus('overhangRight','overhangRight', 50, 200);" class="waves-effect waves-light z-depth-0"></div>
+
+	</div>
+
+	<div class="inputblock">
+	<div class="inputIcon" id="inputIcon2"></div>
+	<div class="inputLabel">Overstek Voorzijde</div>
+	<div class="inputBorder"></div>
+	<div class="inputMM">mm</div>
+	<div class="inputMinMaxLabel">(min 0 - max 350)</div>
+	<input type="text" class="inputValue" id="overhangFront" name="quantWash" size="5" tabindex="13" value="200" onblur=""/   onkeydown="setDeepthByEnter()">
+	<div id="minusD"  onclick="uiPlus('overhangFront','overhangFront', -50, 200);" class="waves-effect waves-light z-depth-0"></div>
+	<div id="plusD"  onclick="uiPlus('overhangFront','overhangFront', 50, 200);" class="waves-effect waves-light z-depth-0"></div>
+
+	</div>
+
+	<div class="inputblock">
+	<div class="inputIcon" id="inputIcon2"></div>
+	<div class="inputLabel">Overstek Achterzijde</div>
+	<div class="inputBorder"></div>
+	<div class="inputMM">mm</div>
+	<div class="inputMinMaxLabel">(min 0 - max 350)</div>
+	<input type="text" class="inputValue" id="overhangBack" name="quantWash" size="5" tabindex="13" value="200" onblur=""/   onkeydown="setDeepthByEnter()">
+	<div id="minusD"  onclick="uiPlus('overhangBack','overhangBack', -50, 200);" class="waves-effect waves-light z-depth-0"></div>
+	<div id="plusD"  onclick="uiPlus('overhangBack','overhangBack', 50, 200);" class="waves-effect waves-light z-depth-0"></div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 
