@@ -82,6 +82,10 @@ document.getElementById('optionHouse1Checkbox').classList.add('optionHouseCheckb
 document.getElementById('optionHouse2Checkbox').classList.remove('optionHouseCheckboxActive');
 document.getElementById('optionHouse2Checkbox').classList.add('optionHouseCheckboxInctive');
 
+document.getElementById('builderOptions2_1').style.display='block';
+
+
+
 }
 
 function buildingType2Select()
@@ -103,7 +107,7 @@ document.getElementById('optionHouse1Checkbox').classList.remove('optionHouseChe
 document.getElementById('optionHouse1Checkbox').classList.add('optionHouseCheckboxInctive');
 
 
-
+document.getElementById('builderOptions2_1').style.display='none';
 
 }
 
@@ -181,4 +185,44 @@ function zoom(direction)
 {
 if (direction==1) window.scene.getCameraByID('camera1').spinTo("radius", window.scene.getCameraByID('camera1').radius - 2, 200);
 if (direction==0) window.scene.getCameraByID('camera1').spinTo("radius", window.scene.getCameraByID('camera1').radius + 2, 200);
+}
+
+
+//overhangs
+
+function setPlusOverhangL(){
+let x = window.appState['overhangLeft'];
+
+if (isInt(x)==false) x = 200; else x = x * 1 + 50;
+document.getElementById('overhangLeft').value = x;
+window.appState['overhangLeft'] = x;
+
+setSizes();
+}
+
+function setMinusOverhangL()
+{
+let x = window.appState['overhangLeft'];
+
+if (isInt(x)==false) x = 200; else x = x * 1 - 50;
+document.getElementById('overhangLeft').value = x ;
+window.appState['overhangLeft'] = x;
+
+setSizes();
+}
+
+
+
+
+
+function uiPlus(id,stateId, value, defaultValue)
+{
+  let x = window.appState[stateId];
+
+  if (isInt(x)==false) x = defaultValue; else x = x * 1 + value;
+  document.getElementById(id).value = x ;
+  window.appState[stateId] = x;
+
+  setSizes();
+
 }
