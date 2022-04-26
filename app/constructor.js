@@ -1,5 +1,5 @@
 window.appState=[];
-window.appState['width']=3000;
+window.appState['width']=5000;
 window.appState['deepth']=3000;
 window.appState['rooftype']=0;
 
@@ -57,23 +57,6 @@ let roofFlatShiftBack=window.appState['overhangBack']*0.001  + roofBalkShift;
 
 
 
-//ROFF FLAT 2
-for(let i=1; i<=2;i++)
-{
-window.scene.getMeshByName('flatRoof' + i + '_left').position=new BABYLON.Vector3(xStart-roofFlatShiftLeft/i,  2.2 + 0.075 + 0.15/i, (zBack*-1)*0.001 - roofFlatShiftFront/i);
-window.scene.getMeshByName('flatRoof' + i + '_right').position=new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1 + quantity * (sectionWidth*0.001)+roofFlatShiftRight/i,  2.2 + 0.075 + 0.15/i, (zBack*-1)*0.001 - roofFlatShiftFront/i);
-
-
-window.scene.getMeshByName('flatRoof' + i + '_front').position=new BABYLON.Vector3(xStart-roofFlatShiftLeft/i,  2.2 + 0.075 + 0.15/i, (zBack*-1)*0.001 - roofFlatShiftFront/i);
-window.scene.getMeshByName('flatRoof' + i + '_back').position=new BABYLON.Vector3(xStart-roofFlatShiftLeft/i,  2.2 + 0.075 + 0.15/i, (zBack)*0.001 + roofFlatShiftBack/i);
-
-
-window.scene.getMeshByName('flatRoof' + i + '_front').scaling.x  = x * 0.001 + roofFlatShiftLeft/i + roofFlatShiftRight/i;
-window.scene.getMeshByName('flatRoof' + i + '_back').scaling.x = x * 0.001 + roofFlatShiftLeft/i + roofFlatShiftRight/i;
-
-window.scene.getMeshByName('flatRoof' + i + '_left').scaling.x  = z * 0.001 - shiftZ + roofFlatShiftFront/i + roofFlatShiftBack/i;
-window.scene.getMeshByName('flatRoof' + i + '_right').scaling.x = z * 0.001 - shiftZ + roofFlatShiftFront/i + roofFlatShiftBack/i;
-}
 
 
 
@@ -84,31 +67,35 @@ window.scene.getMeshByName('flatRoof' + i + '_right').scaling.x = z * 0.001 - sh
 
 for(let i = 1; i<=quantity; i++)
 {
-window.scene.getMeshByName('balk_front_' + i).position=new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0, (zBack*-1)*0.001);
-window.scene.getMeshByName('balk_back_' + i).position= new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0, (zBack)*0.001-shiftZ);
-//small vertival balks
-window.scene.getMeshByName('balk_roof_' + i).position= new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0, (zBack*1)*0.001);
+window.scene.getMeshByName('balk_front_' + i).position=new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0, (zBack*-1)*0.001 +  0.075);
+if (window.appState['rooftype']==1)
+window.scene.getMeshByName('balk_back_' + i).position= new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0, (zBack)*0.001-shiftZ - 0.075);
+if (window.appState['rooftype']==0)
+window.scene.getMeshByName('balk_back_' + i).position= new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0, (zBack)*0.001-shiftZ - 0.075);
+
+//small vertiсal balks
+window.scene.getMeshByName('balk_roof_' + i).position= new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0, (zBack*1)*0.001  - 0.075);
 
 
 //
 let smallYshift=0.05;
-window.scene.getMeshByName('balk_small_back_left_' + i).position=new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0+smallYshift, (zBack)*0.001-shiftZ);
+window.scene.getMeshByName('balk_small_back_left_' + i).position=new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0+smallYshift, (zBack)*0.001-shiftZ - 0.075);
 window.scene.getMeshByName('balk_small_back_left_' + i).rotation=new BABYLON.Vector3(0, Math.PI/2, 0);
-window.scene.getMeshByName('balk_small_back_right_' + i).position=new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0+smallYshift, (zBack)*0.001-shiftZ);
+window.scene.getMeshByName('balk_small_back_right_' + i).position=new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0+smallYshift, (zBack)*0.001-shiftZ - 0.075);
 window.scene.getMeshByName('balk_small_back_right_' + i).rotation=new BABYLON.Vector3(0, Math.PI/-2 , 0);
 
-window.scene.getMeshByName('balk_small_front_left_' + i).position=new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0+smallYshift, (zBack*-1)*0.001);
+window.scene.getMeshByName('balk_small_front_left_' + i).position=new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0+smallYshift, (zBack*-1)*0.001 + 0.075);
 window.scene.getMeshByName('balk_small_front_left_' + i).rotation=new BABYLON.Vector3(0, Math.PI/2, 0);
-window.scene.getMeshByName('balk_small_front_right_' + i).position=new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0+smallYshift, (zBack*-1)*0.001);
+window.scene.getMeshByName('balk_small_front_right_' + i).position=new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0+smallYshift, (zBack*-1)*0.001 + 0.075);
 window.scene.getMeshByName('balk_small_front_right_' + i).rotation=new BABYLON.Vector3(0, Math.PI/-2 , 0);
 //
 
 
 
 // horisontal barks for roof
-window.scene.getMeshByName('1meter_balk_front_' + i).position=new BABYLON.Vector3(-0.075 + xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 2.2+0.075, (zBack*-1)*0.001);
-window.scene.getMeshByName('1meter_balk_back_' + i).position= new BABYLON.Vector3(-0.075 + xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 2.2+0.075, (zBack)*0.001-shiftZ);
-window.scene.getMeshByName('1meter_balk_roof_' + i).position= new BABYLON.Vector3(-0.075 + xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 1.7+0.075, (zBack)*0.001);
+window.scene.getMeshByName('1meter_balk_front_' + i).position=new BABYLON.Vector3(-0.075 + xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 2.2+0.075, (zBack*-1)*0.001 + 0.075);
+window.scene.getMeshByName('1meter_balk_back_' + i).position= new BABYLON.Vector3(-0.075 + xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 2.2+0.075, (zBack)*0.001-shiftZ - 0.075);
+window.scene.getMeshByName('1meter_balk_roof_' + i).position= new BABYLON.Vector3(-0.075 + xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 1.7+0.075, (zBack)*0.001 - 0.075);
 
 
 
@@ -179,14 +166,42 @@ if (i==1)
 {
 window.scene.getMeshByName('balk_small_front_right_' + i).rotation=new BABYLON.Vector3(0, 0 , 0);
 window.scene.getMeshByName('balk_small_back_right_' + i).rotation=new BABYLON.Vector3(0, Math.PI , 0);
+
+if(window.appState['rooftype']==1)
+{
+  window.scene.getMeshByName('1meter_balk_front_' + i).scaling.x = sectionWidth * 0.001  + 0.15 + 0.2;
+  window.scene.getMeshByName('1meter_balk_roof_' + i).scaling.x  = sectionWidth * 0.001  + 0.15 + 0.2;
+
+  window.scene.getMeshByName('1meter_balk_front_' + i).position.x = -0.075 + xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001) -0.2;
+  window.scene.getMeshByName('1meter_balk_roof_' + i).position.x  = -0.075 + xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001) -0.2;
+
+
+}
+
 }
 
 if (i==quantity)
 {
+  console.log(quantity + ' quantity' );
 window.scene.getMeshByName('balk_small_front_left_' + i).rotation=new BABYLON.Vector3(0, 0  , 0);
 window.scene.getMeshByName('balk_small_back_left_' + i).rotation=new BABYLON.Vector3(0, Math.PI, 0);
+//if roof type ==1
+if(window.appState['rooftype']==1)
+{
+if (i>1)
+{
+window.scene.getMeshByName('1meter_balk_front_' + (i-1)).scaling.x = sectionWidth * 0.001  + 0.15 + 0.2;
+window.scene.getMeshByName('1meter_balk_roof_' + (i-1)).scaling.x  = sectionWidth * 0.001  + 0.15 + 0.2;
 }
 
+if (i==2)
+{
+window.scene.getMeshByName('1meter_balk_front_' + (i-1)).scaling.x = sectionWidth * 0.001  + 0.15 + 0.4;
+window.scene.getMeshByName('1meter_balk_roof_' + (i-1)).scaling.x  = sectionWidth * 0.001  + 0.15 + 0.4;
+}
+
+}
+}
 
 }
 
@@ -201,6 +216,20 @@ window.scene.getMeshByName('balk_small_back_left_' + i).rotation=new BABYLON.Vec
 
 if (window.appState['rooftype']==1)
 {
+//roof central bulk
+window.scene.getMeshByName('angle_roof_x_bulk').setEnabled(true);
+window.scene.getMeshByName('angle_roof_x_bulk').scaling.x=x*0.001 + 0.5;
+window.scene.getMeshByName('angle_roof_x_bulk').position.x= (x/1000)/-2 - 0.25;
+if (z==3000)window.scene.getMeshByName('angle_roof_x_bulk').position.y=2.9;
+if (z==3500)window.scene.getMeshByName('angle_roof_x_bulk').position.y=3.04;
+if (z==4000)window.scene.getMeshByName('angle_roof_x_bulk').position.y=3.18;
+if (z==4500)window.scene.getMeshByName('angle_roof_x_bulk').position.y=3.33;
+if (z==5000)window.scene.getMeshByName('angle_roof_x_bulk').position.y=3.47;
+
+//disabling flatRoof
+
+window.scene.getMeshByName("balk_center_0").setEnabled(false);
+window.scene.getMeshByName("balk_center_1").setEnabled(false);
 
  window.scene.getMeshByName("roofPlane").setEnabled(false);
  for(let i=1; i<=2;i++)
@@ -211,26 +240,157 @@ if (window.appState['rooftype']==1)
  window.scene.getMeshByName('flatRoof' + i + '_back').setEnabled(false);
  }
 
-
-
-
-
-
-
-
-
-
-
-
- for(let roofNum=1;roofNum<=5;roofNum++)
+for (let i=0; i<=41; i++)
  {
+ window.scene.getMeshByName('flat_roof_bulk_' + i).setEnabled(false);
+ }
+
+for(let i=0; i<=26;i++){
+  window.scene.getMeshByName('flat_roof_15mm' + i).setEnabled(false);
+}
+
+  window.scene.getMeshByName('flat_roof_x1_bulk').setEnabled(false);
+  window.scene.getMeshByName('flat_roof_x2_bulk').setEnabled(false);
+// disabling end
+
+
+//roof flangs
+for (let i=1; i<=5; i++)
+{
+window.scene.getMeshByName(i + 'roof_side_left').position.x  = (x/-2) * 0.001 - 0.15;
+window.scene.getMeshByName(i + 'roof_side_right').position.x = (x/2)  * 0.001 + 0.15;
+
+window.scene.getMeshByName(i + 'roof_side_right').position.y =1.7;
+window.scene.getMeshByName(i + 'roof_side_left').position.y =1.7;
+
+}
+
+//roof_wood
+for (let i=1; i<=5; i++)
+{
+window.scene.getMeshByName(i + 'roof_wood').scaling.x=x*0.001+0.5;
+window.scene.getMeshByName(i + 'roof_wood').position.x  = (x/2) * 0.001 + 0.25;
+window.scene.getMeshByName(i + 'roof_wood').position.y=2.35 + (i*0.075);
+}
+
+
+for(let roofNum=1;roofNum<=5;roofNum++)
+ {
+   if (z==3000 ){
+     if(roofNum!=1){
+     window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(false);
+     window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(false);
+     window.scene.getMeshByName(roofNum + 'roof_wood').setEnabled(false);
+
+   }
+else {
+  window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(true);
+  window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(true);
+  window.scene.getMeshByName(roofNum + 'roof_wood').setEnabled(true);
+}
+}
+   if (z==3500 ){
+     if(roofNum!=2){
+     window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(false);
+     window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(false);
+     window.scene.getMeshByName(roofNum + 'roof_wood').setEnabled(false);
+
+   }
+   else {
+     window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(true);
+     window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(true);
+    window.scene.getMeshByName(roofNum + 'roof_wood').setEnabled(true);
+   }
+ }
+   if (z==4000 ){
+     if(roofNum!=3){
+     window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(false);
+     window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(false);
+     window.scene.getMeshByName(roofNum + 'roof_wood').setEnabled(false);
+
+   }
+   else {
+     window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(true);
+     window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(true);
+    window.scene.getMeshByName(roofNum + 'roof_wood').setEnabled(true);
+   }
+
+ }
+   if (z==4500 ){
+     if(roofNum!=4){
+     window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(false);
+     window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(false);
+     window.scene.getMeshByName(roofNum + 'roof_wood').setEnabled(false);
+
+   }
+   else {
+     window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(true);
+     window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(true);
+          window.scene.getMeshByName(roofNum + 'roof_wood').setEnabled(true);
+   }
+
+ }
+   if (z==5000 ){
+     if(roofNum!=5){
+     window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(false);
+     window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(false);
+     window.scene.getMeshByName(roofNum + 'roof_wood').setEnabled(false);
+
+   }
+   else {
+     window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(true);
+     window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(true);
+     window.scene.getMeshByName(roofNum + 'roof_wood').setEnabled(true);
+
+   }
+
+ }
+
+
+
+
+//middle ROOF
+for (let i=0; i<=41; i++)
+{
+window.scene.getMeshByName(roofNum + 'roof_bulk_' + i).position.x=xStart + i * 0.50;
+window.scene.getMeshByName(roofNum + 'roof_bulk_' + i).position.y=1.7;
+window.scene.getMeshByName(roofNum + 'roof_bulk_' + i).position.z=0;
+//window.scene.getMeshByName(roofNum + 'roof_bulk_' + i).position=new BABYLON.Vector3(xStart + i * 0.50, 0.5, -0.5);
+//
+
+
+if (x<(i*500)) window.scene.getMeshByName(roofNum + 'roof_bulk_' + i).setEnabled(false);
+ else window.scene.getMeshByName(roofNum + 'roof_bulk_' + i).setEnabled(true);
+
+if (z==3000 ){if(roofNum!=1){window.scene.getMeshByName(roofNum + 'roof_bulk_' + i).setEnabled(false);  }}
+if (z==3500 ){if(roofNum!=2){window.scene.getMeshByName(roofNum + 'roof_bulk_' + i).setEnabled(false);  }}
+if (z==4000 ){if(roofNum!=3){window.scene.getMeshByName(roofNum + 'roof_bulk_' + i).setEnabled(false);  }}
+if (z==4500 ){if(roofNum!=4){window.scene.getMeshByName(roofNum + 'roof_bulk_' + i).setEnabled(false);  }}
+if (z==5000 ){if(roofNum!=5){window.scene.getMeshByName(roofNum + 'roof_bulk_' + i).setEnabled(false);  }}
+
+
+
+}
+
+
+
+
+
+// roof TILE
  for (let i=0; i<=81; i++)
  {
- window.scene.getMeshByName(roofNum + 'roof_tile_' + i).position=new BABYLON.Vector3(xStart + i * 0.25, 0.5, -0.5);
+ window.scene.getMeshByName(roofNum + 'roof_tile_' + i).position=new BABYLON.Vector3(xStart + i * 0.25, 0.55, -0.47);
+
+
  if (x<(i*250-250)) window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);
  else window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(true);
 
- if (z==3000 ){if(roofNum!=1){window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);  }}
+ if (z==3000 ){if(roofNum!=1){
+   window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);
+   window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(false);
+   window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(false);
+
+ }}
  if (z==3500 ){if(roofNum!=2){window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);  }}
  if (z==4000 ){if(roofNum!=3){window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);  }}
  if (z==4500 ){if(roofNum!=4){window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);  }}
@@ -238,22 +398,171 @@ if (window.appState['rooftype']==1)
 
  }
 
- }
+} //end roof5
 
 }
 
 if (window.appState['rooftype']==0)
 {
+//central balk
+if (z==5000)
+{
+  window.scene.getMeshByName("balk_center_0").setEnabled(true);
+  window.scene.getMeshByName("balk_center_1").setEnabled(true);
+  window.scene.getMeshByName("balk_small_center_left_0").setEnabled(true);
+  window.scene.getMeshByName("balk_small_center_right_0").setEnabled(true);
+  window.scene.getMeshByName("balk_small_center_left_1").setEnabled(true);
+  window.scene.getMeshByName("balk_small_center_right_1").setEnabled(true);
+
+
+
+
+  window.scene.getMeshByName("balk_center_0").position.x=(x/1000)/2;
+  window.scene.getMeshByName("balk_center_1").position.x=(x/1000)/-2;
+
+ window.scene.getMeshByName('balk_small_center_left_0').position.x = (x/1000)/2;
+window.scene.getMeshByName('balk_small_center_right_0').position.x = (x/1000)/2;
+
+window.scene.getMeshByName('balk_small_center_left_1').position.x = (x/1000)/-2;
+window.scene.getMeshByName('balk_small_center_right_1').position.x = (x/1000)/-2;
+
+
+}
+else
+{
+  window.scene.getMeshByName("balk_center_0").setEnabled(false);
+  window.scene.getMeshByName("balk_center_1").setEnabled(false);
+
+  window.scene.getMeshByName("balk_small_center_left_0").setEnabled(false);
+  window.scene.getMeshByName("balk_small_center_right_0").setEnabled(false);
+
+  window.scene.getMeshByName("balk_small_center_left_1").setEnabled(false);
+  window.scene.getMeshByName("balk_small_center_right_1").setEnabled(false);
+
+
+}
+
+window.scene.getMeshByName('flat_roof_x1_bulk').scaling.x=  roofFlatShiftLeft + roofFlatShiftRight + x/1000;
+window.scene.getMeshByName('flat_roof_x2_bulk').scaling.x=  roofFlatShiftLeft + roofFlatShiftRight + x/1000;
+window.scene.getMeshByName('flat_roof_x1_bulk').position.x =(x/1000)/-2 - roofFlatShiftLeft;
+window.scene.getMeshByName('flat_roof_x2_bulk').position.x =(x/1000)/-2 - roofFlatShiftLeft;
+window.scene.getMeshByName('flat_roof_x1_bulk').position.z =(z/1000)/-2 + 0.00075;
+window.scene.getMeshByName('flat_roof_x2_bulk').position.z =(z/1000)/2  - 0.00075;
+
+
+
+
+//ROFF FLAT 2
+for(let i=1; i<=2;i++)
+{
+let multiply=1;
+if (i==1) multiply=1.0;
+if (i==2) multiply=0.95;
+
+let offset=1;
+if (i==1) offset=0;
+if (i==2) offset=0;
+
+window.scene.getMeshByName('flatRoof' + i + '_left').position=
+new BABYLON.Vector3(xStart-roofFlatShiftLeft * multiply,  2.2 + 0.075 + 0.15/i, (zBack*-1)*0.001 - roofFlatShiftFront * multiply + 0.075 + offset);
+window.scene.getMeshByName('flatRoof' + i + '_right').position=
+new BABYLON.Vector3(xStart -(sectionWidth*0.001)/1 + quantity * (sectionWidth*0.001) + roofFlatShiftRight * multiply,  2.2 + 0.075 + 0.15/i, (zBack*-1)*0.001 - roofFlatShiftFront * multiply + 0.075 + offset);
+
+
+window.scene.getMeshByName('flatRoof' + i + '_front').position=new BABYLON.Vector3(xStart-roofFlatShiftLeft * multiply,  2.2 + 0.075 + 0.15/i, (zBack*-1)*0.001 - roofFlatShiftFront * multiply + 0.075 + offset);
+window.scene.getMeshByName('flatRoof' + i + '_back').position =new BABYLON.Vector3(xStart-roofFlatShiftLeft * multiply,  2.2 + 0.075 + 0.15/i, (zBack)*0.001 + roofFlatShiftBack * multiply - 0.075 - offset);
+
+
+window.scene.getMeshByName('flatRoof' + i + '_front').scaling.x  = x * 0.001 + roofFlatShiftLeft * multiply + roofFlatShiftRight * multiply;
+window.scene.getMeshByName('flatRoof' + i + '_back').scaling.x = x * 0.001 + roofFlatShiftLeft * multiply + roofFlatShiftRight * multiply;
+
+window.scene.getMeshByName('flatRoof' + i + '_left').scaling.x  = z * 0.001 - shiftZ + roofFlatShiftFront * multiply + roofFlatShiftBack * multiply - 0.15;
+window.scene.getMeshByName('flatRoof' + i + '_right').scaling.x = z * 0.001 - shiftZ + roofFlatShiftFront * multiply + roofFlatShiftBack * multiply - 0.15;
+}
+
+
+
+
+
+ for(let roofNum=1;roofNum<=5;roofNum++)
+ {
+  window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(false);
+  window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(false);
+  window.scene.getMeshByName(roofNum + 'roof_wood').setEnabled(false);
+
+  for (let i=0; i<=81; i++)
+  {
+  window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);
+  }
+
+  for (let i=0; i<=41; i++)
+  {
+  window.scene.getMeshByName(roofNum + 'roof_bulk_' + i).setEnabled(false);
+  }
+
+}
+
+
+//flat roof 15mm array
+for(let i=0; i<=26;i++){
+
+window.scene.getMeshByName('flat_roof_15mm' + i).scaling.x= x/1000 + roofFlatShiftLeft + roofFlatShiftRight;
+window.scene.getMeshByName('flat_roof_15mm' + i).scaling.z=1.33;
+
+window.scene.getMeshByName('flat_roof_15mm' + i).position.x= (x/1000)/-2 - roofFlatShiftLeft;
+window.scene.getMeshByName('flat_roof_15mm' + i).position.z= (z/1000)/2 - (i) * 0.2 + 0.1;
+window.scene.getMeshByName('flat_roof_15mm' + i).position.y=2.47;
+
+
+
+if(z<((i-1)*200))
+window.scene.getMeshByName('flat_roof_15mm' + i).setEnabled(false);
+else
+window.scene.getMeshByName('flat_roof_15mm' + i).setEnabled(true);
+
+if(z==((i-1)*200) || i==0)
+window.scene.getMeshByName('flat_roof_15mm' + i).position.y=2.48;
+
+if(i==0)
+{
+window.scene.getMeshByName('flat_roof_15mm' + i).scaling.z=3;
+window.scene.getMeshByName('flat_roof_15mm' + i).position.z=(z/1000)/2 - (i) * 0.2 + roofFlatShiftBack - 0.225 - 0.09;
+}
+
+if(z==((i-1)*200))
+{
+window.scene.getMeshByName('flat_roof_15mm' + i).scaling.z=3;
+window.scene.getMeshByName('flat_roof_15mm' + i).position.z=(z/1000)/2 - (i-1) * 0.2 - roofFlatShiftFront + 0.225 + 0.09;
+}
+
+
+
+}
+
+
+//flat roof mid
+for (let i=0; i<=41; i++)
+{
+window.scene.getMeshByName('flat_roof_bulk_' + i).position.x=xStart + i * 0.50;
+
+window.scene.getMeshByName('flat_roof_bulk_' + i).position.z=(z/1000)/-2 - roofFlatShiftFront + 0.10;
+window.scene.getMeshByName('flat_roof_bulk_' + i).scaling.x= roofFlatShiftFront + roofFlatShiftBack + z/1000 -0.2;
+
+
+
+
+if (x<(i*500)) window.scene.getMeshByName('flat_roof_bulk_' + i).setEnabled(false);
+else window.scene.getMeshByName('flat_roof_bulk_' + i).setEnabled(true);
+}
+
+
 window.scene.getMeshByName("roofPlane").setEnabled(true);
-window.scene.getMeshByName("roofPlane").scaling=new BABYLON.Vector3(
-  x/1000 + roofFlatShiftLeft + roofFlatShiftRight,
-  1,
-   z/1000 +  + roofFlatShiftBack + roofFlatShiftFront);
+window.scene.getMeshByName("roofPlane").scaling=new BABYLON.Vector3(  x/1000 + roofFlatShiftLeft + roofFlatShiftRight,  1,   z/1000 +  + roofFlatShiftBack + roofFlatShiftFront -0.15);
 
 window.scene.getMeshByName("roofPlane").position.x=(roofFlatShiftLeft - roofFlatShiftRight)/-2;
 window.scene.getMeshByName("roofPlane").position.z=(roofFlatShiftFront - roofFlatShiftBack)/-2;
-
 window.scene.getMeshByName("roofPlane").position.y=2.50;
+
 
 for(let i=1; i<=2;i++)
 {
@@ -265,19 +574,15 @@ window.scene.getMeshByName('flatRoof' + i + '_back').setEnabled(true);
 
 
 
-for(let roofNum=1;roofNum<=5;roofNum++)
-{
-for (let i=0; i<=81; i++)
-{
-window.scene.getMeshByName(roofNum + 'roof_tile_' + i).setEnabled(false);
-}
+//disable canopy 2
+window.scene.getMeshByName('angle_roof_x_bulk').setEnabled(false);
 
-}
-
-  //roof
 for(let i = 1; i<=7; i++)
 {
-  window.scene.getMeshByName('1meter_balk_roof_' + i).setEnabled(false);
+window.scene.getMeshByName('1meter_balk_roof_' + i).setEnabled(false);
+window.scene.getMeshByName('balk_roof_' + i).setEnabled(false);
+
+
 }
 
 
