@@ -230,6 +230,12 @@ if (z==5000)window.scene.getMeshByName('angle_roof_x_bulk').position.y=3.47;
 
 window.scene.getMeshByName("balk_center_0").setEnabled(false);
 window.scene.getMeshByName("balk_center_1").setEnabled(false);
+window.scene.getMeshByName("balk_small_center_left_0").setEnabled(false);
+window.scene.getMeshByName("balk_small_center_right_0").setEnabled(false);
+window.scene.getMeshByName("balk_small_center_left_1").setEnabled(false);
+window.scene.getMeshByName("balk_small_center_right_1").setEnabled(false);
+
+
 
  window.scene.getMeshByName("roofPlane").setEnabled(false);
  for(let i=1; i<=2;i++)
