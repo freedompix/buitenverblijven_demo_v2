@@ -451,6 +451,33 @@ background-image:  url("../css/icon_deepth.png");
 background-repeat: no-repeat;
 background-position: center;
 }
+
+#inputIcon_s1{
+background-image:  url("../css/icon_shift_1.png");
+background-repeat: no-repeat;
+background-position: center;
+}
+
+#inputIcon_s2{
+background-image:  url("../css/icon_shift_2.png");
+background-repeat: no-repeat;
+background-position: center;
+}
+
+#inputIcon_s3{
+background-image:  url("../css/icon_shift_3.png");
+background-repeat: no-repeat;
+background-position: center;
+}
+
+#inputIcon_s4{
+background-image:  url("../css/icon_shift_4.png");
+background-repeat: no-repeat;
+background-position: center;
+}
+
+
+
 .inputIcon{
 position: absolute;
 top:0px;
