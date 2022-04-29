@@ -1,4 +1,6 @@
 var modelsLoadingStatuses=[];
+var modelsLoaded=false;
+
 
 var ArchetypeUI = class {};
 
@@ -22,11 +24,12 @@ console.log('Start loading ' + importedNewName + ' ' + importModelFilePath+impor
 var sceneTemp = window.scene;
 
 var arr2=BABYLON.SceneLoader.ImportMesh("", importModelFilePath, importModelFileName, sceneTemp, function (importedMeshes) {
-
+//if (importedNewName!="")
+//{
 importedMeshes[0].name = importedNewName;
 importedMeshes[0].id   = importedNewName;
 window.modelsLoadingStatuses[importedNewName]=true;
-
+//}
 
 
 for(var i = 0; i < importedMeshes.length; i++){console.log(importedMeshes[i].name+''); }
@@ -46,6 +49,26 @@ for(var i = 0; i < importedMeshes.length; i++){console.log(importedMeshes[i].nam
 
 if(importedNewName=='canopy1')
 {
+//bump
+window.scene.getMaterialByName('Wood_Material').bumpTexture = new  BABYLON.Texture("models/texture_wood_normal.jpg", scene);
+window.scene.getMaterialByName('Wood_Material').bumpTexture.wAng = window.scene.getMaterialByName('Wood_Material').albedoTexture.wAng;
+window.scene.getMaterialByName('Wood_Material').bumpTexture.uOffset = window.scene.getMaterialByName('Wood_Material').albedoTexture.uOffset;
+window.scene.getMaterialByName('Wood_Material').bumpTexture.vOffset = window.scene.getMaterialByName('Wood_Material').albedoTexture.vOffset;
+
+//newX
+window.scene.getMaterialByName('Wood_Material').clone('wood_dark_0');
+window.scene.getMaterialByName('wood_dark_0').albedoTexture  = new  BABYLON.Texture("models/canopy1/wood_texture_dark_0.jpg", window.scene);
+window.scene.getMaterialByName('wood_dark_0').albedoTexture.wAng = window.scene.getMaterialByName('Wood_Material').albedoTexture.wAng;
+
+window.scene.getMaterialByName('wood_dark_0').bumpTexture = new  BABYLON.Texture("models/texture_wood_normal.jpg", scene);
+window.scene.getMaterialByName('wood_dark_0').bumpTexture.wAng = window.scene.getMaterialByName('Wood_Material').albedoTexture.wAng;
+window.scene.getMaterialByName('wood_dark_0').bumpTexture.uOffset = window.scene.getMaterialByName('Wood_Material').albedoTexture.uOffset;
+window.scene.getMaterialByName('wood_dark_0').bumpTexture.vOffset = window.scene.getMaterialByName('Wood_Material').albedoTexture.vOffset;
+
+window.scene.getMaterialByName('wood_dark_0').clone('wood_dark_1');
+window.scene.getMaterialByName('wood_dark_1').albedoTexture.wAng = 0;
+window.scene.getMaterialByName('wood_dark_1').bumpTexture.wAng = 0;
+
 
 
 
@@ -66,6 +89,25 @@ window.modelsLoadingStatuses['canopy2']=true;
 }
 
 if (
+window.modelsLoaded==false &&
+window.modelsLoadingStatuses['wall_trap_0']==true  &&
+window.modelsLoadingStatuses['wall_trap_0_carcas']==true  &&
+window.modelsLoadingStatuses['wall_small_0']==true  &&
+window.modelsLoadingStatuses['wall_small_carcas_0']==true  &&
+
+window.modelsLoadingStatuses['wall_roof_carcas_1']==true  &&
+window.modelsLoadingStatuses['wall_roof_carcas_2']==true  &&
+window.modelsLoadingStatuses['wall_roof_carcas_3']==true  &&
+window.modelsLoadingStatuses['wall_roof_carcas_4']==true  &&
+window.modelsLoadingStatuses['wall_roof_carcas_5']==true  &&
+
+window.modelsLoadingStatuses['wall_roof_1']==true  &&
+window.modelsLoadingStatuses['wall_roof_2']==true  &&
+window.modelsLoadingStatuses['wall_roof_3']==true  &&
+window.modelsLoadingStatuses['wall_roof_4']==true  &&
+window.modelsLoadingStatuses['wall_roof_5']==true  &&
+
+
 window.modelsLoadingStatuses['1roof_tile_0']==true  &&
 window.modelsLoadingStatuses['2roof_tile_0']==true  &&
 window.modelsLoadingStatuses['3roof_tile_0']==true  &&
@@ -101,16 +143,67 @@ window.modelsLoadingStatuses['balk_small_0']==true)
 //window.scene.getMeshByName('canopy2').setEnabled(false);
 //window.scene.getMeshByName('Object1259.004_primitive0').material=window.scene.getMaterialByName('Wood_Material');
 window.scene.getMeshByName('canopy1').setEnabled(false);
-
-
+window.scene.getMeshByName('wall_small_0').setEnabled(false);
+window.scene.getMeshByName('wall_small_carcas_0').setEnabled(false);
 
 //materials
 window.scene.getMeshByName('balk_small_0').material=window.scene.getMaterialByName('Wood_Material');
 window.scene.getMeshByName('balk_0').material=window.scene.getMaterialByName('Wood_Material');
 window.scene.getMeshByName('1meter_balk').material=window.scene.getMaterialByName('Wood_Material');
 
+window.scene.getMeshByName('wall_small_0').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_small_carcas_0').material=window.scene.getMaterialByName('Wood_Material');
+
+window.scene.getMeshByName('wall_trap_0').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_trap_0_carcas').material=window.scene.getMaterialByName('Wood_Material');
+
+window.scene.getMeshByName('wall_roof_carcas_1').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_roof_carcas_2').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_roof_carcas_3').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_roof_carcas_4').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_roof_carcas_5').material=window.scene.getMaterialByName('Wood_Material');
 
 
+window.scene.getMeshByName('wall_roof_1').material=window.scene.getMaterialByName('wood_dark_1');
+window.scene.getMeshByName('wall_roof_2').material=window.scene.getMaterialByName('wood_dark_1');
+window.scene.getMeshByName('wall_roof_3').material=window.scene.getMaterialByName('wood_dark_1');
+window.scene.getMeshByName('wall_roof_4').material=window.scene.getMaterialByName('wood_dark_1');
+window.scene.getMeshByName('wall_roof_5').material=window.scene.getMaterialByName('wood_dark_1');
+
+//cloning waals
+for (let i=1; i<=5; i++)
+{
+window.scene.getMeshByName('wall_roof_' + i).clone('wall_roof_clone_' + i);
+window.scene.getMeshByName('wall_roof_clone_' + i).makeGeometryUnique();
+window.scene.getMeshByName('wall_roof_clone_' + i).scaling.x=-1;
+window.scene.getMeshByName('wall_roof_clone_' + i).flipFaces();
+window.scene.getMeshByName('wall_roof_carcas_' + i ).clone('wall_roof_carcas_clone_' + i );
+}
+//WALLS
+
+
+window.scene.getMeshByName('wall_trap_0').clone('wall_trap_1');
+window.scene.getMeshByName('wall_trap_1').makeGeometryUnique();
+window.scene.getMeshByName('wall_trap_1').scaling.x=-1;
+window.scene.getMeshByName('wall_trap_1').position.x=-1;
+window.scene.getMeshByName('wall_trap_1').flipFaces();
+window.scene.getMeshByName('wall_trap_1').clone('wall_trap_0_inside');
+window.scene.getMeshByName('wall_trap_0').clone('wall_trap_1_inside');
+window.scene.getMeshByName('wall_trap_0_carcas').clone('wall_trap_1_carcas');
+
+
+window.scene.getMeshByName('wall_trap_1').position.z = 0.5;
+window.scene.getMeshByName('wall_trap_0').position.z = 0.5;
+window.scene.getMeshByName('wall_trap_0_inside').position.z = 0.5;
+window.scene.getMeshByName('wall_trap_1_inside').position.z = 0.5;
+window.scene.getMeshByName('wall_trap_0_carcas').position.z = 0.5;
+window.scene.getMeshByName('wall_trap_1_carcas').position.z = 0.5;
+
+
+///
+
+
+//roof wood roof side
 for (let i=1; i<=5; i++)
 {
 //roof wood material
@@ -142,7 +235,17 @@ for(let ii=1; ii<=41; ii++)
 
 
 
-//window.scene.getMeshByName('5roof_side_left').flipFaces(true);
+//small wall
+//need to disable 0
+
+for (let i=1; i<=7; i++)
+{
+window.scene.getMeshByName('wall_small_carcas_0').clone('wall_small_carcas_'+i);
+window.scene.getMeshByName('wall_small_0').clone('wall_small_'+i);
+}
+
+
+
 
 //parts 1m
 window.scene.getMeshByName('1meter_balk').clone('1meter_balk_vertical_left');
@@ -240,7 +343,6 @@ window.scene.getMeshByName('1meter_balk').clone('1meter_balk_roof_' + i);
 
 
 
-
 }
 
 //balk 7 section front
@@ -250,7 +352,7 @@ window.scene.getMeshByName('balk_back_' + i).position=new BABYLON.Vector3(-3 + i
 
 window.scene.getMeshByName('balk_0').clone('balk_roof_' + i);
 window.scene.getMeshByName('balk_roof_' + i).position=new BABYLON.Vector3(-3 + i * 2, 0, -1,5);
-window.scene.getMeshByName('balk_roof_' + i).scaling=new BABYLON.Vector3(1, 0.80, 1);
+window.scene.getMeshByName('balk_roof_' + i).scaling=new BABYLON.Vector3(1, 0.755, 1);
 
 
 ///
@@ -302,9 +404,7 @@ roofPlane.material=window.scene.getMaterialByName('RoofTileMaterial');
 
 var groundPlane = BABYLON.MeshBuilder.CreateBox("groundPlane", {height: 0.01, width: 1, depth: 1});
 var groundMaterial = new BABYLON.PBRMaterial("groundMaterial", window.scene);
-{
 
-}
 groundPlane.visibility=0.3;
  //var myTexture  = new BABYLON.Texture("textures/texture.jpg", scene);
 
@@ -335,7 +435,7 @@ buildRound(5000,3000);
 //var box =  BABYLON.MeshBuilder.CreateBox("box", {height: 1, width: 0.75, depth: 0.25});
 
 closeLoader();
-
+window.modelsLoaded=true;
 }
 
 
@@ -418,27 +518,30 @@ light1.intensity=2;
 //scene.environmentTexture = hdrTexture;
 
 ///
-var myMaterial = new BABYLON.PBRMaterial("materialWood", scene);
+var myMaterial = new BABYLON.PBRMaterial("material_wood_0", scene);
 myMaterial.albedoColor = new BABYLON.Color3(1.0, 1.0, 1.0);//Bordeaux Color RGB (95,2,31)
 //myMaterial.reflectivityColor = new BABYLON.Color3(0.003, 0.003, 0.003);
 
 myMaterial.metallic = 1;
 myMaterial.roughness = 0.85;
-
+//texture
 myMaterial.albedoTexture  = new  BABYLON.Texture("models/texture_wood.jpg", scene);
 myMaterial.albedoTexture.uScale = 1;
 myMaterial.albedoTexture.vScale = 1;
 myMaterial.albedoTexture.wAng = 1.5707963705062866;
+//bump
+myMaterial.bumpTexture = new  BABYLON.Texture("models/texture_wood_normal.jpg", scene);
+myMaterial.bumpTexture.uScale = 1;
+myMaterial.bumpTexture.vScale = 1;
+myMaterial.bumpTexture.wAng = 1.5707963705062866;
 
-myMaterial.metallicTexture = new  BABYLON.Texture("models/texture_wood.jpg", scene);
-myMaterial.metallicTexture.uScale = 1;
-myMaterial.metallicTexture.vScale = 1;
-myMaterial.metallicTexture.wAng = 1.5707963705062866;
 myMaterial.backFaceCulling = false;
 myMaterial.twoSidedLighting.backFaceCulling = true;
 
 
 myMaterial.environmentIntensity = 1;
+
+//env
 
 var envTexture = new BABYLON.CubeTexture("models/environmentSpecular.env", scene);
 var hdrSkybox = BABYLON.Mesh.CreateBox("hdrSkyBox", 1000.0, scene);
@@ -460,9 +563,11 @@ scene.environmentTexture = envTexture;
 ArchetypeUI.load3DModelByPath("./models/canopy1/", "scene.gltf", "canopy1");
 //ArchetypeUI.load3DModelByPath("./models/canopy2/", "scene.gltf", "canopy2");
 
-ArchetypeUI.load3DModelByPath("./models/converted/", "5.obj", "balk_0");
-ArchetypeUI.load3DModelByPath("./models/converted/", "3.obj", "balk_small_0");
-ArchetypeUI.load3DModelByPath("./models/converted/", "1meter_balk.obj", "1meter_balk");
+ArchetypeUI.load3DModelByPath("./models/converted/", "balk_244mm.obj", "balk_0");
+ArchetypeUI.load3DModelByPath("./models/converted/", "balk_100mm.obj", "1meter_balk");
+
+ArchetypeUI.load3DModelByPath("./models/converted/", "balk_corner.obj", "balk_small_0");
+
 
 
 
@@ -495,11 +600,30 @@ ArchetypeUI.load3DModelByPath("./models/roof_wood/", "3.obj", "3roof_wood");
 ArchetypeUI.load3DModelByPath("./models/roof_wood/", "4.obj", "4roof_wood");
 ArchetypeUI.load3DModelByPath("./models/roof_wood/", "5.obj", "5roof_wood");
 
+//walls 2.775
+ArchetypeUI.load3DModelByPath("./models/wall_small/", "wall_small.obj", "wall_small_0");
+ArchetypeUI.load3DModelByPath("./models/wall_small/", "wall_small_carcas.obj", "wall_small_carcas_0");
+ArchetypeUI.load3DModelByPath("./models/wall_trap/", "wall_trap.obj", "wall_trap_0");
+ArchetypeUI.load3DModelByPath("./models/wall_trap/", "wall_trap_carcas.obj", "wall_trap_0_carcas");
 
 
+ArchetypeUI.load3DModelByPath("./models/wall_triangle/", "wall_roof_1.obj", "wall_roof_1");
+ArchetypeUI.load3DModelByPath("./models/wall_triangle/", "wall_roof_1_carcas.obj", "wall_roof_carcas_1");
+ArchetypeUI.load3DModelByPath("./models/wall_triangle/", "wall_roof_2.obj", "wall_roof_2");
+ArchetypeUI.load3DModelByPath("./models/wall_triangle/", "wall_roof_2_carcas.obj", "wall_roof_carcas_2");
+ArchetypeUI.load3DModelByPath("./models/wall_triangle/", "wall_roof_3.obj", "wall_roof_3");
+ArchetypeUI.load3DModelByPath("./models/wall_triangle/", "wall_roof_3_carcas.obj", "wall_roof_carcas_3");
+ArchetypeUI.load3DModelByPath("./models/wall_triangle/", "wall_roof_4.obj", "wall_roof_4");
+ArchetypeUI.load3DModelByPath("./models/wall_triangle/", "wall_roof_4_carcas.obj", "wall_roof_carcas_4");
+ArchetypeUI.load3DModelByPath("./models/wall_triangle/", "wall_roof_5.obj", "wall_roof_5");
+ArchetypeUI.load3DModelByPath("./models/wall_triangle/", "wall_roof_5_carcas.obj", "wall_roof_carcas_5");
 
 
 //scene.glb
+
+
+
+
 
 //importedMeshes[0].clone(importedNewName);
 //scene.getMeshByName('barkk').clone('bark_0');
