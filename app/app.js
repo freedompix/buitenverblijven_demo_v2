@@ -390,6 +390,7 @@ window.scene.getMeshByName('balk_0').setEnabled(false);
 for(let roofNum=1;roofNum<=5;roofNum++)
 {
 window.scene.getMeshByName(roofNum +'roof_tile_0').material=window.scene.getMaterialByName('RoofTileMaterial');
+window.scene.getMeshByName(roofNum +'roof_tile_0').scaling.x=1.01;
 for (let i=1; i<=81; i++)
 {
 window.scene.getMeshByName(roofNum +'roof_tile_0').clone(roofNum+'roof_tile_' + i);
@@ -565,7 +566,6 @@ ArchetypeUI.load3DModelByPath("./models/canopy1/", "scene.gltf", "canopy1");
 
 ArchetypeUI.load3DModelByPath("./models/converted/", "balk_244mm.obj", "balk_0");
 ArchetypeUI.load3DModelByPath("./models/converted/", "balk_100mm.obj", "1meter_balk");
-
 ArchetypeUI.load3DModelByPath("./models/converted/", "balk_corner.obj", "balk_small_0");
 
 
