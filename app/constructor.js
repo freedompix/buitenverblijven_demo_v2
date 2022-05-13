@@ -1,14 +1,13 @@
 window.appState=[];
-window.appState['width']=5000;
+window.appState['width']=8000;
 window.appState['deepth']=3000;
-window.appState['rooftype']=0;
 
 
 window.appState['rooftype']=0;
 
 window.appState['uiMenu1']=1;
 window.appState['uiMenu2']=1;
-
+window.appState['uiMenu3']=1;
 
 
 window.appState['overhangLeft']=200;
@@ -17,22 +16,55 @@ window.appState['overhangFront']=200;
 window.appState['overhangBack']=200;
 
 
+window.appState['currentDragMesh']='zhaluzi';
 
-function buildRound(x,z)
+window.appState['house1on']=false;
+window.appState['house2on']=false;
+
+window.appState['house1width']=2000;
+window.appState['house2width']=2000;
+
+
+function buildRound()
 {
+var x = window.appState['width'];
+var z = window.appState['deepth'];
+
 var zBack=z/2;
+
+
+/////
 var quantity=Math.floor(x/4000)+2;
 if (x % 4000 ==0) quantity = x/4000+1;
 //console.log(x % 3500);
 if (x<4000)       quantity = 2;
-
-
 var sectionWidth=x/(quantity-1);
+
+if (window.appState['house1on']==true && window.appState['house2on']==false)
+{
+
+}
+
+if (window.appState['house1on']==false && window.appState['house2on']==true)
+{
+
+}
+
+if (window.appState['house1on']==true && window.appState['house2on']==true)
+{
+
+}
+
+
+////
+
 
 
 //alert(sectionWidth + ' x '+ quantity);
 var xStart=(x/2)*-0.001;
-if(quantity>7) quantity=7;
+
+//if(quantity>7) quantity=7;
+
 //no more six
 var shiftZ;
 if(window.appState['rooftype']==1) shiftZ=1; else shiftZ=0;
@@ -83,8 +115,6 @@ let fringeXOffset=0;
 //if (i==1) fringeXOffset = -0.075;
 //if (i==quantity-1) fringeXOffset = 0.075;
 
-
-
 window.scene.getMeshByName('balk_small_back_left_' + i).position=new BABYLON.Vector3(fringeXOffset + xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0+smallYshift, (zBack)*0.001-shiftZ - 0.075);
 window.scene.getMeshByName('balk_small_back_left_' + i).rotation=new BABYLON.Vector3(0, Math.PI/2, 0);
 window.scene.getMeshByName('balk_small_back_right_' + i).position=new BABYLON.Vector3(fringeXOffset + xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0+smallYshift, (zBack)*0.001-shiftZ - 0.075);
@@ -95,7 +125,6 @@ window.scene.getMeshByName('balk_small_front_left_' + i).rotation=new BABYLON.Ve
 window.scene.getMeshByName('balk_small_front_right_' + i).position=new BABYLON.Vector3(fringeXOffset + xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0+smallYshift, (zBack*-1)*0.001 + 0.075);
 window.scene.getMeshByName('balk_small_front_right_' + i).rotation=new BABYLON.Vector3(0, Math.PI/-2 , 0);
 //
-
 
 
 // horisontal barks for roof
@@ -113,17 +142,57 @@ window.scene.getMeshByName('wall_small_'  + i).position=new BABYLON.Vector3(0.07
 
 window.scene.getMeshByName('wall_small_carcas_'  + i).scaling.x=((sectionWidth-150)/1000)/2.775;
 window.scene.getMeshByName('wall_small_'  + i).scaling.x=((sectionWidth-150)/1000)/2.775;
-
-///TransformNormalFromFloatsToRef
-
-
-
-
-
-//alert(i * (sectionWidth*0.001));
 }
 
-for(let i = 1; i<=7; i++)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for(let i = 1; i<=9; i++)
 {
 
 
@@ -683,82 +752,8 @@ window.scene.getMeshByName('flatRoof' + i + '_back').setEnabled(true);
 window.scene.getMeshByName("groundPlane").scaling=new BABYLON.Vector3(x/1000 + 2, 1, z/1000 + 2);
 
 
-
+updateSections();
 window.scene.getCameraByID('camera1').spinTo("radius", 9+x/2000, 200);
 window.scene.getCameraByID('camera1').lowerRadiusLimit=5+x/2000;
-
-}
-
-function isInt(value) {
-  return !isNaN(value) && (function(x) { return (x | 0) === x; })(parseFloat(value))
-}
-
-function setSizes(){
-	let x = window.appState['width'];
-	let z = window.appState['deepth'];
-  let overhangLeft = window.appState['overhangLeft'];
-	let overhangRight = window.appState['overhangRight'];
-	let overhangFront = window.appState['overhangFront'];
-	let overhangBack = window.appState['overhangBack'];
-
-
-	if (isInt(x)==false)x=3000;
-	if (isInt(z)==false)z=3000;
-	if (isInt(overhangLeft)==false) overhangLeft=200;
-  if (isInt(overhangRight)==false) overhangRight=200;
-  if (isInt(overhangFront)==false) overhangFront=200;
-  if (isInt(overhangBack)==false) overhangBack=200;
-
-
-x=Math.round(x/500)*500;
-z=Math.round(z/500)*500;
-overhangLeft=Math.round(overhangLeft/50)*50;
-overhangRight=Math.round(overhangRight/50)*50;
-overhangFront=Math.round(overhangFront/50)*50;
-overhangBack=Math.round(overhangBack/50)*50;
-
-if(x<3000){x=3000;}
-if(x>20000){x=20000;}
-
-if(overhangLeft<0){overhangLeft=0;}
-if(overhangRight<0){overhangRight=0;}
-if(overhangFront<0){overhangFront=0;}
-if(overhangBack<0){overhangBack=0;}
-
-if(z<3000){z=3000;}
-if(z>5000){z=5000;}
-
-if(overhangLeft>350){overhangLeft=350;}
-if(overhangRight>350){overhangRight=350;}
-if(overhangFront>350){overhangFront=350;}
-if(overhangBack>350){overhangBack=350;}
-
-
-
-window.appState['width']=x;
-window.appState['deepth']=z;
-window.appState['overhangLeft'] =  overhangLeft;
-window.appState['overhangRight'] = overhangRight;
-window.appState['overhangFront'] = overhangFront;
-window.appState['overhangBack'] = overhangBack;
-
-
-document.getElementById('widthInput').value = x;
-document.getElementById('deepthInput').value = z;
-
-document.getElementById("rangeWidth").value=x;
-document.getElementById("rangeDeepth").value=z;
-
-document.getElementById("overhangLeft").value=overhangLeft;
-document.getElementById("overhangRight").value=overhangRight;
-document.getElementById("overhangFront").value=overhangFront;
-document.getElementById("overhangBack").value=overhangBack;
-
-
-
-
-
-
-buildRound(x,z);
 
 }
