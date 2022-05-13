@@ -157,7 +157,7 @@ height: 230px;
 #builderOptions2
 {
 position:relative;
-min-height: 230px;
+min-height: 130px;
 margin-top: 16px;
 }
 
@@ -175,6 +175,21 @@ position:absolute;
 top:18px;
 left:36px;
  }
+
+ .builderOptionTextMiddle
+ {
+width: 100%;
+text-align: center;
+ font-family: 'Roboto';
+ font-style: normal;
+ font-weight: 500;
+ font-size: 16px;
+ line-height: 19px;
+ color: #000000;
+margin-bottom: 10px;
+}
+
+
 
 #optionHouse1
 {
