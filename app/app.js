@@ -344,6 +344,30 @@ window.scene.getMeshByName('wall_small_carcas_0').clone('wall_small_carcas_'+i);
 window.scene.getMeshByName('wall_small_0').clone('wall_small_'+i);
 }
 
+//walls for
+window.scene.getMeshByName('wall_small_0').clone('wall_house1_front');
+
+window.scene.getMeshByName('wall_house1_front').makeGeometryUnique();
+window.scene.getMeshByName('wall_house1_front').scaling.z=-1;
+window.scene.getMeshByName('wall_house1_front').flipFaces();
+
+
+window.scene.getMeshByName('wall_small_0').clone('wall_house1_back');
+window.scene.getMeshByName('wall_small_0').clone('wall_house1_left');
+window.scene.getMeshByName('wall_small_0').clone('wall_house1_right');
+
+window.scene.getMeshByName('wall_small_0').clone('wall_house2_front');
+
+window.scene.getMeshByName('wall_house2_front').makeGeometryUnique();
+window.scene.getMeshByName('wall_house2_front').scaling.z=-1;
+window.scene.getMeshByName('wall_house2_front').flipFaces();
+
+window.scene.getMeshByName('wall_small_0').clone('wall_house2_back');
+window.scene.getMeshByName('wall_small_0').clone('wall_house2_left');
+window.scene.getMeshByName('wall_small_0').clone('wall_house2_right');
+
+
+
 
 
 
