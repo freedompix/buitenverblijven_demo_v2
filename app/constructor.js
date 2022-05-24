@@ -657,6 +657,14 @@ window.scene.getMeshByName('house1_wall_roof_carcas_' + roofNum ).setEnabled(roo
 window.scene.getMeshByName('wall_roof_inside_' + roofNum).setEnabled(roofStatus);
 window.scene.getMeshByName('wall_roof_clone_inside_' + roofNum).setEnabled(roofStatus);
 
+window.scene.getMeshByName('wall_roof_inside_' + roofNum).setEnabled(roofStatus);
+window.scene.getMeshByName('wall_roof_clone_inside_' + roofNum).setEnabled(roofStatus);
+
+if (window.appState['rooftype'] == 0)
+{
+  window.scene.getMeshByName('wall_roof_inside_' + roofNum).setEnabled(false);
+  window.scene.getMeshByName('wall_roof_clone_inside_' + roofNum).setEnabled(false);  
+}
 
 window.scene.getMeshByName('house2_wall_roof_' + roofNum ).setEnabled(roofStatus);
 window.scene.getMeshByName('house2_wall_roof_inside_' + roofNum ).setEnabled(roofStatus);
