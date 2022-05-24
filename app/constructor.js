@@ -1,5 +1,5 @@
 window.appState=[];
-window.appState['width']=8000;
+window.appState['width']=5000;
 window.appState['deepth']=3000;
 
 
@@ -16,7 +16,7 @@ window.appState['overhangFront']=200;
 window.appState['overhangBack']=200;
 
 
-window.appState['currentDragMesh']='zhaluzi';
+window.appState['currentDragMesh']='';
 
 window.appState['house1on']=false;
 window.appState['house2on']=false;
@@ -33,6 +33,7 @@ window.appState['wallInside']=false;
 
 function buildRound()
 {
+  setColor();
 var x = window.appState['width'];
 var z = window.appState['deepth'];
 
@@ -173,58 +174,17 @@ window.scene.getMeshByName('wall_small_'  + i).position=new BABYLON.Vector3(0.07
 
 window.scene.getMeshByName('wall_small_carcas_'  + i).scaling.x=((sectionWidth-150)/1000)/2.775;
 window.scene.getMeshByName('wall_small_'  + i).scaling.x=((sectionWidth-150)/1000)/2.775;
+
+window.scene.getMeshByName('wall_small_inside_'  + i).position=new BABYLON.Vector3(0.075-fringeXOffset + xStart -(sectionWidth*0.001)/1+ i * (sectionWidth*0.001), 0, (zBack*1)*0.001 - 0.075);
+window.scene.getMeshByName('wall_small_inside_'  + i).scaling.x=((sectionWidth-150)/1000)/2.775;
+
 }
 }
 
 
 ///////////
 
-if (window.appState['house1on']==true)
-{
-window.scene.getMeshByName('wall_house1_front').setEnabled(true);
-window.scene.getMeshByName('wall_house1_back').setEnabled(false);
-window.scene.getMeshByName('wall_house1_left').setEnabled(false);
-window.scene.getMeshByName('wall_house1_right').setEnabled(false);
 
-window.scene.getMeshByName('wall_house1_front').scaling.x=((window.appState['house1width']-150)/1000)/2.775;
-window.scene.getMeshByName('wall_house1_back').scaling.x=((window.appState['house1width']-150)/1000)/2.775;
-
-window.scene.getMeshByName('wall_house1_front').position=new BABYLON.Vector3(0.075-xStart*-1, 0, (zBack*-1)*0.001 + 0.075 - 0.0);
-
-window.scene.getMeshByName('wall_house1_front').scaling.y=1.32;
-}
-
-if (window.appState['house1on']==false)
-{
-window.scene.getMeshByName('wall_house1_front').setEnabled(false);
-window.scene.getMeshByName('wall_house1_back').setEnabled(false);
-window.scene.getMeshByName('wall_house1_left').setEnabled(false);
-window.scene.getMeshByName('wall_house1_right').setEnabled(false);
-}
-
-//////////
-
-if (window.appState['house2on']==true)
-{
-window.scene.getMeshByName('wall_house2_front').setEnabled(true);
-window.scene.getMeshByName('wall_house2_back').setEnabled(false);
-window.scene.getMeshByName('wall_house2_left').setEnabled(false);
-window.scene.getMeshByName('wall_house2_right').setEnabled(false);
-
-window.scene.getMeshByName('wall_house2_front').scaling.x=((window.appState['house2width']-150)/1000)/2.775;
-window.scene.getMeshByName('wall_house2_back').scaling.x=((window.appState['house2width']-150)/1000)/2.775;
-
-window.scene.getMeshByName('wall_house2_front').position=new BABYLON.Vector3(0.075-xStart*1 - (window.appState['house2width']/1000), 0, (zBack*-1)*0.001 + 0.075 - 0.0);
-window.scene.getMeshByName('wall_house2_front').scaling.y=1.32;
-}
-
-if (window.appState['house2on']==false)
-{
-window.scene.getMeshByName('wall_house2_front').setEnabled(false);
-window.scene.getMeshByName('wall_house2_back').setEnabled(false);
-window.scene.getMeshByName('wall_house2_left').setEnabled(false);
-window.scene.getMeshByName('wall_house2_right').setEnabled(false);
-}
 
 
 
@@ -326,6 +286,11 @@ window.scene.getMeshByName('wall_small_'  + i).position=new BABYLON.Vector3(0.07
 
 window.scene.getMeshByName('wall_small_carcas_'  + i).scaling.x=((tempCurrentSectionWidth-150)/1000)/2.775;
 window.scene.getMeshByName('wall_small_'  + i).scaling.x=((tempCurrentSectionWidth-150)/1000)/2.775;
+
+window.scene.getMeshByName('wall_small_inside_'  + i).position=new BABYLON.Vector3(0.075-fringeXOffset + currentXposition, 0, (zBack*1)*0.001 - 0.075);
+window.scene.getMeshByName('wall_small_inside_'  + i).scaling.x=((tempCurrentSectionWidth-150)/1000)/2.775;
+
+
 }
 
 
@@ -394,6 +359,7 @@ for(let i = 1; i<=9; i++)
 
   window.scene.getMeshByName('wall_small_carcas_' + i).setEnabled(true);
   window.scene.getMeshByName('wall_small_' + i).setEnabled(true);
+  window.scene.getMeshByName('wall_small_inside_' + i).setEnabled(true);
 
   }
 
@@ -405,7 +371,7 @@ for(let i = 1; i<=9; i++)
 
   window.scene.getMeshByName('wall_small_carcas_' + i).setEnabled(false);
   window.scene.getMeshByName('wall_small_' + i).setEnabled(false);
-
+  window.scene.getMeshByName('wall_small_inside_' + i).setEnabled(false);
 
 
   }
@@ -529,7 +495,7 @@ window.scene.getMeshByName('wall_trap_1').position.x = (x/1000)/ 2 ;
 window.scene.getMeshByName('wall_trap_0_carcas').position.x = (x/1000)/-2 ;
 window.scene.getMeshByName('wall_trap_1_carcas').position.x = (x/1000)/ 2 ;
 
-window.scene.getMeshByName('wall_trap_0_inside').position.x = (x/1000)/-2 - 0.02;
+window.scene.getMeshByName('wall_trap_0_inside').position.x = (x/1000)/-2 - 0.01;
 window.scene.getMeshByName('wall_trap_1_inside').position.x = (x/1000)/ 2 + 0.01;
 
 
@@ -628,17 +594,29 @@ window.scene.getMeshByName('wall_roof_' + i).position.x = (x/-2000);
 window.scene.getMeshByName('wall_roof_' + i).position.y = 2.35;
 window.scene.getMeshByName('wall_roof_' + i).position.z = (z/2000)-1.05;
 
-window.scene.getMeshByName('wall_roof_carcas_' + i ).position.x = (x/-2000);
-window.scene.getMeshByName('wall_roof_carcas_' + i ).position.y = 2.35;
-window.scene.getMeshByName('wall_roof_carcas_' + i ).position.z = (z/2000)-1.05;
+window.scene.getMeshByName('wall_roof_inside_' + i).position.x = (x/-2000);
+window.scene.getMeshByName('wall_roof_inside_' + i).position.y = 2.35;
+window.scene.getMeshByName('wall_roof_inside_' + i).position.z = (z/2000)-1.05;
 
+//
 window.scene.getMeshByName('wall_roof_clone_' + i).position.x = (x/2000);
 window.scene.getMeshByName('wall_roof_clone_' + i).position.y = 2.35;
 window.scene.getMeshByName('wall_roof_clone_' + i).position.z = (z/2000)-1.05;
 
+window.scene.getMeshByName('wall_roof_clone_inside_' + i).position.x = (x/2000) ;
+window.scene.getMeshByName('wall_roof_clone_inside_' + i).position.y = 2.35;
+window.scene.getMeshByName('wall_roof_clone_inside_' + i).position.z = (z/2000)-1.05;
+//
+window.scene.getMeshByName('wall_roof_carcas_' + i ).position.x = (x/-2000);
+window.scene.getMeshByName('wall_roof_carcas_' + i ).position.y = 2.35;
+window.scene.getMeshByName('wall_roof_carcas_' + i ).position.z = (z/2000)-1.05;
+
 window.scene.getMeshByName('wall_roof_carcas_clone_' + i ).position.x = (x/2000)+0.035;
 window.scene.getMeshByName('wall_roof_carcas_clone_' + i ).position.y = 2.35;
 window.scene.getMeshByName('wall_roof_carcas_clone_' + i ).position.z = (z/2000)-1.05;
+
+
+
 
 }
 
@@ -668,6 +646,33 @@ window.scene.getMeshByName('wall_roof_clone_' + roofNum).setEnabled(roofStatus);
 window.scene.getMeshByName('wall_roof_carcas_clone_' + roofNum ).setEnabled(roofStatus);
 window.scene.getMeshByName('wall_roof_carcas_clone_' + roofNum ).setEnabled(roofStatus);
 window.scene.getMeshByName('wall_roof_carcas_clone_' + roofNum ).setEnabled(roofStatus);
+
+
+
+
+window.scene.getMeshByName('house1_wall_roof_' + roofNum ).setEnabled(roofStatus);
+window.scene.getMeshByName('house1_wall_roof_inside_' + roofNum ).setEnabled(roofStatus);
+window.scene.getMeshByName('house1_wall_roof_carcas_' + roofNum ).setEnabled(roofStatus);
+
+window.scene.getMeshByName('wall_roof_inside_' + roofNum).setEnabled(roofStatus);
+window.scene.getMeshByName('wall_roof_clone_inside_' + roofNum).setEnabled(roofStatus);
+
+
+window.scene.getMeshByName('house2_wall_roof_' + roofNum ).setEnabled(roofStatus);
+window.scene.getMeshByName('house2_wall_roof_inside_' + roofNum ).setEnabled(roofStatus);
+window.scene.getMeshByName('house2_wall_roof_carcas_' + roofNum ).setEnabled(roofStatus);
+
+
+
+
+
+
+
+
+
+
+
+
 
 window.scene.getMeshByName(roofNum + 'roof_side_left').setEnabled(roofStatus);
 window.scene.getMeshByName(roofNum + 'roof_side_right').setEnabled(roofStatus);
@@ -962,6 +967,7 @@ window.scene.getMeshByName("groundPlane").scaling=new BABYLON.Vector3(x/1000 + 2
 
 
 updateSections();
+rebuildHouses();
 window.scene.getCameraByID('camera1').spinTo("radius", 9+x/2000, 200);
 window.scene.getCameraByID('camera1').lowerRadiusLimit=5+x/2000;
 

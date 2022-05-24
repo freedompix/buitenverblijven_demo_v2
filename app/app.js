@@ -55,6 +55,9 @@ window.scene.getMaterialByName('Wood_Material').bumpTexture.wAng = window.scene.
 window.scene.getMaterialByName('Wood_Material').bumpTexture.uOffset = window.scene.getMaterialByName('Wood_Material').albedoTexture.uOffset;
 window.scene.getMaterialByName('Wood_Material').bumpTexture.vOffset = window.scene.getMaterialByName('Wood_Material').albedoTexture.vOffset;
 
+//window.scene.getMaterialByName('Wood_Material').metallic  = 0.1;
+//window.scene.getMaterialByName('Wood_Material').roughness = 0.85;
+
 //newX
 window.scene.getMaterialByName('Wood_Material').clone('wood_dark_0');
 window.scene.getMaterialByName('wood_dark_0').albedoTexture  = new  BABYLON.Texture("models/canopy1/wood_texture_dark_0.jpg", window.scene);
@@ -68,6 +71,11 @@ window.scene.getMaterialByName('wood_dark_0').bumpTexture.vOffset = window.scene
 window.scene.getMaterialByName('wood_dark_0').clone('wood_dark_1');
 window.scene.getMaterialByName('wood_dark_1').albedoTexture.wAng = 0;
 window.scene.getMaterialByName('wood_dark_1').bumpTexture.wAng = 0;
+
+//rotated
+window.scene.getMaterialByName('Wood_Material').clone('Wood_Material_1');
+window.scene.getMaterialByName('Wood_Material_1').albedoTexture.wAng = 0;
+window.scene.getMaterialByName('Wood_Material_1').bumpTexture.wAng = 0;
 
 
 
@@ -99,6 +107,9 @@ if (
 window.modelsLoaded==false &&
 
 window.modelsLoadingStatuses['zhaluzi']==true  &&
+
+window.modelsLoadingStatuses['wall_big']==true  &&
+window.modelsLoadingStatuses['wall_big_carcas']==true  &&
 
 window.modelsLoadingStatuses['wall_trap_0']==true  &&
 window.modelsLoadingStatuses['wall_trap_0_carcas']==true  &&
@@ -155,6 +166,10 @@ window.modelsLoadingStatuses['balk_small_0']==true)
 window.scene.getMeshByName('canopy1').setEnabled(false);
 window.scene.getMeshByName('wall_small_0').setEnabled(false);
 window.scene.getMeshByName('wall_small_carcas_0').setEnabled(false);
+window.scene.getMeshByName('wall_big').setEnabled(false);
+window.scene.getMeshByName('wall_big_carcas').setEnabled(false);
+
+
 
 //materials
 window.scene.getMeshByName('zhaluzi').material=window.scene.getMaterialByName('Wood_Material');
@@ -165,7 +180,18 @@ window.scene.getMeshByName('balk_0').material=window.scene.getMaterialByName('Wo
 window.scene.getMeshByName('1meter_balk').material=window.scene.getMaterialByName('Wood_Material');
 
 window.scene.getMeshByName('wall_small_0').material=window.scene.getMaterialByName('wood_dark_0');
+
 window.scene.getMeshByName('wall_small_carcas_0').material=window.scene.getMaterialByName('Wood_Material');
+
+window.scene.getMeshByName('wall_big').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_big_carcas').material=window.scene.getMaterialByName('Wood_Material');
+
+
+//window.scene.getMeshByName('wall_small_0').makeGeometryUnique();
+//window.scene.getMeshByName('wall_small_0').scaling.z=-1;
+//window.scene.getMeshByName('wall_small_0').flipFaces();
+
+
 
 window.scene.getMeshByName('wall_trap_0').material=window.scene.getMaterialByName('wood_dark_0');
 window.scene.getMeshByName('wall_trap_0_carcas').material=window.scene.getMaterialByName('Wood_Material');
@@ -268,9 +294,13 @@ window.scene.getMeshByName('zhaluziZ').addBehavior(dragZbehaivor);
 window.scene.getMeshByName('zhaluziZ').setEnabled(false);
 window.scene.getMeshByName('zhaluzi').setEnabled(false);
 
+window.scene.getMeshByName('zhaluzi_a2_0').setEnabled(false);
+window.scene.getMeshByName('zhaluzi_a2_1').setEnabled(false);
+window.scene.getMeshByName('zhaluzi_a2_2').setEnabled(false);
 
 
-//cloning waals
+
+//cloning TRIANGLE WALLS
 for (let i=1; i<=5; i++)
 {
 window.scene.getMeshByName('wall_roof_' + i).clone('wall_roof_clone_' + i);
@@ -278,6 +308,10 @@ window.scene.getMeshByName('wall_roof_clone_' + i).makeGeometryUnique();
 window.scene.getMeshByName('wall_roof_clone_' + i).scaling.x=-1;
 window.scene.getMeshByName('wall_roof_clone_' + i).flipFaces();
 window.scene.getMeshByName('wall_roof_carcas_' + i ).clone('wall_roof_carcas_clone_' + i );
+
+window.scene.getMeshByName('wall_roof_clone_' + i).clone('wall_roof_inside_' + i);
+window.scene.getMeshByName('wall_roof_' + i).clone('wall_roof_clone_inside_' + i);
+
 }
 //WALLS
 
@@ -342,30 +376,15 @@ for (let i=1; i<=9; i++)
 {
 window.scene.getMeshByName('wall_small_carcas_0').clone('wall_small_carcas_'+i);
 window.scene.getMeshByName('wall_small_0').clone('wall_small_'+i);
+
+
+window.scene.getMeshByName('wall_small_0').clone('wall_small_inside_'+i);
+window.scene.getMeshByName('wall_small_inside_'+i).makeGeometryUnique();
+window.scene.getMeshByName('wall_small_inside_'+i).scaling.z=-1;
+window.scene.getMeshByName('wall_small_inside_'+i).bakeCurrentTransformIntoVertices();
 }
 
-//walls for
-window.scene.getMeshByName('wall_small_0').clone('wall_house1_front');
-
-window.scene.getMeshByName('wall_house1_front').makeGeometryUnique();
-window.scene.getMeshByName('wall_house1_front').scaling.z=-1;
-window.scene.getMeshByName('wall_house1_front').flipFaces();
-
-
-window.scene.getMeshByName('wall_small_0').clone('wall_house1_back');
-window.scene.getMeshByName('wall_small_0').clone('wall_house1_left');
-window.scene.getMeshByName('wall_small_0').clone('wall_house1_right');
-
-window.scene.getMeshByName('wall_small_0').clone('wall_house2_front');
-
-window.scene.getMeshByName('wall_house2_front').makeGeometryUnique();
-window.scene.getMeshByName('wall_house2_front').scaling.z=-1;
-window.scene.getMeshByName('wall_house2_front').flipFaces();
-
-window.scene.getMeshByName('wall_small_0').clone('wall_house2_back');
-window.scene.getMeshByName('wall_small_0').clone('wall_house2_left');
-window.scene.getMeshByName('wall_small_0').clone('wall_house2_right');
-
+createHouses();
 
 
 
@@ -589,6 +608,13 @@ document.getElementById('deepthInput').value=3000;
 document.getElementById("rangeWidth").value=3000;
 document.getElementById("rangeDeepth").value=3000;
 
+document.getElementById("wallInside").checked =false;
+//document.getElementById("wallInside").prop("checked",false);
+document.getElementById("house1on").checked =false;
+//document.getElementById("house1on").prop("checked",false);
+document.getElementById("house2on").checked =false;
+//document.getElementById("house2on").prop("checked",false);
+
 
 var canvas = document.getElementById('renderCanvas');
 var engine = new BABYLON.Engine(canvas, true);
@@ -602,11 +628,13 @@ var scene = new BABYLON.Scene(engine);
 
 
 //debugLayer
-//scene.debugLayer.show();
-//document.getElementById('builderUI').style.display='none';
-//document.getElementById('topDiv').style.display='none';
-//document.getElementById('builderUI').style.top='600px';
-
+if (window.appState['debug']==true)
+{
+scene.debugLayer.show();
+document.getElementById('builderUI').style.display='none';
+document.getElementById('topDiv').style.display='none';
+document.getElementById('builderUI').style.top='600px';
+}
 
 
 //var camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, -5,-25), scene);
@@ -620,12 +648,14 @@ camera.lowerRadiusLimit=7;
 
 scene.clearColor = new BABYLON.Color3(1, 1, 1);
 
-var light1 = new BABYLON.HemisphericLight('light_sky', new BABYLON.Vector3(-0.1,1,0.3), scene);
+//var light1 = new BABYLON.HemisphericLight('light_sky', new BABYLON.Vector3(-0.1,1,0.3), scene);
+var light1 = new BABYLON.HemisphericLight('light_sky', new BABYLON.Vector3(0,4,4), scene);
+
 light1.intensity=2;
 
-// var light3 = new BABYLON.PointLight("light_point_red1", new BABYLON.Vector3(10, -25, 15), scene);
-// light3.intensity=400;
-// light3.diffuse=new BABYLON.Color3(1,0.0);
+//var light3 = new BABYLON.PointLight("light_point_red1", new BABYLON.Vector3(10, -25, 15), scene);
+//light3.intensity=100;
+//light3.diffuse=new BABYLON.Color3(1,0.0);
 
 // var light4 = new BABYLON.PointLight("light_point_neon", new BABYLON.Vector3(-10, -20, 0), scene);
 // light4.intensity=400;
@@ -745,9 +775,9 @@ ArchetypeUI.load3DModelByPath("./models/wall_triangle/", "wall_roof_5_carcas.obj
 //scene.glb
 ArchetypeUI.load3DModelByPath("./models/elements_house/", "zhaluzi.obj", "zhaluzi");
 
-
-
-
+//wall big
+ArchetypeUI.load3DModelByPath("./models/elements_house/", "wall_big.obj", "wall_big");
+ArchetypeUI.load3DModelByPath("./models/elements_house/", "wall_big_carcas.obj", "wall_big_carcas");
 
 //importedMeshes[0].clone(importedNewName);
 //scene.getMeshByName('barkk').clone('bark_0');

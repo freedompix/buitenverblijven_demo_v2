@@ -18,13 +18,30 @@ window.scene.getMeshByName('wall_roof_clone_5').material=window.scene.getMateria
 window.scene.getMeshByName('wall_trap_0').material=window.scene.getMaterialByName('wood_dark_0');
 window.scene.getMeshByName('wall_trap_1').material=window.scene.getMaterialByName('wood_dark_0');
 
+window.scene.getMeshByName('house1_trap').material=window.scene.getMaterialByName('wood_dark_0');
+
 window.scene.getMeshByName('wall_house1_front').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_house1_back').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_house1_left').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_house1_right').material=window.scene.getMaterialByName('wood_dark_0');
+
+window.scene.getMeshByName('house2_trap').material=window.scene.getMaterialByName('wood_dark_0');
+
 window.scene.getMeshByName('wall_house2_front').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_house2_back').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_house2_left').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_house2_right').material=window.scene.getMaterialByName('wood_dark_0');
 
 
 for (let i=1; i<=9; i++)
 {
-window.scene.getMeshByName('wall_small_'  + i).material=window.scene.getMaterialByName('wood_dark_1');
+window.scene.getMeshByName('wall_small_'  + i).material=window.scene.getMaterialByName('wood_dark_0');
+}
+
+for(let i=1;i<=5;i++)
+{
+window.scene.getMeshByName('house1_wall_roof_' + i ).material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('house2_wall_roof_' + i ).material=window.scene.getMaterialByName('wood_dark_0');
 }
 
 
@@ -38,23 +55,39 @@ window.scene.getMeshByName('wall_small_'  + i).material=window.scene.getMaterial
 if (window.appState['color1']==1)
 {
 
-window.scene.getMeshByName('wall_roof_1').material=window.scene.getMaterialByName('Wood_Material');
-window.scene.getMeshByName('wall_roof_2').material=window.scene.getMaterialByName('Wood_Material');
-window.scene.getMeshByName('wall_roof_3').material=window.scene.getMaterialByName('Wood_Material');
-window.scene.getMeshByName('wall_roof_4').material=window.scene.getMaterialByName('Wood_Material');
-window.scene.getMeshByName('wall_roof_5').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_roof_1').material=window.scene.getMaterialByName('Wood_Material_1');
+window.scene.getMeshByName('wall_roof_2').material=window.scene.getMaterialByName('Wood_Material_1');
+window.scene.getMeshByName('wall_roof_3').material=window.scene.getMaterialByName('Wood_Material_1');
+window.scene.getMeshByName('wall_roof_4').material=window.scene.getMaterialByName('Wood_Material_1');
+window.scene.getMeshByName('wall_roof_5').material=window.scene.getMaterialByName('Wood_Material_1');
 
-window.scene.getMeshByName('wall_roof_clone_1').material=window.scene.getMaterialByName('Wood_Material');
-window.scene.getMeshByName('wall_roof_clone_2').material=window.scene.getMaterialByName('Wood_Material');
-window.scene.getMeshByName('wall_roof_clone_3').material=window.scene.getMaterialByName('Wood_Material');
-window.scene.getMeshByName('wall_roof_clone_4').material=window.scene.getMaterialByName('Wood_Material');
-window.scene.getMeshByName('wall_roof_clone_5').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_roof_clone_1').material=window.scene.getMaterialByName('Wood_Material_1');
+window.scene.getMeshByName('wall_roof_clone_2').material=window.scene.getMaterialByName('Wood_Material_1');
+window.scene.getMeshByName('wall_roof_clone_3').material=window.scene.getMaterialByName('Wood_Material_1');
+window.scene.getMeshByName('wall_roof_clone_4').material=window.scene.getMaterialByName('Wood_Material_1');
+window.scene.getMeshByName('wall_roof_clone_5').material=window.scene.getMaterialByName('Wood_Material_1');
 
 window.scene.getMeshByName('wall_trap_0').material=window.scene.getMaterialByName('Wood_Material');
 window.scene.getMeshByName('wall_trap_1').material=window.scene.getMaterialByName('Wood_Material');
 
+window.scene.getMeshByName('house1_trap').material=window.scene.getMaterialByName('Wood_Material');
+
 window.scene.getMeshByName('wall_house1_front').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_house1_back').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_house1_left').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_house1_right').material=window.scene.getMaterialByName('Wood_Material');
+
+window.scene.getMeshByName('house2_trap').material=window.scene.getMaterialByName('Wood_Material');
+
 window.scene.getMeshByName('wall_house2_front').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_house2_back').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_house2_left').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_house2_right').material=window.scene.getMaterialByName('Wood_Material');
+
+
+
+
+
 
 
 for (let i=1; i<=9; i++)
@@ -62,19 +95,91 @@ for (let i=1; i<=9; i++)
 window.scene.getMeshByName('wall_small_'  + i).material=window.scene.getMaterialByName('Wood_Material');
 }
 
+for(let i=1;i<=5;i++)
+{
+window.scene.getMeshByName('house1_wall_roof_' + i ).material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('house2_wall_roof_' + i ).material=window.scene.getMaterialByName('Wood_Material');
 
 }
+
+
+
+}
+
+
+///2
+
+
+
 
 if (window.appState['color2']==0)
 {
 window.scene.getMeshByName('wall_trap_0_inside').material=window.scene.getMaterialByName('wood_dark_0');
 window.scene.getMeshByName('wall_trap_1_inside').material=window.scene.getMaterialByName('wood_dark_0');
+
+window.scene.getMeshByName('house1_trap_inside').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('house2_trap_inside').material=window.scene.getMaterialByName('wood_dark_0');
+
+
+window.scene.getMeshByName('wall_house1_front_inside').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_house1_back_inside').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_house1_left_inside').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_house1_right_inside').material=window.scene.getMaterialByName('wood_dark_0');
+
+window.scene.getMeshByName('wall_house2_front_inside').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_house2_back_inside').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_house2_left_inside').material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('wall_house2_right_inside').material=window.scene.getMaterialByName('wood_dark_0');
+
+
+
+for (let i=1; i<=9; i++)
+{
+  window.scene.getMeshByName('wall_small_inside_' + i).material=window.scene.getMaterialByName('wood_dark_0');
+}
+
+for(let i=1;i<=5;i++)
+{
+window.scene.getMeshByName('house1_wall_roof_inside_' + i ).material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('house2_wall_roof_inside_' + i ).material=window.scene.getMaterialByName('wood_dark_0');
+
+}
+
+
 }
 
 if (window.appState['color2']==1)
 {
 window.scene.getMeshByName('wall_trap_0_inside').material=window.scene.getMaterialByName('Wood_Material');
 window.scene.getMeshByName('wall_trap_1_inside').material=window.scene.getMaterialByName('Wood_Material');
+
+window.scene.getMeshByName('house1_trap_inside').material=window.scene.getMaterialByName('Wood_Material');
+
+
+window.scene.getMeshByName('wall_house1_front_inside').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_house1_back_inside').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_house1_left_inside').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_house1_right_inside').material=window.scene.getMaterialByName('Wood_Material');
+
+window.scene.getMeshByName('wall_house2_front_inside').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_house2_back_inside').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_house2_left_inside').material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('wall_house2_right_inside').material=window.scene.getMaterialByName('Wood_Material');
+
+
+for (let i=1; i<=9; i++)
+{
+  window.scene.getMeshByName('wall_small_inside_' + i).material=window.scene.getMaterialByName('Wood_Material');
+}
+
+for(let i=1;i<=5;i++)
+{
+window.scene.getMeshByName('house1_wall_roof_inside_' + i ).material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('house2_wall_roof_inside_' + i ).material=window.scene.getMaterialByName('Wood_Material');
+}
+
+
+
 }
 
 
@@ -105,7 +210,7 @@ window.appState['wallInside']=true;
 document.getElementById('color2optionsDiv').style.display='block';
 }
 
-
+buildRound();
 
 
 }

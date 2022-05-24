@@ -34,7 +34,7 @@ section['a2'].mesh[2].x=3.4;
 
 function updateSections()
 {
-
+return false;
 for (let i=0; i < section['a2'].mesh.length; i++)
 {
 let id = section['a2'].mesh[i].id;
