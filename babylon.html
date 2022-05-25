@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+	<title>Visser Montage 3D builder</title>
+	<style>
+body {margin: 0;	padding: 0;					overflow: hidden;	}
+.loaderStyle{display:inline-block;width:80px;height:80px;position:absolute;top:50vh;left:50vw;margin-top:-40px;margin-left:-40px}
+.loaderStyle:after{content:" ";display:block;width:64px;height:64px;margin:8px;border-radius:50%;border:2px solid #fff;border-color:#fff transparent #fff transparent;animation:loaderStyle 1.2s linear infinite}
+.loaderStyle2{display:inline-block;width:60px;height:60px;position:absolute;top:50vh;left:50vw;margin-top:-30px;margin-left:-30px}
+.loaderStyle2:after{content:" ";display:block;width:52px;height:52px;margin:4px;border-radius:50%;border:2px solid #fff;border-color:#fff transparent #fff transparent;animation:loaderStyle2 1.2s linear infinite}
+.loaderStyle:after, .loaderStyle2:after
+{
+box-shadow: inset 0 0 2px rgba(255,233,233,1.75), 0 0 2px rgba(255, 233, 233, 1.7);
+}
+
+
+@keyframes loaderStyle{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+@keyframes loaderStyle2{0%{transform:rotate(0)}100%{transform:rotate(-360deg)}}
+	</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/ui_color.css">
+
+
+<script src="app/babylon.js"></script>
+<script src="app/babylonjs.loaders.min.js"></script>
+
+
+<script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+<script src="app/editor.js"></script>
+<script src="app/section.js"></script>
+<script src="app/houses.js"></script>
+<script src="app/color.js"></script>
+<script src="app/ui.js"></script>
+<script src="app/app.js"></script>
+
+<script>window.appState['debug']=true;</script>
+
+<!--
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+!-->
+
+
+</head>
+<body>
+
+<canvas id="renderCanvas"></canvas>
+
+<div class="" id="topDiv">
+<div id="logotype"><img src="css/logo.svg" height="40" width="200"/></div>
+</div>
+
+
+<div class="" id="viewSelector">
+<div class="" id="2dButton"></div>
+<div class="" id="3dButton"></div>
+</div>
+
+
+<div class="" id="builderUI" style="">
+
+<div class="builderBlockStyleActive waves-effect waves-light z-depth-0" id="builderBlock1" onclick="switchUI(1);">
+<div class="builderBlockTextActive" id="builderBlockText1">1.Type overkapping</div>
+<div class="builderArrowActive" id="builderArrow1"></div>
+</div>
+
+<div id="builderOptions1">
+
+<div class="builderOptionText">Kies uw overkapping</div>
+
+
+<div class="optionHouseActive" id="optionHouse1" onclick="buildingType1Select(); return false;">
+<div class="optionHouseCheckboxActive" id="optionHouse1Checkbox"></div>
+<div id="optionHouse1image"></div>
+<div class="optionHouseText">Platdak</div>
+</div>
+
+
+
+<div class="optionHouseInactive" id="optionHouse2" onclick="buildingType2Select(); return false;">
+<div class="optionHouseCheckboxInative" id="optionHouse2Checkbox"></div>
+<div id="optionHouse2image"></div>
+<div class="optionHouseText">Kapschuur</div>
+</div>
+</div>
+
+
+
+<div class="builderBlockStyleActive waves-effect waves-light z-depth-0" id="builderBlock2" onclick="switchUI(2);">
+
+<div class="builderBlockTextActive" id="builderBlockText2">2.Afmetingen</div>
+<div class="builderArrowActive" id="builderArrow2"></div>
+
+</div>
+
+<div id="builderOptions2">
+
+
+<div class="inputblock">
+
+<div class="inputIcon" id="inputIcon1"></div>
+
+
+<div class="inputLabel">Breedte</div>
+<div class="inputBorder"></div>
+<div class="inputMM">mm</div>
+
+<div class="inputMinLabel">3000mm</div>
+<div class="inputMaxLabel">20000mm</div>
+<div class="inputMinMaxLabel">(min 3000 - max 20000)</div>
+
+
+<div class="range-field" style="display:none;">
+<input type="range" id="rangeWidth" name="rangeWidth"   min="3000" max="20000" value="3000" step="500" class="inputstyle">
+</div>
+
+<input type="text" class="inputValue" id="widthInput" name="quantWash" size="5" tabindex="13" value="5000" onblur=""  onkeydown="setWidthByEnter()" />
+
+
+<div id="minusW" onclick="setMinusWidth(); return false;"  class="waves-effect waves-light z-depth-0"></div>
+<div id="plusW" onclick="setPlusWidth(); return false;"  class="waves-effect waves-light z-depth-0"></div>
+</div>
+
+
+<div class="inputblock">
+<div class="inputIcon" id="inputIcon2"></div>
+<div class="inputLabel">Diepte</div>
+<div class="inputBorder"></div>
+<div class="inputMM">mm</div>
+
+<div class="inputMinLabel">3000mm</div>
+<div class="inputMaxLabel">&nbsp;5000mm</div>
+
+<div class="inputMinMaxLabel">(min 3000 - max 5000)</div>
+
+
+<div class="range-field" style="display:none;">
+<input type="range" id="rangeDeepth" name="rangeDeepth"   min="3000" max="5000" value="3000" step="500" class="inputstyle">
+</div>
+
+
+<input type="text" class="inputValue" id="deepthInput" name="quantWash" size="5" tabindex="13" value="3000" onblur=""/   onkeydown="setDeepthByEnter()">
+
+<div id="minusD"  onclick="setMinusDeepth();" class="waves-effect waves-light z-depth-0"></div>
+<div id="plusD"  onclick="setPlusDeepth();" class="waves-effect waves-light z-depth-0"></div>
+</div>
+
+
+
+<div id="builderOptions2_1">
+<div class="builderOptionTextMiddle" id="showOverhang" onclick="
+document.getElementById('overhangs').style.display='block';
+document.getElementById('showOverhang').style.display='none';
+document.getElementById('hideOverhang').style.display='block';
+return false;
+">
+	Overhangen tonen</div>
+<div class="builderOptionTextMiddle" id="hideOverhang" style="display: none;"
+onclick="
+document.getElementById('overhangs').style.display='none';
+document.getElementById('showOverhang').style.display='block';
+document.getElementById('hideOverhang').style.display='none';
+return false;"
+>Overhangen verbergen</div>
+
+
+
+
+
+
+<div id="overhangs" style="display: none;">
+
+
+
+	<div class="inputblock">
+	<div class="inputIcon" id="inputIcon_s1"></div>
+	<div class="inputLabel">Overstek Links</div>
+	<div class="inputBorder"></div>
+	<div class="inputMM">mm</div>
+	<div class="inputMinMaxLabel">(min 0 - max 350)</div>
+	<input type="text" class="inputValue" id="overhangLeft" name="quantWash" size="5" tabindex="13" value="200" onblur=""/   onkeydown="setValueByEnter('overhangLeft','overhangLeft', 50, 200)">
+	<div id="minusD"  onclick="uiPlus('overhangLeft','overhangLeft', -50, 200);" class="waves-effect waves-light z-depth-0"></div>
+	<div id="plusD"  onclick="uiPlus('overhangLeft','overhangLeft', 50, 200);" class="waves-effect waves-light z-depth-0"></div>
+	</div>
+
+	<div class="inputblock">
+	<div class="inputIcon" id="inputIcon_s2"></div>
+	<div class="inputLabel">Overstek Rechts</div>
+	<div class="inputBorder"></div>
+	<div class="inputMM">mm</div>
+	<div class="inputMinMaxLabel">(min 0 - max 350)</div>
+	<input type="text" class="inputValue" id="overhangRight" name="quantWash" size="5" tabindex="13" value="200" onblur=""/   onkeydown="setValueByEnter('overhangRight','overhangRight', -50, 200);">
+	<div id="minusD"  onclick="uiPlus('overhangRight','overhangRight', -50, 200);" class="waves-effect waves-light z-depth-0"></div>
+	<div id="plusD"  onclick="uiPlus('overhangRight','overhangRight', 50, 200);" class="waves-effect waves-light z-depth-0"></div>
+
+	</div>
+
+	<div class="inputblock">
+	<div class="inputIcon" id="inputIcon_s3"></div>
+	<div class="inputLabel">Overstek Voorzijde</div>
+	<div class="inputBorder"></div>
+	<div class="inputMM">mm</div>
+	<div class="inputMinMaxLabel">(min 0 - max 350)</div>
+	<input type="text" class="inputValue" id="overhangFront" name="quantWash" size="5" tabindex="13" value="200" onblur=""/   onkeydown="setValueByEnter('overhangFront','overhangFront', 50, 200)">
+	<div id="minusD"  onclick="uiPlus('overhangFront','overhangFront', -50, 200);" class="waves-effect waves-light z-depth-0"></div>
+	<div id="plusD"  onclick="uiPlus('overhangFront','overhangFront', 50, 200);" class="waves-effect waves-light z-depth-0"></div>
+
+	</div>
+
+	<div class="inputblock">
+	<div class="inputIcon" id="inputIcon_s4"></div>
+	<div class="inputLabel">Overstek Achterzijde</div>
+	<div class="inputBorder"></div>
+	<div class="inputMM">mm</div>
+	<div class="inputMinMaxLabel">(min 0 - max 350)</div>
+	<input type="text" class="inputValue" id="overhangBack" name="quantWash" size="5" tabindex="13" value="200" onblur=""/   onkeydown="setValueByEnter('overhangBack','overhangBack', 50, 200)">
+	<div id="minusD"  onclick="uiPlus('overhangBack','overhangBack', -50, 200);" class="waves-effect waves-light z-depth-0"></div>
+	<div id="plusD"  onclick="uiPlus('overhangBack','overhangBack', 50, 200);" class="waves-effect waves-light z-depth-0"></div>
+
+	</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="builderBlockStyleActive" id="builderBlock3"   onclick="switchUI(3);">
+<div class="builderBlockTextActive" id="builderBlockText3">3.Wanden</div>
+<div class="builderArrowActive" id="builderArrow3"></div>
+</div>
+
+<div id="builderOptions3">
+
+<div style="position: relative;">
+<div class="builderOptionText">Wall color</div>
+
+	<div class="optionColorActive" id="optionColor1_1" onclick="color1_1Select(); return false;">
+	<div class="optionColorCheckboxActive" id="color1_1Checkbox"></div>
+	<div class="optionColor1image"></div>
+	<div class="optionColorText">Black douglas</div>
+	</div>
+
+
+
+	<div class="optionColorInactive" id="optionColor1_2" onclick="color1_2Select(); return false;">
+	<div class="optionColorCheckboxInative" id="color1_2Checkbox"></div>
+	<div class="optionColor2image"></div>
+	<div class="optionColorText">Light douglas</div>
+	</div>
+</div>
+
+<div style="position: absolute; top: 182px;">
+<div class="builderOptionText">Wood finish</div>
+<div style="position:absolute; left: 370px; width: 150px; top: 14px;">
+		<div class="switch">
+			<label>
+
+				<input type="checkbox" id="wallInside" value="false"  name="wallInside" onchange="setWallsInside();">
+				<span class="lever"></span>
+
+			</label>
+		</div>
+</div>
+
+
+
+<div id="color2optionsDiv" style="display: none;">
+	<div class="optionColorActive" id="optionColor2_1" onclick="color2_1Select(); return false;">
+	<div class="optionColorCheckboxActive" id="color2_1Checkbox"></div>
+	<div class="optionColor1image"></div>
+	<div class="optionColorText">Black douglas</div>
+	</div>
+
+
+
+	<div class="optionColorInactive" id="optionColor2_2" onclick="color2_2Select(); return false;">
+	<div class="optionColorCheckboxInative" id="color2_2Checkbox"></div>
+	<div class="optionColor2image"></div>
+	<div class="optionColorText">Light douglas</div>
+	</div>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="builderBlockStyleActive" id="builderBlock4"  onclick="switchUI(4);">
+
+<div class="builderBlockTextActive" id="builderBlockText4">4.Berging</div>
+<div class="builderArrowActive" id="builderArrow4"></div>
+
+</div>
+
+<div id="builderOptions4">
+	<br>
+
+	<div style="position:relative;  height: 40px;">
+	<div class="inputLabel">Linker berging </div>
+	<div style="position:absolute; left: 250px;">
+			<div class="switch">
+		    <label>
+					off
+		      <input type="checkbox" id="house1on" value="false"  name="house1on" onchange="setSizes();">
+		      <span class="lever"></span>
+		      On
+		    </label>
+		  </div>
+	</div>
+
+</div>
+
+
+
+		<div class="inputblock">
+		<div class="inputIcon" id="inputIcon1"></div>
+		<div class="inputLabel">Breedte linker berging</div>
+		<div class="inputBorder"></div>
+		<div class="inputMM">mm</div>
+		<div class="inputMinMaxLabel">(min 1500 - max 4000)</div>
+		<input type="text" class="inputValue" id="house1width" name="house1width" size="5" tabindex="13" value="2000" onblur=""/   onkeydown="setValueByEnter('house1width','house1width', 500, 2000)">
+		<div id="minusD"  onclick="uiPlus('house1width','house1width', -500, 2000);" class="waves-effect waves-light z-depth-0"></div>
+		<div id="plusD"  onclick="uiPlus('house1width','house1width', 500, 2000);" class="waves-effect waves-light z-depth-0"></div>
+		</div>
+
+
+
+		<div style="position:relative; height: 40px;">
+		<div class="inputLabel">Rechter berging </div>
+		<div style="position:absolute; left: 250px;">
+				<div class="switch">
+			    <label>
+						off
+			      <input type="checkbox" id="house2on" value="false" name="house2on"  onchange="setSizes();">
+			      <span class="lever"></span>
+			      On
+			    </label>
+			  </div>
+		</div>
+
+	</div>
+
+
+
+		<div class="inputblock">
+		<div class="inputIcon" id="inputIcon1"></div>
+		<div class="inputLabel">Breedte rechter berging</div>
+		<div class="inputBorder"></div>
+		<div class="inputMM">mm</div>
+		<div class="inputMinMaxLabel">(min 1500 - max 4000)</div>
+		<input type="text" class="inputValue" id="house2width" name="house2width" size="5" tabindex="13" value="2000" onblur=""/   onkeydown="setValueByEnter('house2width','house2width', 500, 2000)">
+		<div id="minusD"  onclick="uiPlus('house2width','house2width', -500, 2000);" class="waves-effect waves-light z-depth-0"></div>
+		<div id="plusD"  onclick="uiPlus('house2width','house2width', 500, 2000);" class="waves-effect waves-light z-depth-0"></div>
+		</div>
+
+</div>
+
+
+
+
+
+
+<div class="builderBlockStyleInactive" id="builderBlock5">
+<div class="builderBlockTextInactive" id="builderBlockText5">5.Opties</div>
+<div class="builderArrowInactive" id="builderArrow5"></div>
+</div>
+
+
+
+</div>
+
+
+
+
+<div class="" id="icon2D"></div>
+<div class="" id="icon3D"></div>
+
+<div class="" id="iconZoomIn" onclick="zoom(1);"></div>
+<div class="" id="iconZoomOut" onclick="zoom(0);"></div>
+
+<div class="" id="iconFullScreen"></div>
+<div class="" id="iconInfo" onclick="switchUIsummary(); return false;"></div>
+
+
+<div class="" id="optionsBox">
+</div>
+
+
+
+
+<div class=""  id="loaderBG"></div>
+<div class="loaderStyle"  id="loader1"></div>
+<div class="loaderStyle2" id="loader2"></div>
+</body>
+</html>
