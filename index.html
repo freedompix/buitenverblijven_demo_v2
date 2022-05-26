@@ -157,20 +157,28 @@ box-shadow: inset 0 0 2px rgba(255,233,233,1.75), 0 0 2px rgba(255, 233, 233, 1.
 
 
 <div id="builderOptions2_1">
-<div class="builderOptionTextMiddle" id="showOverhang" onclick="
+<div class="builderOptionTextMiddle" id="showOverhang" style="cursor: pointer;"
+onclick="
 document.getElementById('overhangs').style.display='block';
 document.getElementById('showOverhang').style.display='none';
 document.getElementById('hideOverhang').style.display='block';
-return false;
-">
-	Overhangen tonen</div>
-<div class="builderOptionTextMiddle" id="hideOverhang" style="display: none;"
+return false;">
+Overhangen tonen
+<img src="css/arrow_inactive.png" style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);
+-ms-transform: rotate(90deg);transform: rotate(90deg);">
+</div>
+
+
+<div class="builderOptionTextMiddle" id="hideOverhang" style="display: none; cursor: pointer;"
 onclick="
 document.getElementById('overhangs').style.display='none';
 document.getElementById('showOverhang').style.display='block';
 document.getElementById('hideOverhang').style.display='none';
-return false;"
->Overhangen verbergen</div>
+return false;">
+Overhangen verbergen
+<img src="css/arrow_inactive.png" style="-webkit-transform: rotate(270deg);-moz-transform: rotate(270deg);-o-transform: rotate(90deg);
+-ms-transform: rotate(270deg);transform: rotate(270deg);">
+</div>
 
 
 
