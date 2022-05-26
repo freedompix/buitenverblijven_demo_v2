@@ -40,8 +40,8 @@ window.scene.getMeshByName('wall_small_'  + i).material=window.scene.getMaterial
 
 for(let i=1;i<=5;i++)
 {
-window.scene.getMeshByName('house1_wall_roof_' + i ).material=window.scene.getMaterialByName('wood_dark_0');
-window.scene.getMeshByName('house2_wall_roof_' + i ).material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('house1_wall_roof_' + i ).material=window.scene.getMaterialByName('wood_dark_1');
+window.scene.getMeshByName('house2_wall_roof_' + i ).material=window.scene.getMaterialByName('wood_dark_1');
 }
 
 
@@ -97,8 +97,8 @@ window.scene.getMeshByName('wall_small_'  + i).material=window.scene.getMaterial
 
 for(let i=1;i<=5;i++)
 {
-window.scene.getMeshByName('house1_wall_roof_' + i ).material=window.scene.getMaterialByName('Wood_Material');
-window.scene.getMeshByName('house2_wall_roof_' + i ).material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('house1_wall_roof_' + i ).material=window.scene.getMaterialByName('Wood_Material_1');
+window.scene.getMeshByName('house2_wall_roof_' + i ).material=window.scene.getMaterialByName('Wood_Material_1');
 
 }
 
@@ -140,8 +140,12 @@ for (let i=1; i<=9; i++)
 
 for(let i=1;i<=5;i++)
 {
-window.scene.getMeshByName('house1_wall_roof_inside_' + i ).material=window.scene.getMaterialByName('wood_dark_0');
-window.scene.getMeshByName('house2_wall_roof_inside_' + i ).material=window.scene.getMaterialByName('wood_dark_0');
+window.scene.getMeshByName('house1_wall_roof_inside_' + i ).material=window.scene.getMaterialByName('wood_dark_1');
+window.scene.getMeshByName('house2_wall_roof_inside_' + i ).material=window.scene.getMaterialByName('wood_dark_1');
+
+window.scene.getMeshByName('wall_roof_inside_' + i ).material=window.scene.getMaterialByName('wood_dark_1');
+window.scene.getMeshByName('wall_roof_clone_inside_' + i ).material=window.scene.getMaterialByName('wood_dark_1');
+
 
 }
 
@@ -174,8 +178,14 @@ for (let i=1; i<=9; i++)
 
 for(let i=1;i<=5;i++)
 {
-window.scene.getMeshByName('house1_wall_roof_inside_' + i ).material=window.scene.getMaterialByName('Wood_Material');
-window.scene.getMeshByName('house2_wall_roof_inside_' + i ).material=window.scene.getMaterialByName('Wood_Material');
+window.scene.getMeshByName('house1_wall_roof_inside_' + i ).material=window.scene.getMaterialByName('Wood_Material_1');
+window.scene.getMeshByName('house2_wall_roof_inside_' + i ).material=window.scene.getMaterialByName('Wood_Material_1');
+
+
+window.scene.getMeshByName('wall_roof_inside_' + i ).material=window.scene.getMaterialByName('Wood_Material_1');
+window.scene.getMeshByName('wall_roof_clone_inside_' + i ).material=window.scene.getMaterialByName('Wood_Material_1');
+
+
 }
 
 
