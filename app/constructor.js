@@ -663,7 +663,7 @@ window.scene.getMeshByName('wall_roof_clone_inside_' + roofNum).setEnabled(roofS
 if (window.appState['rooftype'] == 0)
 {
   window.scene.getMeshByName('wall_roof_inside_' + roofNum).setEnabled(false);
-  window.scene.getMeshByName('wall_roof_clone_inside_' + roofNum).setEnabled(false);  
+  window.scene.getMeshByName('wall_roof_clone_inside_' + roofNum).setEnabled(false);
 }
 
 window.scene.getMeshByName('house2_wall_roof_' + roofNum ).setEnabled(roofStatus);
@@ -976,6 +976,8 @@ window.scene.getMeshByName("groundPlane").scaling=new BABYLON.Vector3(x/1000 + 2
 
 updateSections();
 rebuildHouses();
+
+
 window.scene.getCameraByID('camera1').spinTo("radius", 9+x/2000, 200);
 window.scene.getCameraByID('camera1').lowerRadiusLimit=5+x/2000;
 

@@ -32,7 +32,11 @@ window.modelsLoadingStatuses[importedNewName]=true;
 //}
 
 
-for(var i = 0; i < importedMeshes.length; i++){console.log(importedMeshes[i].name+''); }
+// LOGING AND CYCLE ALL CHILD MESHES
+//for(var i = 0; i < importedMeshes.length; i++){  console.log(importedMeshes[i].name+''); }
+
+
+
 
 //var newTempModel = importedMeshes[0].clone(importedNewName);
 //importedMeshes[0].dispose();
@@ -102,6 +106,12 @@ window.scene.getMeshByName('canopy2').setEnabled(false);
 //newTempModel.applyFog = false;
 window.modelsLoadingStatuses['canopy2']=true;
 }
+
+
+console.log(importedNewName + ' loaded.');
+
+
+
 
 if (
 window.modelsLoaded==false &&
@@ -583,12 +593,12 @@ window.modelsLoaded=true;
 
 
 
-applyFog = false;
+//applyFog = false;
 
 //
 
 
-console.log(importedNewName + ' loaded.');
+
 //window.modelsLoadingStatuses[importedNewName]=true;
 
 });

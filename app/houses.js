@@ -314,11 +314,6 @@ window.scene.getMeshByName('wall_house1_left_carcas').setEnabled(false);
 window.scene.getMeshByName('wall_house1_right_carcas').setEnabled(false);
 
 
-
-
-
-
-
 window.scene.getMeshByName('house1_trap').setEnabled(false);
 window.scene.getMeshByName('house1_trap_inside').setEnabled(false);
 window.scene.getMeshByName('house1_trap_carcas').setEnabled(false);
@@ -487,11 +482,7 @@ window.scene.getMeshByName('wall_house2_right_carcas').setEnabled(false);
 
 
 
-if (window.appState['wallInside']==false) {
-  window.scene.getMeshByName('wall_trap_0_inside').setEnabled(false);
-  window.scene.getMeshByName('wall_trap_1_inside').setEnabled(false);
 
-}
 
 
 
@@ -545,26 +536,29 @@ for (let i=1; i<=9; i++)
 {
   window.scene.getMeshByName('wall_small_inside_' + i).setEnabled(false);
 }
+//disable roof inside
+for(let i=1;i<=5;i++)
+{
+window.scene.getMeshByName('wall_roof_inside_' + i).setEnabled(false);
+window.scene.getMeshByName('wall_roof_clone_inside_' + i).setEnabled(false);
+}
 }
 
 
 
 if (window.appState['wallInside']==false)
 {
+//disable roof
 for(let i=1;i<=5;i++)
 {
 window.scene.getMeshByName('house1_wall_roof_inside_' + i ).setEnabled(false);
+window.scene.getMeshByName('house2_wall_roof_inside_' + i ).setEnabled(false);
 window.scene.getMeshByName('wall_roof_inside_' + i).setEnabled(false);
 window.scene.getMeshByName('wall_roof_clone_inside_' + i).setEnabled(false);
-
-window.scene.getMeshByName('house2_wall_roof_inside_' + i ).setEnabled(false);
-
-
 }
-
-
-
-
+//disable inner trap
+window.scene.getMeshByName('wall_trap_0_inside').setEnabled(false);
+window.scene.getMeshByName('wall_trap_1_inside').setEnabled(false);
 }
 
 
