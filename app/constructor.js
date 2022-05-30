@@ -21,8 +21,8 @@ window.appState['currentDragMesh']='';
 window.appState['house1on']=false;
 window.appState['house2on']=false;
 
-window.appState['house1width']=2000;
-window.appState['house2width']=2000;
+window.appState['house1width']=3000;
+window.appState['house2width']=3000;
 
 
 window.appState['color1']=0;
@@ -976,7 +976,7 @@ window.scene.getMeshByName("groundPlane").scaling=new BABYLON.Vector3(x/1000 + 2
 
 updateSections();
 rebuildHouses();
-
+elementsUpdate();
 
 window.scene.getCameraByID('camera1').spinTo("radius", 9+x/2000, 200);
 window.scene.getCameraByID('camera1').lowerRadiusLimit=5+x/2000;

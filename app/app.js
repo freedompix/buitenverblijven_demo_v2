@@ -118,6 +118,11 @@ window.modelsLoaded==false &&
 
 window.modelsLoadingStatuses['zhaluzi']==true  &&
 
+window.modelsLoadingStatuses['door_single']==true  &&
+window.modelsLoadingStatuses['door_double']==true  &&
+window.modelsLoadingStatuses['window']==true  &&
+
+
 window.modelsLoadingStatuses['wall_big']==true  &&
 window.modelsLoadingStatuses['wall_big_carcas']==true  &&
 
@@ -581,6 +586,7 @@ groundMaterial.metallic = 1;
 groundMaterial.roughness = 0.85;
 groundPlane.material=window.scene.getMaterialByName('groundMaterial');
 
+elementsCreating();
 buildRound();
 
 
@@ -613,9 +619,9 @@ window.addEventListener('DOMContentLoaded', function(){
 
 document.getElementById("rangeWidth").onchange=(function(){document.getElementById('widthInput').value=this.value;window.appState['width']=this.value;  setSizes();  });
 document.getElementById("rangeDeepth").onchange=(function(){document.getElementById('deepthInput').value=this.value;window.appState['deepth']=this.value;  setSizes();  });
-document.getElementById('widthInput').value=3000;
+document.getElementById('widthInput').value=5000;
 document.getElementById('deepthInput').value=3000;
-document.getElementById("rangeWidth").value=3000;
+document.getElementById("rangeWidth").value=5000;
 document.getElementById("rangeDeepth").value=3000;
 
 document.getElementById("wallInside").checked =false;
@@ -631,10 +637,13 @@ var engine = new BABYLON.Engine(canvas, true);
 var createScene = function(){
 var scene = new BABYLON.Scene(engine);
 
+if (window.appState['debug']!=true){
+var el = document.querySelector('.tabs1');
+var instance = M.Tabs.init(el, {});
 
-
-
-
+var el2 = document.querySelector('.tabs2');
+var instance2 = M.Tabs.init(el2, {});
+}
 
 
 //debugLayer
@@ -788,6 +797,12 @@ ArchetypeUI.load3DModelByPath("./models/elements_house/", "zhaluzi.obj", "zhaluz
 //wall big
 ArchetypeUI.load3DModelByPath("./models/elements_house/", "wall_big.obj", "wall_big");
 ArchetypeUI.load3DModelByPath("./models/elements_house/", "wall_big_carcas.obj", "wall_big_carcas");
+
+
+
+ArchetypeUI.load3DModelByPath("./models/elements_house/", "door_single.glb", "door_single");
+ArchetypeUI.load3DModelByPath("./models/elements_house/", "door_double.glb", "door_double");
+ArchetypeUI.load3DModelByPath("./models/elements_house/", "window.obj", "window");
 
 //importedMeshes[0].clone(importedNewName);
 //scene.getMeshByName('barkk').clone('bark_0');
