@@ -211,7 +211,7 @@ text-align: left;
  line-height: 19px;
  color: #000000;
 margin-bottom: 10px;	
-padding-left: 24px;
+padding-left: 34px;
 height: 56px;
 border-top: 2px solid #F3F3F3;
 padding-top: 16px;
@@ -234,7 +234,58 @@ line-height: 19px;
 color: #000000;
 
 position:absolute;
-top:6px;
-left:36px;
+top: 39px;
+left:104px;
 width: 200px;
  }
+ 
+ 
+ .houseCheckDiv
+ {
+position: relative;
+height: 40px;
+height: 96px;
+border: 1px solid #CCCCCC;
+width: 408px;
+margin-left: 36px;
+margin-top: 8px;
+margin-bottom: 8px;
+ }
+
+.houseSwitcherStyle
+{
+position:absolute; 
+left: 334px;	
+top: 36px;
+} 
+ 
+ 
+ 
+ 
+.optionHouse_type1
+{
+  width:80px;
+  height:80px;
+  top:0px;
+  left:0px;
+  position:absolute;
+  background-image:  url("../css/house_left.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 8px;
+  left: 10px;
+}
+ 
+.optionHouse_type2
+{
+  width:80px;
+  height:80px;
+  top:0px;
+  left:0px;
+  position:absolute;
+  background-image:  url("../css/house_right.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 8px;
+  left: 10px;
+} 
