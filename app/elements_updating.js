@@ -127,8 +127,8 @@ window.scene.getMeshByName('house_1_window_2').position.x = xStart + (house1widt
 window.scene.getMeshByName('house_1_window_1').position.z = zBack * -1 ;
 window.scene.getMeshByName('house_1_window_2').position.z = zBack +0.01;
 
-window.scene.getMeshByName('house_2_window_1').position.x = xStart*-1 - (house1width/2);
-window.scene.getMeshByName('house_2_window_2').position.x = xStart*-1 - (house1width/2);
+window.scene.getMeshByName('house_2_window_1').position.x = xStart*-1 - (house2width/2);
+window.scene.getMeshByName('house_2_window_2').position.x = xStart*-1 - (house2width/2);
 window.scene.getMeshByName('house_2_window_1').position.z = zBack * -1 ;
 window.scene.getMeshByName('house_2_window_2').position.z = zBack +0.01;
 
@@ -150,8 +150,8 @@ window.scene.getMeshByName('house_2_window_4').position.z = 0-shiftZ/2 ;
 //_glass
 window.scene.getMeshByName('house_1_window_glass_1').position.x = xStart + (house1width/2);
 window.scene.getMeshByName('house_1_window_glass_2').position.x = xStart + (house1width/2);
-window.scene.getMeshByName('house_2_window_glass_1').position.x = xStart*-1 - (house1width/2);
-window.scene.getMeshByName('house_2_window_glass_2').position.x = xStart*-1 - (house1width/2);
+window.scene.getMeshByName('house_2_window_glass_1').position.x = xStart*-1 - (house2width/2);
+window.scene.getMeshByName('house_2_window_glass_2').position.x = xStart*-1 - (house2width/2);
 
 window.scene.getMeshByName('house_1_window_glass_1').position.z = zBack * -1;
 window.scene.getMeshByName('house_1_window_glass_2').position.z = zBack;
@@ -174,8 +174,8 @@ window.scene.getMeshByName('house_2_window_glass_4').position.z = 0-shiftZ/2 ;
 //DOOR LEFT
 window.scene.getMeshByName('house_1_door_single_left_1').position.x = xStart + (house1width/2);
 window.scene.getMeshByName('house_1_door_single_left_2').position.x = xStart + (house1width/2);
-window.scene.getMeshByName('house_2_door_single_left_1').position.x = xStart*-1 - (house1width/2);
-window.scene.getMeshByName('house_2_door_single_left_2').position.x = xStart*-1 - (house1width/2);
+window.scene.getMeshByName('house_2_door_single_left_1').position.x = xStart*-1 - (house2width/2);
+window.scene.getMeshByName('house_2_door_single_left_2').position.x = xStart*-1 - (house2width/2);
 
 window.scene.getMeshByName('house_1_door_single_left_1').position.z = zBack * -1 - 0.01;
 window.scene.getMeshByName('house_1_door_single_left_2').position.z = zBack      + 0.01;
@@ -197,8 +197,8 @@ window.scene.getMeshByName('house_2_door_single_left_4').position.z = 0-shiftZ/2
 //DOOR right
 window.scene.getMeshByName('house_1_door_single_right_1').position.x = xStart + (house1width/2);
 window.scene.getMeshByName('house_1_door_single_right_2').position.x = xStart + (house1width/2);
-window.scene.getMeshByName('house_2_door_single_right_1').position.x = xStart*-1 - (house1width/2);
-window.scene.getMeshByName('house_2_door_single_right_2').position.x = xStart*-1 - (house1width/2);
+window.scene.getMeshByName('house_2_door_single_right_1').position.x = xStart*-1 - (house2width/2);
+window.scene.getMeshByName('house_2_door_single_right_2').position.x = xStart*-1 - (house2width/2);
 
 window.scene.getMeshByName('house_1_door_single_right_1').position.z = zBack * -1 - 0.01;
 window.scene.getMeshByName('house_1_door_single_right_2').position.z = zBack      + 0.01;
@@ -222,8 +222,8 @@ window.scene.getMeshByName('house_2_door_single_right_4').position.z = 0-shiftZ/
 //double DOOR
 window.scene.getMeshByName('house_1_door_double_1').position.x = xStart + (house1width/2);
 window.scene.getMeshByName('house_1_door_double_2').position.x = xStart + (house1width/2);
-window.scene.getMeshByName('house_2_door_double_1').position.x = xStart*-1 - (house1width/2);
-window.scene.getMeshByName('house_2_door_double_2').position.x = xStart*-1 - (house1width/2);
+window.scene.getMeshByName('house_2_door_double_1').position.x = xStart*-1 - (house2width/2);
+window.scene.getMeshByName('house_2_door_double_2').position.x = xStart*-1 - (house2width/2);
 
 window.scene.getMeshByName('house_1_door_double_1').position.z = zBack * -1 - 0.04;
 window.scene.getMeshByName('house_1_door_double_2').position.z = zBack      + 0.04;
