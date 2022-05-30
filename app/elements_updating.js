@@ -258,46 +258,46 @@ window.scene.getMeshByName('house_1_window_1').position.x -= windowAndDoorShift;
 
 if (window.appState['house1wall2']==5){
 windowAndDoorShift=-0.5;
-window.scene.getMeshByName('house_1_door_single_left_1').position.x-=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_glass_1').position.x+=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_1').position.x += windowAndDoorShift;
+window.scene.getMeshByName('house_1_door_single_left_2').position.x-=windowAndDoorShift;
+window.scene.getMeshByName('house_1_window_glass_2').position.x+=windowAndDoorShift;
+window.scene.getMeshByName('house_1_window_2').position.x += windowAndDoorShift;
 }
 
 if (window.appState['house1wall2']==6){
 windowAndDoorShift=-0.5;
-window.scene.getMeshByName('house_1_door_single_right_1').position.x+=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_glass_1').position.x-=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_1').position.x -= windowAndDoorShift;
+window.scene.getMeshByName('house_1_door_single_right_2').position.x+=windowAndDoorShift;
+window.scene.getMeshByName('house_1_window_glass_2').position.x-=windowAndDoorShift;
+window.scene.getMeshByName('house_1_window_2').position.x -= windowAndDoorShift;
 }
 
 //
 
 if (window.appState['house2wall1']==5){
 windowAndDoorShift=0.5;
-window.scene.getMeshByName('house_1_door_single_left_1').position.x-=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_glass_1').position.x+=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_1').position.x += windowAndDoorShift;
+window.scene.getMeshByName('house_2_door_single_left_1').position.x-=windowAndDoorShift;
+window.scene.getMeshByName('house_2_window_glass_1').position.x+=windowAndDoorShift;
+window.scene.getMeshByName('house_2_window_1').position.x += windowAndDoorShift;
 }
 
 if (window.appState['house2wall1']==6){
 windowAndDoorShift=0.5;
-window.scene.getMeshByName('house_1_door_single_right_1').position.x+=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_glass_1').position.x-=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_1').position.x -= windowAndDoorShift;
+window.scene.getMeshByName('house_2_door_single_right_1').position.x+=windowAndDoorShift;
+window.scene.getMeshByName('house_2_window_glass_1').position.x-=windowAndDoorShift;
+window.scene.getMeshByName('house_2_window_1').position.x -= windowAndDoorShift;
 }
 
 if (window.appState['house2wall2']==5){
 windowAndDoorShift=-0.5;
-window.scene.getMeshByName('house_1_door_single_left_1').position.x-=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_glass_1').position.x+=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_1').position.x += windowAndDoorShift;
+window.scene.getMeshByName('house_2_door_single_left_2').position.x-=windowAndDoorShift;
+window.scene.getMeshByName('house_2_window_glass_2').position.x+=windowAndDoorShift;
+window.scene.getMeshByName('house_2_window_2').position.x += windowAndDoorShift;
 }
 
 if (window.appState['house2wall2']==6){
 windowAndDoorShift=-0.5;
-window.scene.getMeshByName('house_2_door_single_right_1').position.x+=windowAndDoorShift;
-window.scene.getMeshByName('house_2_window_glass_1').position.x-=windowAndDoorShift;
-window.scene.getMeshByName('house_2_window_1').position.x -= windowAndDoorShift;
+window.scene.getMeshByName('house_2_door_single_right_2').position.x+=windowAndDoorShift;
+window.scene.getMeshByName('house_2_window_glass_2').position.x-=windowAndDoorShift;
+window.scene.getMeshByName('house_2_window_2').position.x -= windowAndDoorShift;
 }
 
 
@@ -318,16 +318,16 @@ window.scene.getMeshByName('house_1_window_3').position.z -= windowAndDoorShift;
 ///4
 if (window.appState['house1wall4']==5){
 windowAndDoorShift=0.5;
-window.scene.getMeshByName('house_1_door_single_left_3').position.z-=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_glass_3').position.z+=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_3').position.z += windowAndDoorShift;
+window.scene.getMeshByName('house_1_door_single_left_4').position.z-=windowAndDoorShift;
+window.scene.getMeshByName('house_1_window_glass_4').position.z+=windowAndDoorShift;
+window.scene.getMeshByName('house_1_window_4').position.z += windowAndDoorShift;
 }
 
 if (window.appState['house1wall4']==6){
 windowAndDoorShift=0.5;
-window.scene.getMeshByName('house_1_door_single_right_3').position.z+=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_glass_3').position.z-=windowAndDoorShift;
-window.scene.getMeshByName('house_1_window_3').position.z -= windowAndDoorShift;
+window.scene.getMeshByName('house_1_door_single_right_4').position.z+=windowAndDoorShift;
+window.scene.getMeshByName('house_1_window_glass_4').position.z-=windowAndDoorShift;
+window.scene.getMeshByName('house_1_window_4').position.z -= windowAndDoorShift;
 }
 
 // house 2 , 3 4
@@ -347,16 +347,16 @@ window.scene.getMeshByName('house_2_window_3').position.z -= windowAndDoorShift;
 ///4
 if (window.appState['house1wall4']==5){
 windowAndDoorShift=0.5;
-window.scene.getMeshByName('house_2_door_single_left_3').position.z-=windowAndDoorShift;
-window.scene.getMeshByName('house_2_window_glass_3').position.z+=windowAndDoorShift;
-window.scene.getMeshByName('house_2_window_3').position.z += windowAndDoorShift;
+window.scene.getMeshByName('house_2_door_single_left_4').position.z-=windowAndDoorShift;
+window.scene.getMeshByName('house_2_window_glass_4').position.z+=windowAndDoorShift;
+window.scene.getMeshByName('house_2_window_4').position.z += windowAndDoorShift;
 }
 
 if (window.appState['house1wall4']==6){
 windowAndDoorShift=0.5;
-window.scene.getMeshByName('house_2_door_single_right_3').position.z+=windowAndDoorShift;
-window.scene.getMeshByName('house_2_window_glass_3').position.z-=windowAndDoorShift;
-window.scene.getMeshByName('house_2_window_3').position.z -= windowAndDoorShift;
+window.scene.getMeshByName('house_2_door_single_right_4').position.z+=windowAndDoorShift;
+window.scene.getMeshByName('house_2_window_glass_4').position.z-=windowAndDoorShift;
+window.scene.getMeshByName('house_2_window_4').position.z -= windowAndDoorShift;
 }
 
 
