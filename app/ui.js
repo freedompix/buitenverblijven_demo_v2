@@ -234,6 +234,12 @@ if (document.getElementById("house1on").checked == true)  window.appState['house
 if (document.getElementById("house2on").checked == false) window.appState['house2on']=false;
 if (document.getElementById("house2on").checked == true)  window.appState['house2on']=true;
 
+if (window.appState['house1on']==false) document.getElementById("house1optionsBlock").style.display='none';
+if (window.appState['house1on']==true)  document.getElementById("house1optionsBlock").style.display='block';
+if (window.appState['house2on']==false) document.getElementById("house2optionsBlock").style.display='none';
+if (window.appState['house2on']==true)  document.getElementById("house2optionsBlock").style.display='block';
+
+
 console.log(document.getElementById("house2on").checked);
 
 
