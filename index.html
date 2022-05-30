@@ -336,20 +336,20 @@ Overhangen verbergen
 
 	<div style="position:relative;  height: 40px;">
 	<div class="houseOptionText">Linker berging </div>
-	<div style="position:absolute; left: 250px;">
+	<div style="position:absolute; left: 370px;">
 			<div class="switch">
 		    <label>
-					off
+
 		      <input type="checkbox" id="house1on" value="false"  name="house1on" onchange="setSizes();">
 		      <span class="lever"></span>
-		      On
+
 		    </label>
 		  </div>
 	</div>
 
 </div>
 
-
+<div id="house1optionsBlock"  style="display: none;">
 
 		<div class="inputblock">
 		<div class="inputIcon" id="inputIcon1"></div>
@@ -357,13 +357,13 @@ Overhangen verbergen
 		<div class="inputBorder"></div>
 		<div class="inputMM">mm</div>
 		<div class="inputMinMaxLabel">(min 1500 - max 4000)</div>
-		<input type="text" class="inputValue" id="house1width" name="house1width" size="5" tabindex="13" value="2000" onblur=""/   onkeydown="setValueByEnter('house1width','house1width', 500, 2000)">
+		<input type="text" class="inputValue" id="house1width" name="house1width" size="5" tabindex="13" value="3000" onblur=""/   onkeydown="setValueByEnter('house1width','house1width', 500, 2000)">
 		<div id="minusD"  onclick="uiPlus('house1width','house1width', -500, 2000);" class="waves-effect waves-light z-depth-0"></div>
 		<div id="plusD"  onclick="uiPlus('house1width','house1width', 500, 2000);" class="waves-effect waves-light z-depth-0"></div>
 		</div>
 
 
-<div id="house1optionsBlock">
+
 
 	<div class="houseSwitcher" id="showHouse1" style="cursor: pointer;"
 	onclick="
@@ -604,20 +604,18 @@ Overhangen verbergen
 
 		<div style="position:relative; height: 40px;">
 		<div class="houseOptionText">Rechter berging </div>
-		<div style="position:absolute; left: 250px;">
+		<div style="position:absolute; left: 370px;">
 				<div class="switch">
 			    <label>
-						off
 			      <input type="checkbox" id="house2on" value="false" name="house2on"  onchange="setSizes();">
 			      <span class="lever"></span>
-			      On
 			    </label>
 			  </div>
 		</div>
 
 	</div>
 
-
+<div id="house2optionsBlock" style="display: none;">
 
 		<div class="inputblock">
 		<div class="inputIcon" id="inputIcon1"></div>
@@ -625,13 +623,13 @@ Overhangen verbergen
 		<div class="inputBorder"></div>
 		<div class="inputMM">mm</div>
 		<div class="inputMinMaxLabel">(min 1500 - max 4000)</div>
-		<input type="text" class="inputValue" id="house2width" name="house2width" size="5" tabindex="13" value="2000" onblur=""/   onkeydown="setValueByEnter('house2width','house2width', 500, 2000)">
+		<input type="text" class="inputValue" id="house2width" name="house2width" size="5" tabindex="13" value="3000" onblur=""/   onkeydown="setValueByEnter('house2width','house2width', 500, 2000)">
 		<div id="minusD"  onclick="uiPlus('house2width','house2width', -500, 2000);" class="waves-effect waves-light z-depth-0"></div>
 		<div id="plusD"  onclick="uiPlus('house2width','house2width', 500, 2000);" class="waves-effect waves-light z-depth-0"></div>
 		</div>
 
 
-<div id="house2optionsBlock">
+
 
 			<div class="houseSwitcher" id="showHouse2" style="cursor: pointer;"
 			onclick="
@@ -868,6 +866,9 @@ Overhangen verbergen
 		</div>
 
 </div>
+
+
+
 
 </div>
 
