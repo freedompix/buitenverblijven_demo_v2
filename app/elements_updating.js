@@ -8,7 +8,7 @@ let zBack=z/2000;
 let xStart=(x/2)*-0.001;
 
 let house1width = window.appState['house1width']/1000;
-let house2width = window.appState['house1width']/1000;
+let house2width = window.appState['house2width']/1000;
 
 let shiftZ;
 if(window.appState['rooftype']==1) shiftZ=1; else shiftZ=0;
