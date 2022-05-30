@@ -39,8 +39,12 @@ if (window.appState['deepth']==3000 && window.appState['rooftype']==1)
 
 }
 
+if(window.appState['rooftype']==1)
+{
+window.appState['house1wall2']=0;
+window.appState['house2wall2']=0;
 
-
+}
 
 for(let i=1; i<=4; i++)
 {
