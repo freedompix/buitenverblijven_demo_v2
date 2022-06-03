@@ -366,6 +366,56 @@ window.scene.getMeshByName('house_2_window_4').position.z -= windowAndDoorShift;
 
 
 
+
+
+
+
+if (window.appState['rooftype']==0 && z==5000 )
+{
+  windowAndDoorShift=-1.21;
+//
+  window.scene.getMeshByName('house_2_door_single_left_4').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_2_door_single_right_4').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_2_window_glass_4').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_2_window_4').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_2_door_double_4').position.z += windowAndDoorShift;
+
+  window.scene.getMeshByName('house_2_door_single_left_3').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_2_door_single_right_3').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_2_window_glass_3').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_2_window_3').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_2_door_double_3').position.z += windowAndDoorShift;
+//
+  window.scene.getMeshByName('house_1_door_single_left_4').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_1_door_single_right_4').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_1_window_glass_4').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_1_window_4').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_1_door_double_4').position.z += windowAndDoorShift;
+
+  window.scene.getMeshByName('house_1_door_single_left_3').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_1_door_single_right_3').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_1_window_glass_3').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_1_window_3').position.z += windowAndDoorShift;
+  window.scene.getMeshByName('house_1_door_double_3').position.z += windowAndDoorShift;
+
+}
+
+if (window.appState['house1width'] == window.appState['width'] && window.appState['house1on'] == true)
+{
+  window.scene.getMeshByName('balk_small_front_left_2').setEnabled(false);
+  window.scene.getMeshByName('balk_small_back_left_2').setEnabled(false);
+}
+
+if (window.appState['house2width'] == window.appState['width'] && window.appState['house2on'] == true)
+{
+  window.scene.getMeshByName('balk_small_front_right_2').setEnabled(false);
+  window.scene.getMeshByName('balk_small_back_right_2').setEnabled(false);
+}
+
+
+
+
+
 houseSetUI();
 
 }

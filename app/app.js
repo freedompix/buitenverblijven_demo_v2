@@ -89,6 +89,56 @@ importedMeshes[0].position=new BABYLON.Vector3(2, 0, 0);
 //newTempModel.applyFog = false;
 window.modelsLoadingStatuses['canopy1']=true;
 window.scene.getMeshByName('canopy1').setEnabled(false);
+
+
+
+
+
+
+window.scene.getMaterialByName('Wood_Material').clone('wood_shifted_0');
+window.scene.getMaterialByName('Wood_Material').clone('wood_shifted_1');
+window.scene.getMaterialByName('Wood_Material').clone('wood_shifted_2');
+window.scene.getMaterialByName('Wood_Material').clone('wood_shifted_3');
+window.scene.getMaterialByName('Wood_Material').clone('wood_shifted_4');
+window.scene.getMaterialByName('Wood_Material').clone('wood_shifted_5');
+
+window.scene.getMaterialByName('wood_shifted_0').albedoTexture.vOffset = 0.2;
+window.scene.getMaterialByName('wood_shifted_0').bumpTexture.vOffset = 0.2;
+window.scene.getMaterialByName('wood_shifted_0').albedoTexture.uOffset = 0.2;
+window.scene.getMaterialByName('wood_shifted_0').bumpTexture.uOffset = 0.2;
+
+
+
+
+window.scene.getMaterialByName('wood_shifted_1').albedoTexture.vOffset = 0.4;
+window.scene.getMaterialByName('wood_shifted_1').bumpTexture.vOffset = 0.4;
+window.scene.getMaterialByName('wood_shifted_1').albedoTexture.uOffset = 0.4;
+window.scene.getMaterialByName('wood_shifted_1').bumpTexture.uOffset = 0.4;
+
+
+
+window.scene.getMaterialByName('wood_shifted_2').albedoTexture.vOffset = 0.6;
+window.scene.getMaterialByName('wood_shifted_2').bumpTexture.vOffset = 0.6;
+window.scene.getMaterialByName('wood_shifted_2').albedoTexture.uOffset = 0.6;
+window.scene.getMaterialByName('wood_shifted_2').bumpTexture.uOffset = 0.6;
+
+
+window.scene.getMaterialByName('wood_shifted_3').albedoTexture.vOffset = 0.8;
+window.scene.getMaterialByName('wood_shifted_3').bumpTexture.vOffset = 0.8;
+window.scene.getMaterialByName('wood_shifted_3').albedoTexture.uOffset = 0.8;
+window.scene.getMaterialByName('wood_shifted_3').bumpTexture.uOffset = 0.8;
+
+
+window.scene.getMaterialByName('wood_shifted_4').albedoTexture.vOffset = 0.5;
+window.scene.getMaterialByName('wood_shifted_4').bumpTexture.vOffset = 0.5;
+window.scene.getMaterialByName('wood_shifted_4').albedoTexture.uOffset = 0.5;
+window.scene.getMaterialByName('wood_shifted_4').bumpTexture.uOffset = 0.5;
+
+
+window.scene.getMaterialByName('wood_shifted_5').albedoTexture.vOffset = 0.1;
+window.scene.getMaterialByName('wood_shifted_5').bumpTexture.vOffset = 0.1;
+
+
 }
 
 
@@ -184,6 +234,7 @@ window.scene.getMeshByName('wall_small_carcas_0').setEnabled(false);
 window.scene.getMeshByName('wall_big').setEnabled(false);
 window.scene.getMeshByName('wall_big_carcas').setEnabled(false);
 
+window.scene.getMeshByName('hdrSkyBox').setEnabled(false);
 
 
 //materials
@@ -376,7 +427,16 @@ window.scene.getMeshByName(i + 'roof_bulk_0').material=window.scene.getMaterialB
 
 for(let ii=1; ii<=41; ii++)
 {
-  window.scene.getMeshByName(i + 'roof_bulk_0').clone(i + 'roof_bulk_'+ii);
+  window.scene.getMeshByName(i + 'roof_bulk_0').clone(i + 'roof_bulk_' + ii);
+
+if(ii%2==0) window.scene.getMeshByName(i + 'roof_bulk_' + ii).material=window.scene.getMaterialByName('wood_shifted_0');
+if(ii%3==0) window.scene.getMeshByName(i + 'roof_bulk_' + ii).material=window.scene.getMaterialByName('wood_shifted_1');
+if(ii%4==0) window.scene.getMeshByName(i + 'roof_bulk_' + ii).material=window.scene.getMaterialByName('wood_shifted_2');
+
+
+
+
+
 }
 
 }
@@ -450,6 +510,12 @@ window.scene.getMeshByName('flat_roof_15mm' + i).position.y=2.47;
 for(let i=0; i<=41; i++)
 {
 window.scene.getMeshByName('1meter_balk').clone('flat_roof_bulk_'+i);
+
+if(i%2==0) window.scene.getMeshByName('flat_roof_bulk_' + i ).material=window.scene.getMaterialByName('wood_shifted_0');
+if(i%3==0) window.scene.getMeshByName('flat_roof_bulk_' + i ).material=window.scene.getMaterialByName('wood_shifted_1');
+if(i%4==0) window.scene.getMeshByName('flat_roof_bulk_' + i ).material=window.scene.getMaterialByName('wood_shifted_2');
+
+
 window.scene.getMeshByName('flat_roof_bulk_' + i ).rotation=new BABYLON.Vector3(0, Math.PI/-2 , 0);
 window.scene.getMeshByName('flat_roof_bulk_' + i).scaling.x=4.1;
 window.scene.getMeshByName('flat_roof_bulk_' + i).scaling.z=0.33;
@@ -552,6 +618,10 @@ window.scene.getMeshByName(roofNum +'roof_tile_0').scaling.x=1.01;
 for (let i=1; i<=81; i++)
 {
 window.scene.getMeshByName(roofNum +'roof_tile_0').clone(roofNum+'roof_tile_' + i);
+
+
+
+
 //window.scene.getMeshByName('1roof_tile_' + i).position=new BABYLON.Vector3(-3 + i * 0.25, 0, 0);
 }
 
@@ -565,11 +635,13 @@ var groundPlane = BABYLON.MeshBuilder.CreateBox("groundPlane", {height: 0.01, wi
 var groundMaterial = new BABYLON.PBRMaterial("groundMaterial", window.scene);
 
 groundPlane.visibility=0.3;
+groundPlane.visibility=1;
  //var myTexture  = new BABYLON.Texture("textures/texture.jpg", scene);
 
 //myMaterial.albedoColor = new BABYLON.Color3(0,0,0);
 //myMaterial.reflectivityColor=new BABYLON.Color3(1,1,1);
 
+groundMaterial.albedoTexture  = new  BABYLON.Texture("models/tiles.jpg", window.scene);
 
 groundMaterial.albedoColor = new BABYLON.Color3(0.4,0.4,0.3);//Bordeaux Color RGB (95,2,31)
 //groundMaterial.reflectivityColor = new BABYLON.Color3(0.003, 0.003, 0.003);
@@ -582,9 +654,15 @@ groundMaterial.albedoColor = new BABYLON.Color3(0.4,0.4,0.3);//Bordeaux Color RG
  //myMaterial.emissiveTexture = new BABYLON.Texture("textures/texture.jpg", scene);
  //myMaterial.emissiveColor = new BABYLON.Color3.White();
 
-groundMaterial.metallic = 1;
-groundMaterial.roughness = 0.85;
+groundMaterial.metallic = 0.3;
+groundMaterial.roughness = 0.65;
+groundMaterial.roughness = 0.65;
+
+
 groundPlane.material=window.scene.getMaterialByName('groundMaterial');
+
+
+
 
 elementsCreating();
 buildRound();
@@ -643,8 +721,12 @@ var instance = M.Tabs.init(el, {});
 
 var el2 = document.querySelector('.tabs2');
 var instance2 = M.Tabs.init(el2, {});
-}
 
+instance.updateTabIndicator();
+instance2.updateTabIndicator();
+
+
+}
 
 //debugLayer
 if (window.appState['debug']==true)
@@ -665,7 +747,7 @@ camera.attachControl(canvas, false);
 
 camera.lowerRadiusLimit=7;
 
-scene.clearColor = new BABYLON.Color3(1, 1, 1);
+scene.clearColor = new BABYLON.Color3(0.95, 0.95, 0.95);
 
 //var light1 = new BABYLON.HemisphericLight('light_sky', new BABYLON.Vector3(-0.1,1,0.3), scene);
 var light1 = new BABYLON.HemisphericLight('light_sky', new BABYLON.Vector3(0,4,4), scene);
@@ -717,6 +799,9 @@ myMaterial.environmentIntensity = 1;
 //env
 
 var envTexture = new BABYLON.CubeTexture("models/environmentSpecular.env", scene);
+//var envTexture = new BABYLON.CubeTexture("models/country.env", scene);
+
+
 var hdrSkybox = BABYLON.Mesh.CreateBox("hdrSkyBox", 1000.0, scene);
 
 

@@ -30,9 +30,11 @@ window_glass_material.albedoColor = new BABYLON.Color3(0.2, 0.3, 0.3);
 window_glass_material.metallic = 1;
 window_glass_material.roughness = 0.1;
 
+window_glass_material.metallic = 0.9;
+window_glass_material.roughness = 0.2;
 
 
-var window_glass = BABYLON.MeshBuilder.CreateBox("window_glass", {height: 0.01, width: 0.8, depth: 1});
+var window_glass = BABYLON.MeshBuilder.CreateBox("window_glass", {height: 0.01, width: 0.7, depth: 1});
 window.scene.getMeshByName('window_glass').rotation = new BABYLON.Vector3(Math.PI/-2, 0 , 0);
 window_glass.material=window.scene.getMaterialByName('window_glass_material');
 
@@ -45,20 +47,24 @@ window.scene.getMeshByName('door_single').scaling.y=10;
 window.scene.getMeshByName('door_single').rotation = new BABYLON.Vector3(0, Math.PI/-2 , 0);
 window.scene.getMeshByName('door_single').bakeCurrentTransformIntoVertices;
 
-window.scene.getMeshByName('door_wood').material=window.scene.getMaterialByName('Wood_Material_Doors');
-window.scene.getMeshByName('door_border').material=window.scene.getMaterialByName('Wood_Material_Doors');
+window.scene.getMeshByName('door_wood').material=window.scene.getMaterialByName('Wood_Material');
+//window.scene.getMeshByName('door_border').material=window.scene.getMaterialByName('Wood_Material_Doors');
 
 
 //window
 window.scene.getMeshByName('window').material=window.scene.getMaterialByName('Wood_Material');
 
 //door_double
-window.scene.getMeshByName('double_door_wood').material=window.scene.getMaterialByName('Wood_Material_Doors');
-window.scene.getMeshByName('double_door_middle').material=window.scene.getMaterialByName('Wood_Material_Doors');
-window.scene.getMeshByName('double_door_border').material=window.scene.getMaterialByName('Wood_Material_Doors');
+
+//window.scene.getMeshByName('double_door_wood').material=window.scene.getMaterialByName('Wood_Material_Doors');
+//window.scene.getMeshByName('double_door_middle').material=window.scene.getMaterialByName('Wood_Material_Doors');
+//window.scene.getMeshByName('double_door_border').material=window.scene.getMaterialByName('Wood_Material_Doors');
+
+window.scene.getMeshByName('double_door_wood').material=window.scene.getMaterialByName('Wood_Material');
+
 
 window.scene.getMeshByName('double_door_hingles').material=window.scene.getMaterialByName('door_hingles');
-window.scene.getMeshByName('double_door_hangle').material=window.scene.getMaterialByName('door_handle');
+//window.scene.getMeshByName('double_door_hangle').material=window.scene.getMaterialByName('door_handle');
 
 
 

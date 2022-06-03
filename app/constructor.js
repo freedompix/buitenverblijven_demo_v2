@@ -973,6 +973,9 @@ window.scene.getMeshByName('flatRoof' + i + '_back').setEnabled(true);
 
 window.scene.getMeshByName("groundPlane").scaling=new BABYLON.Vector3(x/1000 + 2, 1, z/1000 + 2);
 
+window.scene.getMaterialByName('groundMaterial').albedoTexture.vScale = 1* (x/1000 + 2);
+window.scene.getMaterialByName('groundMaterial').albedoTexture.uScale = 1* (z/1000 + 2);
+
 
 updateSections();
 rebuildHouses();
