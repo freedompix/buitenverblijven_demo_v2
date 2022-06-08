@@ -543,6 +543,12 @@ window.scene.getMeshByName("balk_small_center_right_1").setEnabled(false);
  window.scene.getMeshByName('flatRoof' + i + '_back').setEnabled(false);
  }
 
+ window.scene.getMeshByName('roofBorder1').setEnabled(false);
+ window.scene.getMeshByName('roofBorder2').setEnabled(false);
+ window.scene.getMeshByName('roofBorder3').setEnabled(false);
+ window.scene.getMeshByName('roofBorder4').setEnabled(false);
+
+
 //for (let i=0; i<=41; i++)
 // {
 // window.scene.getMeshByName('flat_roof_bulk_' + i).setEnabled(false);
@@ -985,6 +991,10 @@ window.scene.getMeshByName('flatRoof' + i + '_front').setEnabled(true);
 window.scene.getMeshByName('flatRoof' + i + '_back').setEnabled(true);
 }
 
+window.scene.getMeshByName('roofBorder1').setEnabled(true);
+window.scene.getMeshByName('roofBorder2').setEnabled(true);
+window.scene.getMeshByName('roofBorder3').setEnabled(true);
+window.scene.getMeshByName('roofBorder4').setEnabled(true);
 
 
 
