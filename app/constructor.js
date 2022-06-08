@@ -826,6 +826,28 @@ window.scene.getMeshByName('flatRoof' + i + '_left').scaling.x  = z * 0.001 - sh
 window.scene.getMeshByName('flatRoof' + i + '_right').scaling.x = z * 0.001 - shiftZ + roofFlatShiftFront * multiply + roofFlatShiftBack * multiply - 0.15;
 }
 
+//BORDERS
+let  offset=0;
+let borderDeltaX = (roofFlatShiftLeft - roofFlatShiftRight)/2;
+let borderDeltaZ = (roofFlatShiftFront - roofFlatShiftBack)/2;
+let borderY=2.55;
+
+
+window.scene.getMeshByName('roofBorder1').position=
+new BABYLON.Vector3(0 - borderDeltaX,  borderY, (zBack*-1)*0.001 - roofFlatShiftFront + 0.075 + 0.025);
+window.scene.getMeshByName('roofBorder2').position =
+new BABYLON.Vector3(0 - borderDeltaX,  borderY, (zBack)*0.001 + roofFlatShiftBack  - 0.075 - 0.025);
+//left right
+window.scene.getMeshByName('roofBorder3').position=
+new BABYLON.Vector3(xStart-roofFlatShiftLeft + 0.025,  borderY, 0-borderDeltaZ);
+window.scene.getMeshByName('roofBorder4').position=
+new BABYLON.Vector3(xStart *-1 + roofFlatShiftRight  - 0.025,  borderY, 0-borderDeltaZ);
+
+window.scene.getMeshByName('roofBorder1').scaling.x =  x * 0.001 + roofFlatShiftLeft  + roofFlatShiftRight ;
+window.scene.getMeshByName('roofBorder2').scaling.x =  x * 0.001 + roofFlatShiftLeft  + roofFlatShiftRight ;
+window.scene.getMeshByName('roofBorder3').scaling.z = z * 0.001  + roofFlatShiftFront + roofFlatShiftBack  - 0.15;
+window.scene.getMeshByName('roofBorder4').scaling.z = z * 0.001  + roofFlatShiftFront  + roofFlatShiftBack  - 0.15;
+
 
 
 //disabling waalls roof2
@@ -973,8 +995,18 @@ window.scene.getMeshByName('flatRoof' + i + '_back').setEnabled(true);
 
 window.scene.getMeshByName("groundPlane").scaling=new BABYLON.Vector3(x/1000 + 2, 1, z/1000 + 2);
 
-window.scene.getMaterialByName('groundMaterial').albedoTexture.vScale = 1* (x/1000 + 2);
-window.scene.getMaterialByName('groundMaterial').albedoTexture.uScale = 1* (z/1000 + 2);
+window.scene.getMaterialByName('groundMaterial').albedoTexture.vScale = 0.5 * (x/1000 + 2);
+window.scene.getMaterialByName('groundMaterial').albedoTexture.uScale = 0.5 * (z/1000 + 2);
+
+window.scene.getMaterialByName('groundMaterial').bumpTexture.vScale = 0.5 * (x/1000 + 2);
+window.scene.getMaterialByName('groundMaterial').bumpTexture.uScale = 0.5 * (z/1000 + 2);
+
+
+window.scene.getMaterialByName('RoofTileMaterialFlat').albedoTexture.vScale = 0.65 * (x/1000 );
+window.scene.getMaterialByName('RoofTileMaterialFlat').albedoTexture.uScale = 0.65 * (z/1000 );
+window.scene.getMaterialByName('RoofTileMaterialFlat').bumpTexture.vScale = 0.65 * (x/1000 );
+window.scene.getMaterialByName('RoofTileMaterialFlat').bumpTexture.uScale = 0.65 * (z/1000 );
+
 
 
 updateSections();

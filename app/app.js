@@ -497,6 +497,20 @@ window.scene.getMeshByName('flatRoof2_right').scaling.z = 0.1 ;
 window.scene.getMeshByName('flatRoof2_front').scaling.z  = 0.1 ;
 window.scene.getMeshByName('flatRoof2_back').scaling.z = 0.1 ;
 
+window.scene.getMeshByName('flatRoof2_front').material=window.scene.getMaterialByName('wood_shifted_0');
+window.scene.getMeshByName('flatRoof2_back').material =window.scene.getMaterialByName('wood_shifted_0');
+window.scene.getMeshByName('flatRoof2_left').material =window.scene.getMaterialByName('wood_shifted_0');
+window.scene.getMeshByName('flatRoof2_right').material =window.scene.getMaterialByName('wood_shifted_0');
+
+window.scene.getMeshByName('flatRoof1_front').material=window.scene.getMaterialByName('wood_shifted_1');
+window.scene.getMeshByName('flatRoof1_back').material =window.scene.getMaterialByName('wood_shifted_1');
+window.scene.getMeshByName('flatRoof1_left').material =window.scene.getMaterialByName('wood_shifted_1');
+window.scene.getMeshByName('flatRoof1_right').material =window.scene.getMaterialByName('wood_shifted_1');
+
+
+
+
+
 //flat roof 15mm array
 for(let i=0; i<=26;i++){
 window.scene.getMeshByName('1meter_balk').clone('flat_roof_15mm' + i);
@@ -504,6 +518,12 @@ window.scene.getMeshByName('flat_roof_15mm' + i).rotation=new BABYLON.Vector3(0,
 window.scene.getMeshByName('flat_roof_15mm' + i).scaling.y=0.1;
 window.scene.getMeshByName('flat_roof_15mm' + i).scaling.z=1.33;
 window.scene.getMeshByName('flat_roof_15mm' + i).position.y=2.47;
+
+window.scene.getMeshByName('flat_roof_15mm' + i).material=window.scene.getMaterialByName('wood_shifted_3');
+if(i%2==0) window.scene.getMeshByName('flat_roof_15mm' + i).material=window.scene.getMaterialByName('wood_shifted_0');
+if(i%3==0) window.scene.getMeshByName('flat_roof_15mm' + i).material=window.scene.getMaterialByName('wood_shifted_1');
+if(i%4==0) window.scene.getMeshByName('flat_roof_15mm' + i).material=window.scene.getMaterialByName('wood_shifted_2');
+
 }
 
 //flat roof mid bulk
@@ -628,8 +648,35 @@ window.scene.getMeshByName(roofNum +'roof_tile_0').clone(roofNum+'roof_tile_' + 
 }
 
 //var plane = BABYLON.MeshBuilder.CreatePlane("roofPlane", {height:2, width: 1, sideOrientation: BABYLON.Mesh.DOUBLESIDE});
+
+
+var roofBorder1 = BABYLON.MeshBuilder.CreateBox("roofBorder1", {height: 0.10, width: 1, depth: 1});
+var roofBorder2 = BABYLON.MeshBuilder.CreateBox("roofBorder2", {height: 0.10, width: 1, depth: 1});
+var roofBorder3 = BABYLON.MeshBuilder.CreateBox("roofBorder3", {height: 0.10, width: 1, depth: 1});
+var roofBorder4 = BABYLON.MeshBuilder.CreateBox("roofBorder4", {height: 0.10, width: 1, depth: 1});
+
+roofBorder1.scaling.z=0.05;
+roofBorder2.scaling.z=0.05;
+roofBorder3.scaling.x=0.05;
+roofBorder4.scaling.x=0.05;
+
+
+
+roofBorder1.material=window.scene.getMaterialByName('RoofTileMaterial');
+roofBorder2.material=window.scene.getMaterialByName('RoofTileMaterial');
+roofBorder3.material=window.scene.getMaterialByName('RoofTileMaterial');
+roofBorder4.material=window.scene.getMaterialByName('RoofTileMaterial');
+
 var roofPlane = BABYLON.MeshBuilder.CreateBox("roofPlane", {height: 0.01, width: 1, depth: 1});
-roofPlane.material=window.scene.getMaterialByName('RoofTileMaterial');
+window.scene.getMaterialByName('RoofTileMaterial').clone('RoofTileMaterialFlat');
+roofPlane.material=window.scene.getMaterialByName('RoofTileMaterialFlat');
+
+window.scene.getMaterialByName('RoofTileMaterialFlat').albedoTexture =  new  BABYLON.Texture("models/roof_texture.jpg", window.scene);
+window.scene.getMaterialByName('RoofTileMaterialFlat').bumpTexture = new  BABYLON.Texture("models/roof_texture_normal_map.jpg", scene);
+window.scene.getMaterialByName('RoofTileMaterialFlat').metallic=0.8;
+window.scene.getMaterialByName('RoofTileMaterialFlat').roughness=0.8;
+window.scene.getMaterialByName('RoofTileMaterialFlat').albedoColor = new BABYLON.Color3(0.0,0.0,0.0);
+
 
 var groundPlane = BABYLON.MeshBuilder.CreateBox("groundPlane", {height: 0.01, width: 1, depth: 1});
 var groundMaterial = new BABYLON.PBRMaterial("groundMaterial", window.scene);
@@ -661,7 +708,7 @@ groundMaterial.roughness = 0.65;
 
 groundPlane.material=window.scene.getMaterialByName('groundMaterial');
 
-
+groundPlane.material.bumpTexture = new  BABYLON.Texture("models/tiles_normal_map.jpg", scene);
 
 
 elementsCreating();

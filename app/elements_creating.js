@@ -26,7 +26,24 @@ window.scene.getMaterialByName('Wood_Material_Doors').metallic = 0;
 //glass
 var window_glass_material = new BABYLON.PBRMaterial("window_glass_material", window.scene);
 window_glass_material.albedoColor = new BABYLON.Color3(0.2, 0.3, 0.3);
+window_glass_material.albedoColor = new BABYLON.Color3(0.051, 0.051, 0.051);
 //window_glass_material.reflectivityColor = new BABYLON.Color3(1.0, 0.766, 0.336);
+
+window_glass_material.refractionTexture = new  BABYLON.Texture("models/env.jpg", window.scene);
+window_glass_material.refractionTexture.depth = 4;
+window_glass_material.refractionTexture.coordinatesMode = BABYLON.Texture.SPHERE_MODE;
+window_glass_material.refractionTexture.level = 0.05;
+
+//window_glass_material.reflectionTexture =  new  BABYLON.Texture("models/env.jpg", window.scene);
+
+
+
+//window_glass_material.refractionTexture.wAng = 1.34;
+
+window_glass_material.indexOfRefraction = 1;
+
+
+
 window_glass_material.metallic = 1;
 window_glass_material.roughness = 0.1;
 
