@@ -833,26 +833,35 @@ window.scene.getMeshByName('flatRoof' + i + '_right').scaling.x = z * 0.001 - sh
 }
 
 //BORDERS
-let  offset=0;
-let borderDeltaX = (roofFlatShiftLeft - roofFlatShiftRight)/2;
-let borderDeltaZ = (roofFlatShiftFront - roofFlatShiftBack)/2;
+
+
+
+
+let roofFlatShiftLeftBorder = roofFlatShiftLeft + 0.04;
+let roofFlatShiftRightBorder = roofFlatShiftRight + 0.04;
+let roofFlatShiftFrontBorder = roofFlatShiftFront + 0.04;
+let roofFlatShiftBackBorder = roofFlatShiftBack + 0.04;
+
+let offset=0;
+let borderDeltaX = (roofFlatShiftLeftBorder - roofFlatShiftRightBorder)/2;
+let borderDeltaZ = (roofFlatShiftFrontBorder - roofFlatShiftBackBorder)/2;
 let borderY=2.55;
 
 
 window.scene.getMeshByName('roofBorder1').position=
-new BABYLON.Vector3(0 - borderDeltaX,  borderY, (zBack*-1)*0.001 - roofFlatShiftFront + 0.075 + 0.025);
+new BABYLON.Vector3(0 - borderDeltaX,  borderY, (zBack*-1)*0.001 - roofFlatShiftFrontBorder + 0.075 + 0.025);
 window.scene.getMeshByName('roofBorder2').position =
-new BABYLON.Vector3(0 - borderDeltaX,  borderY, (zBack)*0.001 + roofFlatShiftBack  - 0.075 - 0.025);
+new BABYLON.Vector3(0 - borderDeltaX,  borderY, (zBack)*0.001 + roofFlatShiftBackBorder  - 0.075 - 0.025);
 //left right
 window.scene.getMeshByName('roofBorder3').position=
-new BABYLON.Vector3(xStart-roofFlatShiftLeft + 0.025,  borderY, 0-borderDeltaZ);
+new BABYLON.Vector3(xStart-roofFlatShiftLeftBorder + 0.025,  borderY, 0-borderDeltaZ);
 window.scene.getMeshByName('roofBorder4').position=
-new BABYLON.Vector3(xStart *-1 + roofFlatShiftRight  - 0.025,  borderY, 0-borderDeltaZ);
+new BABYLON.Vector3(xStart *-1 + roofFlatShiftRightBorder  - 0.025,  borderY, 0-borderDeltaZ);
 
-window.scene.getMeshByName('roofBorder1').scaling.x =  x * 0.001 + roofFlatShiftLeft  + roofFlatShiftRight ;
-window.scene.getMeshByName('roofBorder2').scaling.x =  x * 0.001 + roofFlatShiftLeft  + roofFlatShiftRight ;
-window.scene.getMeshByName('roofBorder3').scaling.z = z * 0.001  + roofFlatShiftFront + roofFlatShiftBack  - 0.15;
-window.scene.getMeshByName('roofBorder4').scaling.z = z * 0.001  + roofFlatShiftFront  + roofFlatShiftBack  - 0.15;
+window.scene.getMeshByName('roofBorder1').scaling.x =  x * 0.001 + roofFlatShiftLeftBorder  + roofFlatShiftRightBorder ;
+window.scene.getMeshByName('roofBorder2').scaling.x =  x * 0.001 + roofFlatShiftLeftBorder  + roofFlatShiftRightBorder ;
+window.scene.getMeshByName('roofBorder3').scaling.z = z * 0.001  + roofFlatShiftFrontBorder + roofFlatShiftBackBorder  - 0.15;
+window.scene.getMeshByName('roofBorder4').scaling.z = z * 0.001  + roofFlatShiftFrontBorder  + roofFlatShiftBackBorder  - 0.15;
 
 
 
