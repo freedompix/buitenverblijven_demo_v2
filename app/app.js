@@ -60,7 +60,7 @@ window.scene.getMaterialByName('Wood_Material').bumpTexture.uOffset = window.sce
 window.scene.getMaterialByName('Wood_Material').bumpTexture.vOffset = window.scene.getMaterialByName('Wood_Material').albedoTexture.vOffset;
 
 //window.scene.getMaterialByName('Wood_Material').metallic  = 0.1;
-window.scene.getMaterialByName('Wood_Material').roughness = 0.5;
+//window.scene.getMaterialByName('Wood_Material').roughness = 0.5;
 
 //newX
 window.scene.getMaterialByName('Wood_Material').clone('wood_dark_0');
@@ -884,7 +884,7 @@ hdrSkyboxMaterial.alpha = 0.3;
 hdrSkyboxMaterial.disableLighting = true;
 hdrSkybox.material = hdrSkyboxMaterial;
 scene.environmentTexture = envTexture;
-scene.environmentIntensity = 0.55;
+//scene.environmentIntensity = 0.55;
 
 
 ArchetypeUI.load3DModelByPath("./models/canopy1/", "scene.gltf", "canopy1");
