@@ -837,10 +837,10 @@ window.scene.getMeshByName('flatRoof' + i + '_right').scaling.x = z * 0.001 - sh
 
 
 
-let roofFlatShiftLeftBorder = roofFlatShiftLeft + 0.04;
-let roofFlatShiftRightBorder = roofFlatShiftRight + 0.04;
-let roofFlatShiftFrontBorder = roofFlatShiftFront + 0.04;
-let roofFlatShiftBackBorder = roofFlatShiftBack + 0.04;
+let roofFlatShiftLeftBorder = roofFlatShiftLeft + 0.04 - 0.035;
+let roofFlatShiftRightBorder = roofFlatShiftRight + 0.04 - 0.035;
+let roofFlatShiftFrontBorder = roofFlatShiftFront + 0.04 - 0.035;
+let roofFlatShiftBackBorder = roofFlatShiftBack + 0.04 - 0.035;
 
 let offset=0;
 let borderDeltaX = (roofFlatShiftLeftBorder - roofFlatShiftRightBorder)/2;
@@ -1011,14 +1011,14 @@ window.scene.getMeshByName('roofBorder4').setEnabled(true);
 
 }
 
-
+x=x+30;
 window.scene.getMeshByName("groundPlane").scaling=new BABYLON.Vector3(x/1000 + 2, 1, z/1000 + 2);
 
-window.scene.getMaterialByName('groundMaterial').albedoTexture.vScale = 0.5 * (x/1000 + 2);
-window.scene.getMaterialByName('groundMaterial').albedoTexture.uScale = 0.5 * (z/1000 + 2);
+window.scene.getMaterialByName('groundMaterial').albedoTexture.vScale = 1 * (x/1000 + 2);
+window.scene.getMaterialByName('groundMaterial').albedoTexture.uScale = 1 * (z/1000 + 2);
 
-window.scene.getMaterialByName('groundMaterial').bumpTexture.vScale = 0.5 * (x/1000 + 2);
-window.scene.getMaterialByName('groundMaterial').bumpTexture.uScale = 0.5 * (z/1000 + 2);
+window.scene.getMaterialByName('groundMaterial').bumpTexture.vScale = 1 * (x/1000 + 2);
+window.scene.getMaterialByName('groundMaterial').bumpTexture.uScale = 1* (z/1000 + 2);
 
 
 window.scene.getMaterialByName('RoofTileMaterialFlat').albedoTexture.vScale = 0.65 * (x/1000 );
@@ -1033,6 +1033,14 @@ rebuildHouses();
 elementsUpdate();
 
 window.scene.getCameraByID('camera1').spinTo("radius", 9+x/2000, 200);
-window.scene.getCameraByID('camera1').lowerRadiusLimit=5+x/2000;
+window.scene.getCameraByID('camera1').lowerRadiusLimit=4+x/2000;
+window.scene.getCameraByID('camera1').upperRadiusLimit=20+x/2000;
+
+
+window.scene.getLightByName('light_point_2').position.x = 2 + x/2000;
+window.scene.getLightByName('light_point_4').position.x = -2 - x/2000;
+
+window.scene.getLightByName('light_point_3').position.z = 4 + z/2000;
+window.scene.getLightByName('light_point_5').position.z = -4 - z/2000;
 
 }

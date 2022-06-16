@@ -678,7 +678,8 @@ window.scene.getMaterialByName('RoofTileMaterialFlat').roughness=0.8;
 window.scene.getMaterialByName('RoofTileMaterialFlat').albedoColor = new BABYLON.Color3(0.0,0.0,0.0);
 
 
-var groundPlane = BABYLON.MeshBuilder.CreateBox("groundPlane", {height: 0.01, width: 1, depth: 1});
+var groundPlane = BABYLON.MeshBuilder.CreateBox("groundPlane", {height: 0.03, width: 1, depth: 1});
+groundPlane.position.y=-0.03;
 var groundMaterial = new BABYLON.PBRMaterial("groundMaterial", window.scene);
 
 groundPlane.visibility=0.3;
@@ -690,7 +691,7 @@ groundPlane.visibility=1;
 
 groundMaterial.albedoTexture  = new  BABYLON.Texture("models/tiles.jpg", window.scene);
 
-groundMaterial.albedoColor = new BABYLON.Color3(0.4,0.4,0.3);//Bordeaux Color RGB (95,2,31)
+groundMaterial.albedoColor = new BABYLON.Color3(0.5,0.5,0.35);//Bordeaux Color RGB (95,2,31)
 //groundMaterial.reflectivityColor = new BABYLON.Color3(0.003, 0.003, 0.003);
 //myMaterial.albedoTexture  = new BABYLON.Texture("textures/wall_pattern.jpg", scene);
 //myMaterial.emissiveTexture = new BABYLON.Texture("textures/wall_pattern_light.jpg", scene);
@@ -797,13 +798,34 @@ camera.lowerRadiusLimit=7;
 scene.clearColor = new BABYLON.Color3(0.95, 0.95, 0.95);
 
 //var light1 = new BABYLON.HemisphericLight('light_sky', new BABYLON.Vector3(-0.1,1,0.3), scene);
-var light1 = new BABYLON.HemisphericLight('light_sky', new BABYLON.Vector3(0,4,4), scene);
+//var light1 = new BABYLON.HemisphericLight('light_sky', new BABYLON.Vector3(0,4,4), scene);
+//light1.intensity=0.4;
 
-light1.intensity=2;
 
-//var light3 = new BABYLON.PointLight("light_point_red1", new BABYLON.Vector3(10, -25, 15), scene);
-//light3.intensity=100;
-//light3.diffuse=new BABYLON.Color3(1,0.0);
+
+
+var light2 = new BABYLON.PointLight("light_point_2", new BABYLON.Vector3(10, 2, 0), scene);
+light2.intensity=20;
+light2.diffuse=new BABYLON.Color3(1,1,1);
+
+var light4 = new BABYLON.PointLight("light_point_4", new BABYLON.Vector3(-10, 2, 0), scene);
+light4.intensity=20;
+light4.diffuse=new BABYLON.Color3(1,1,1);
+
+
+
+
+
+var light3 = new BABYLON.PointLight("light_point_3", new BABYLON.Vector3(0, 2, -5), scene);
+light3.intensity=70;
+light3.diffuse=new BABYLON.Color3(1,1,1);
+
+
+
+var light5 = new BABYLON.PointLight("light_point_5", new BABYLON.Vector3(0, 2, 5), scene);
+light5.intensity=70;
+light5.diffuse=new BABYLON.Color3(1,1,1);
+
 
 // var light4 = new BABYLON.PointLight("light_point_neon", new BABYLON.Vector3(-10, -20, 0), scene);
 // light4.intensity=400;
