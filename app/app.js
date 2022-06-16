@@ -59,8 +59,8 @@ window.scene.getMaterialByName('Wood_Material').bumpTexture.wAng = window.scene.
 window.scene.getMaterialByName('Wood_Material').bumpTexture.uOffset = window.scene.getMaterialByName('Wood_Material').albedoTexture.uOffset;
 window.scene.getMaterialByName('Wood_Material').bumpTexture.vOffset = window.scene.getMaterialByName('Wood_Material').albedoTexture.vOffset;
 
-//window.scene.getMaterialByName('Wood_Material').metallic  = 0.1;
-//window.scene.getMaterialByName('Wood_Material').roughness = 0.5;
+window.scene.getMaterialByName('Wood_Material').metallic  = 0.8;
+window.scene.getMaterialByName('Wood_Material').roughness = 0.55;
 
 //newX
 window.scene.getMaterialByName('Wood_Material').clone('wood_dark_0');
