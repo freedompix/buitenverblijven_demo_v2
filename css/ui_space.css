@@ -1,0 +1,75 @@
+#uiSpace
+{
+width: 468px;
+height: calc(100vh - 56px);
+top: 56px;
+left: 0px;
+position: absolute;
+background-color: #FFFFFF;
+overflow-y: auto;
+overflow-x: hidden;
+z-index: 133;
+}
+
+#spaceBlock1, #spaceBlock2, #spaceBlock3
+{
+position:relative;	
+height: 126px;	
+}
+
+.uiSpaceButton0, .uiSpaceButton1, .uiSpaceButton2, .uiSpaceButton3
+{
+position: absolute;
+width: 56px;
+height: 56px;
+border: 1px solid #cccccc;
+top:50px;
+}
+
+.uiSpaceButton0
+{
+left:10px;
+  background-image:  url("../css/elem_0.png");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+.uiSpaceButton1
+{
+left:76px;	
+  background-image:  url("../css/elem_1.png");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+.uiSpaceButton2
+{
+left:142px;	
+  background-image:  url("../css/elem_2.png");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+.uiSpaceButton3
+{
+left:208px;
+  background-image:  url("../css/elem_3.png");
+  background-repeat: no-repeat;
+  background-size:cover;	
+}
+
+#uiSpaceText3, #uiSpaceText1, #uiSpaceText2
+{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+color: #000000;
+position: absolute;
+top: 18px;
+left: 36px;
+width: 200px;	
+}
+
+#closeCross
+{
+	
+}
