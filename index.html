@@ -28,6 +28,7 @@ box-shadow: inset 0 0 2px rgba(255,233,233,1.75), 0 0 2px rgba(255, 233, 233, 1.
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/ui_color.css">
 <link rel="stylesheet" href="css/ui_house.css">
+<link rel="stylesheet" href="css/ui_space.css">
 
 <script src="app/babylon.js"></script>
 <script src="app/babylonjs.loaders.min.js"></script>
@@ -42,6 +43,11 @@ box-shadow: inset 0 0 2px rgba(255,233,233,1.75), 0 0 2px rgba(255, 233, 233, 1.
 
 <script src="app/elements_updating.js"></script>
 <script src="app/elements_creating.js"></script>
+
+
+<script src="app/space_creating.js"></script>
+<script src="app/space_updating.js"></script>
+<script src="app/space_ui.js"></script>
 
 <script src="app/app.js"></script>
 
@@ -63,6 +69,44 @@ box-shadow: inset 0 0 2px rgba(255,233,233,1.75), 0 0 2px rgba(255, 233, 233, 1.
 
 <div class="" id="topDiv">
 <div id="logotype"><img src="css/logo.svg" height="40" width="200"/></div>
+</div>
+
+
+<div id="uiSpace">
+<div id="closeCross"></div>
+
+
+<div id="spaceBlock1">
+<div id="uiSpaceText1">Element 1</div>
+
+<div class="uiSpaceButton0" id="uiSpaceButton0_0" onclick="spaceSetUI(0,0);"></div>
+<div class="uiSpaceButton1" id="uiSpaceButton0_1" onclick="spaceSetUI(0,1);"></div>
+<div class="uiSpaceButton2" id="uiSpaceButton0_2" onclick="spaceSetUI(0,2);"></div>
+<div class="uiSpaceButton3" id="uiSpaceButton0_3" onclick="spaceSetUI(0,3);"></div>
+
+</div>
+
+<div id="spaceBlock2">
+<div id="uiSpaceText2">Element 2</div>
+
+
+<div class="uiSpaceButton0" id="uiSpaceButton1_0" onclick="spaceSetUI(1,0);"></div>
+<div class="uiSpaceButton1" id="uiSpaceButton1_1" onclick="spaceSetUI(1,1);"></div>
+<div class="uiSpaceButton2" id="uiSpaceButton1_2" onclick="spaceSetUI(1,2);"></div>
+<div class="uiSpaceButton3" id="uiSpaceButton1_3" onclick="spaceSetUI(1,3);"></div>
+
+
+</div>
+
+<div id="spaceBlock3">
+<div id="uiSpaceText3">Element 3</div>
+
+<div class="uiSpaceButton0" id="uiSpaceButton2_0" onclick="spaceSetUI(2,0);"></div>
+<div class="uiSpaceButton1" id="uiSpaceButton2_1" onclick="spaceSetUI(2,1);"></div>
+<div class="uiSpaceButton2" id="uiSpaceButton2_2" onclick="spaceSetUI(2,2);"></div>
+<div class="uiSpaceButton3" id="uiSpaceButton2_3" onclick="spaceSetUI(2,3);"></div>
+</div>
+
 </div>
 
 
