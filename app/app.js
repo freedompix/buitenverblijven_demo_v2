@@ -167,6 +167,12 @@ if (
 window.modelsLoaded==false &&
 
 window.modelsLoadingStatuses['zhaluzi']==true  &&
+window.modelsLoadingStatuses['window_2']==true  &&
+window.modelsLoadingStatuses['window_glass_2']==true  &&
+
+window.modelsLoadingStatuses['window_1']==true  &&
+window.modelsLoadingStatuses['window_glass_1']==true  &&
+
 
 window.modelsLoadingStatuses['door_single']==true  &&
 window.modelsLoadingStatuses['door_double']==true  &&
@@ -711,7 +717,7 @@ groundPlane.material=window.scene.getMaterialByName('groundMaterial');
 
 groundPlane.material.bumpTexture = new  BABYLON.Texture("models/tiles_normal_map.jpg", scene);
 
-
+spaceCreating();
 elementsCreating();
 buildRound();
 
@@ -948,6 +954,13 @@ ArchetypeUI.load3DModelByPath("./models/wall_triangle/", "wall_roof_5_carcas.obj
 //scene.glb
 ArchetypeUI.load3DModelByPath("./models/elements_house/", "zhaluzi.obj", "zhaluzi");
 
+ArchetypeUI.load3DModelByPath("./models/element_space/", "window_2.obj", "window_2");
+ArchetypeUI.load3DModelByPath("./models/element_space/", "window_glass_2.obj", "window_glass_2");
+
+ArchetypeUI.load3DModelByPath("./models/element_space/", "window_1.obj", "window_1");
+ArchetypeUI.load3DModelByPath("./models/element_space/", "window_glass_1.obj", "window_glass_1");
+
+
 //wall big
 ArchetypeUI.load3DModelByPath("./models/elements_house/", "wall_big.obj", "wall_big");
 ArchetypeUI.load3DModelByPath("./models/elements_house/", "wall_big_carcas.obj", "wall_big_carcas");
@@ -957,6 +970,9 @@ ArchetypeUI.load3DModelByPath("./models/elements_house/", "wall_big_carcas.obj",
 ArchetypeUI.load3DModelByPath("./models/elements_house/", "door_single.glb", "door_single");
 ArchetypeUI.load3DModelByPath("./models/elements_house/", "door_double.glb", "door_double");
 ArchetypeUI.load3DModelByPath("./models/elements_house/", "window.obj", "window");
+
+
+
 
 //importedMeshes[0].clone(importedNewName);
 //scene.getMeshByName('barkk').clone('bark_0');

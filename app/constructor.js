@@ -1,6 +1,9 @@
 window.appState=[];
-window.appState['width']=5000;
+window.appState['width']=8000;
 window.appState['deepth']=3000;
+
+window.appState['sectionsNumber']=0;
+window.appState['uiSpaceID']=0;
 
 
 window.appState['rooftype']=0;
@@ -426,7 +429,12 @@ if (window.appState['house1on'] == true) currentSectionWidthTEMP = window.appSta
 
 if (i==quantity)
 {
-  console.log(quantity + ' quantity' );
+console.log(quantity + ' quantity' );
+window.appState['sectionsNumber']=quantity-1;
+console.log('Number of sections: ' + window.appState['sectionsNumber']);
+
+
+
 window.scene.getMeshByName('balk_small_front_left_' + i).rotation=new BABYLON.Vector3(0, 0  , 0);
 window.scene.getMeshByName('balk_small_back_left_' + i).rotation=new BABYLON.Vector3(0, Math.PI, 0);
 //if roof type ==1
@@ -1031,6 +1039,8 @@ window.scene.getMaterialByName('RoofTileMaterialFlat').bumpTexture.uScale = 0.65
 updateSections();
 rebuildHouses();
 elementsUpdate();
+spaceUpdating();
+
 
 window.scene.getCameraByID('camera1').spinTo("radius", 9+x/2000, 200);
 window.scene.getCameraByID('camera1').lowerRadiusLimit=4+x/2000;
