@@ -12,13 +12,44 @@ if (window.appSection[id].place[i]==ii)
 document.getElementById('uiSpaceButton'+ i + '_' + ii).style.borderColor='#FF0000';
 }
 
+
+
+
+
 }
 
 
 //set all to null
-if(window.appSection[id].place[1]==0)
+if(window.appSection[id].place[0]==0 && window.appSection[id].place[1]==0 && window.appSection[id].place[2]==0)
 {
+document.getElementById('spaceBlock1').style.display='block';
+document.getElementById('spaceBlock2').style.display='none';
+document.getElementById('spaceBlock3').style.display='none';
 }
+
+if(window.appSection[id].place[0]!=0 && window.appSection[id].place[1]==0 && window.appSection[id].place[2]==0)
+{
+document.getElementById('spaceBlock1').style.display='block';
+document.getElementById('spaceBlock2').style.display='block';
+document.getElementById('spaceBlock3').style.display='none';
+}
+
+if(
+
+(window.appSection[id].place[0]!=0 && window.appSection[id].place[1]!=0 && window.appSection[id].place[2]==0)
+||
+(window.appSection[id].place[0]!=0 && window.appSection[id].place[1]!=0 && window.appSection[id].place[2]!=0)
+
+)
+{
+document.getElementById('spaceBlock1').style.display='block';
+document.getElementById('spaceBlock2').style.display='block';
+document.getElementById('spaceBlock3').style.display='block';
+}
+
+
+
+
 }
 
 function spaceUIupdateSections()
