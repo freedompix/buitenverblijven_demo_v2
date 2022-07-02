@@ -27,9 +27,9 @@ window.appSection.push(window.appSection[0]);
 window.appSection.push(window.appSection[0]);
 window.appSection.push(window.appSection[0]);
 
-window.appSection[0].place[0]=1;
-window.appSection[0].place[1]=3;
-window.appSection[0].place[2]=1;
+window.appSection[0].place[0]=0;
+window.appSection[0].place[1]=0;
+window.appSection[0].place[2]=0;
 
 
 function spaceCreating()
@@ -53,8 +53,8 @@ glassBorderMaterial.roughness = 0.8;
 
 
 var planeUI = BABYLON.MeshBuilder.CreateBox("planeUI", {height: 0.03, width: 1, depth: 1});
-planeUI.visibility=0.3;
-
+planeUI.visibility=0.0;
+planeUI.setEnabled(false);
 
 var planeUIMaterial  = new BABYLON.PBRMaterial("planeUIMaterial", window.scene);
 planeUIMaterial.albedoColor = new BABYLON.Color3(1,0,0);
