@@ -1,5 +1,5 @@
 window.appState=[];
-window.appState['width']=8000;
+window.appState['width']=5000;
 window.appState['deepth']=3000;
 
 window.appState['sectionsNumber']=0;
