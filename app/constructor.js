@@ -844,11 +844,10 @@ window.scene.getMeshByName('flatRoof' + i + '_right').scaling.x = z * 0.001 - sh
 
 
 
-
-let roofFlatShiftLeftBorder = roofFlatShiftLeft + 0.04 - 0.035;
-let roofFlatShiftRightBorder = roofFlatShiftRight + 0.04 - 0.035;
-let roofFlatShiftFrontBorder = roofFlatShiftFront + 0.04 - 0.035;
-let roofFlatShiftBackBorder = roofFlatShiftBack + 0.04 - 0.035;
+let roofFlatShiftLeftBorder = roofFlatShiftLeft + 0.06 - 0.035;
+let roofFlatShiftRightBorder = roofFlatShiftRight + 0.06 - 0.035;
+let roofFlatShiftFrontBorder = roofFlatShiftFront + 0.06 - 0.035;
+let roofFlatShiftBackBorder = roofFlatShiftBack + 0.06 - 0.035;
 
 let offset=0;
 let borderDeltaX = (roofFlatShiftLeftBorder - roofFlatShiftRightBorder)/2;
