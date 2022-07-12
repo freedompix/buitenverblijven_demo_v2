@@ -1048,9 +1048,18 @@ window.scene.getCameraByID('camera1').upperRadiusLimit=20+x/2000;
 
 
 window.scene.getLightByName('light_point_2').position.x = 4 + x/2000;
-window.scene.getLightByName('light_point_4').position.x = -4 - x/2000;
+window.scene.getLightByName('light_point_2').position.z = 8 + z/2000;
 
-window.scene.getLightByName('light_point_3').position.z = 8 + z/2000;
+
+window.scene.getLightByName('light_point_4').position.x = -4 - x/2000;
+window.scene.getLightByName('light_point_4').position.z = 8 + z/2000;
+
+
+window.scene.getLightByName('light_point_3').position.x = -4 - x/2000;
+window.scene.getLightByName('light_point_3').position.z = -8 - z/2000;
+
+window.scene.getLightByName('light_point_5').position.x = 4 + x/2000;
 window.scene.getLightByName('light_point_5').position.z = -8 - z/2000;
+
 
 }
