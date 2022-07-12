@@ -415,6 +415,7 @@ Overhangen verbergen
 	document.getElementById('house1options').style.display='block';
 	document.getElementById('showHouse1').style.display='none';
 	document.getElementById('hideHouse1').style.display='block';
+	setTimeout(window.instance.select('house1_1'), 20);
 	return false;">
 	Add doors and window
 	<img src="css/arrow_inactive.png" class="houseSwitcherArrow" style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);
@@ -441,10 +442,11 @@ Overhangen verbergen
 	  <div class="row">
 	    <div class="col s12">
 	      <ul class="tabs tabs1">
-	        <li class="tab col s3"><a href="#house1_1" class="active">Front</a></li>
-	        <li class="tab col s3"><a href="#house1_2">Back</a></li>
-	        <li class="tab col s3"><a href="#house1_3">Left</a></li>
-	        <li class="tab col s3"><a href="#house1_4">right</a></li>
+	        <li class="tab col s3"><a href="#house1_1" id="tabhouse1_1" onclick="zoomMove('front');" class="active">Front</a></li>
+	        <li class="tab col s3"><a href="#house1_2" id="tabhouse1_2" onclick="zoomMove('back');"  >Back</a></li>
+	        <li class="tab col s3"><a href="#house1_3" id="tabhouse1_3" onclick="zoomMove('left');"  >Left</a></li>
+	        <li class="tab col s3"><a href="#house1_4" id="tabhouse1_4" onclick="zoomMove('right');" >Right</a></li>
+
 	      </ul>
 	    </div>
 	    <div id="house1_1" class="col s12" style="height: 500px; position: relative; margin-top: 14px;">
@@ -682,6 +684,7 @@ Overhangen verbergen
 			document.getElementById('house2options').style.display='block';
 			document.getElementById('showHouse2').style.display='none';
 			document.getElementById('hideHouse2').style.display='block';
+			setTimeout(window.instance2.select('house2_1'), 20);	 
 			return false;">
 			Add doors and window
 			<img src="css/arrow_inactive.png" class="houseSwitcherArrow" style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);
@@ -708,10 +711,11 @@ Overhangen verbergen
 			  <div class="row">
 			    <div class="col s12">
 			      <ul class="tabs tabs2">
-			        <li class="tab col s3"><a href="#house2_1" class="active">Front</a></li>
-			        <li class="tab col s3"><a href="#house2_2">Back</a></li>
-			        <li class="tab col s3"><a href="#house2_3">Left</a></li>
-			        <li class="tab col s3"><a href="#house2_4">right</a></li>
+			        <li class="tab col s3"><a href="#house2_1" id="tabhouse2_1" onclick="zoomMove('front');" class="active">Front</a></li>
+			        <li class="tab col s3"><a href="#house2_2" id="tabhouse2_2" onclick="zoomMove('back');" >Back</a></li>
+			        <li class="tab col s3"><a href="#house2_3" id="tabhouse2_3" onclick="zoomMove('left');">Left</a></li>
+			        <li class="tab col s3"><a href="#house2_4" id="tabhouse2_4" onclick="zoomMove('right');">Right</a></li>
+
 			      </ul>
 			    </div>
 			    <div id="house2_1" class="col s12" style="">
