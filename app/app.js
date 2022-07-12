@@ -697,7 +697,7 @@ groundPlane.visibility=1;
 
 groundMaterial.albedoTexture  = new  BABYLON.Texture("models/tiles.jpg", window.scene);
 
-groundMaterial.albedoColor = new BABYLON.Color3(0.5,0.5,0.35);//Bordeaux Color RGB (95,2,31)
+groundMaterial.albedoColor = new BABYLON.Color3(1,1,0.5);//Bordeaux Color RGB (95,2,31)
 //groundMaterial.reflectivityColor = new BABYLON.Color3(0.003, 0.003, 0.003);
 //myMaterial.albedoTexture  = new BABYLON.Texture("textures/wall_pattern.jpg", scene);
 //myMaterial.emissiveTexture = new BABYLON.Texture("textures/wall_pattern_light.jpg", scene);
@@ -770,14 +770,14 @@ var createScene = function(){
 var scene = new BABYLON.Scene(engine);
 
 if (window.appState['debug']!=true){
-var el = document.querySelector('.tabs1');
-var instance = M.Tabs.init(el, {});
+window.el = document.querySelector('.tabs1');
+window.instance = M.Tabs.init(el, {});
 
-var el2 = document.querySelector('.tabs2');
-var instance2 = M.Tabs.init(el2, {});
+window.el2 = document.querySelector('.tabs2');
+window.instance2 = M.Tabs.init(el2, {});
 
-instance.updateTabIndicator();
-instance2.updateTabIndicator();
+window.instance.updateTabIndicator();
+window.instance2.updateTabIndicator();
 
 
 }
@@ -810,11 +810,11 @@ scene.clearColor = new BABYLON.Color3(0.95, 0.95, 0.95);
 
 
 
-var light2 = new BABYLON.PointLight("light_point_2", new BABYLON.Vector3(10, 2, 0), scene);
+var light2 = new BABYLON.PointLight("light_point_2", new BABYLON.Vector3(10, 3, 0), scene);
 light2.intensity=20;
 light2.diffuse=new BABYLON.Color3(1,1,1);
 
-var light4 = new BABYLON.PointLight("light_point_4", new BABYLON.Vector3(-10, 2, 0), scene);
+var light4 = new BABYLON.PointLight("light_point_4", new BABYLON.Vector3(-10, 3, 0), scene);
 light4.intensity=20;
 light4.diffuse=new BABYLON.Color3(1,1,1);
 
@@ -822,13 +822,13 @@ light4.diffuse=new BABYLON.Color3(1,1,1);
 
 
 
-var light3 = new BABYLON.PointLight("light_point_3", new BABYLON.Vector3(0, 2, -5), scene);
+var light3 = new BABYLON.PointLight("light_point_3", new BABYLON.Vector3(0, 3, -5), scene);
 light3.intensity=70;
 light3.diffuse=new BABYLON.Color3(1,1,1);
 
 
 
-var light5 = new BABYLON.PointLight("light_point_5", new BABYLON.Vector3(0, 2, 5), scene);
+var light5 = new BABYLON.PointLight("light_point_5", new BABYLON.Vector3(0, 3, 5), scene);
 light5.intensity=70;
 light5.diffuse=new BABYLON.Color3(1,1,1);
 
