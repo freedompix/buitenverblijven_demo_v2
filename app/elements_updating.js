@@ -50,9 +50,9 @@ document.getElementById('optionHouses_' + ii + '_' + i + '_6').style.opacity=1;
 
 if (window.appState['house' + ii + 'width'] < 2500 && (i==1 || i==2))
 {
-  document.getElementById('optionHouses_' + ii + '_' + i + '_4').style.cursor='none';
-  document.getElementById('optionHouses_' + ii + '_' + i + '_5').style.cursor='none';
-  document.getElementById('optionHouses_' + ii + '_' + i + '_6').style.cursor='none';
+  document.getElementById('optionHouses_' + ii + '_' + i + '_4').style.cursor='default';
+  document.getElementById('optionHouses_' + ii + '_' + i + '_5').style.cursor='default';
+  document.getElementById('optionHouses_' + ii + '_' + i + '_6').style.cursor='default';
 
   document.getElementById('optionHouses_' + ii + '_' + i + '_4').style.filter='grayscale(100%)';
   document.getElementById('optionHouses_' + ii + '_' + i + '_5').style.filter='grayscale(100%)';
@@ -66,9 +66,9 @@ if (window.appState['house' + ii + 'width'] < 2500 && (i==1 || i==2))
 if (window.appState['deepth']==3000 && window.appState['rooftype']==1 && (i==3 || i==4))
 {
 
-  document.getElementById('optionHouses_' + ii + '_' + i + '_4').style.cursor='none';
-  document.getElementById('optionHouses_' + ii + '_' + i + '_5').style.cursor='none';
-  document.getElementById('optionHouses_' + ii + '_' + i + '_6').style.cursor='none';
+  document.getElementById('optionHouses_' + ii + '_' + i + '_4').style.cursor='default';
+  document.getElementById('optionHouses_' + ii + '_' + i + '_5').style.cursor='default';
+  document.getElementById('optionHouses_' + ii + '_' + i + '_6').style.cursor='default';
 
   document.getElementById('optionHouses_' + ii + '_' + i + '_4').style.filter='grayscale(100%)';
   document.getElementById('optionHouses_' + ii + '_' + i + '_5').style.filter='grayscale(100%)';
@@ -83,12 +83,12 @@ if (window.appState['deepth']==3000 && window.appState['rooftype']==1 && (i==3 |
 
 if (window.appState['rooftype']==1 && i==2)
 {
-  document.getElementById('optionHouses_' + ii + '_' + i + '_1').style.cursor='none';
-  document.getElementById('optionHouses_' + ii + '_' + i + '_2').style.cursor='none';
-  document.getElementById('optionHouses_' + ii + '_' + i + '_3').style.cursor='none';
-  document.getElementById('optionHouses_' + ii + '_' + i + '_4').style.cursor='none';
-  document.getElementById('optionHouses_' + ii + '_' + i + '_5').style.cursor='none';
-  document.getElementById('optionHouses_' + ii + '_' + i + '_6').style.cursor='none';
+  document.getElementById('optionHouses_' + ii + '_' + i + '_1').style.cursor='default';
+  document.getElementById('optionHouses_' + ii + '_' + i + '_2').style.cursor='default';
+  document.getElementById('optionHouses_' + ii + '_' + i + '_3').style.cursor='default';
+  document.getElementById('optionHouses_' + ii + '_' + i + '_4').style.cursor='default';
+  document.getElementById('optionHouses_' + ii + '_' + i + '_5').style.cursor='default';
+  document.getElementById('optionHouses_' + ii + '_' + i + '_6').style.cursor='default';
 
 
   document.getElementById('optionHouses_' + ii + '_' + i + '_1').style.filter='grayscale(100%)';
