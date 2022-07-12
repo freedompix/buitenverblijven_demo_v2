@@ -697,7 +697,7 @@ groundPlane.visibility=1;
 
 groundMaterial.albedoTexture  = new  BABYLON.Texture("models/tiles.jpg", window.scene);
 
-groundMaterial.albedoColor = new BABYLON.Color3(1,1,0.5);//Bordeaux Color RGB (95,2,31)
+groundMaterial.albedoColor = new BABYLON.Color3(0.9,0.9,0.5);//Bordeaux Color RGB (95,2,31)
 //groundMaterial.reflectivityColor = new BABYLON.Color3(0.003, 0.003, 0.003);
 //myMaterial.albedoTexture  = new BABYLON.Texture("textures/wall_pattern.jpg", scene);
 //myMaterial.emissiveTexture = new BABYLON.Texture("textures/wall_pattern_light.jpg", scene);
