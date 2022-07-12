@@ -1,4 +1,18 @@
+function zoomMove(direction)
+{
+if (direction=='front')
+window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI/2, 200);
 
+if (direction=='back')
+window.scene.getCameraByID('camera1').spinTo("alpha", Math.PI/2, 200);
+
+if (direction=='left')
+window.scene.getCameraByID('camera1').spinTo("alpha", Math.PI, 200);
+
+if (direction=='right')
+window.scene.getCameraByID('camera1').spinTo("alpha", 0, 200);
+
+}
 
 function switchUI(id){
 let newstate=window.appState['uiMenu'+id];
