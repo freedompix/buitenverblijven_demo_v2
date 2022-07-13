@@ -544,6 +544,14 @@ if(i==4) iName = 'right';
 for(let ii=1; ii<=2; ii++)
 {
 
+//DELETING
+if (window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted') != null) window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted').dispose();
+if (window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted_inside') != null) window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted_inside').dispose();
+if (window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted_carcas') != null) window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted_carcas').dispose();
+
+//DELETING
+
+
 console.log(window.scene.getMeshByName('house_' + ii +'_window_' + i).isEnabled());
 if (window.scene.getMeshByName('house_' + ii +'_window_' + i).isEnabled() == true)
 {
