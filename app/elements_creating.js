@@ -19,6 +19,8 @@ window.appState['house1wall3']=1;
 window.appState['house2wall1']=3;
 window.appState['house2wall4']=1;
 
+window.appState['house1wall1']=1;//
+
 window.scene.getMaterialByName('Wood_Material').clone('Wood_Material_Doors');
 window.scene.getMaterialByName('Wood_Material_Doors').metallic = 0;
 
@@ -29,26 +31,23 @@ window_glass_material.albedoColor = new BABYLON.Color3(0.2, 0.3, 0.3);
 window_glass_material.albedoColor = new BABYLON.Color3(0.051, 0.051, 0.051);
 //window_glass_material.reflectivityColor = new BABYLON.Color3(1.0, 0.766, 0.336);
 
-window_glass_material.refractionTexture = new  BABYLON.Texture("models/env.jpg", window.scene);
-window_glass_material.refractionTexture.depth = 4;
-window_glass_material.refractionTexture.coordinatesMode = BABYLON.Texture.SPHERE_MODE;
-window_glass_material.refractionTexture.level = 0.05;
-
-//window_glass_material.reflectionTexture =  new  BABYLON.Texture("models/env.jpg", window.scene);
-
-
-
-//window_glass_material.refractionTexture.wAng = 1.34;
-
-window_glass_material.indexOfRefraction = 1;
+//window_glass_material.refractionTexture = new  BABYLON.Texture("models/env.jpg", window.scene);
+//window_glass_material.refractionTexture.depth = 4;
+//window_glass_material.refractionTexture.coordinatesMode = BABYLON.Texture.SPHERE_MODE;
+//window_glass_material.refractionTexture.level = 0.05;
+//window_glass_material.indexOfRefraction = 1;
+//window_glass_material.metallic = 1;
+//window_glass_material.roughness = 0.1;
+//window_glass_material.metallic = 0.9;
+//window_glass_material.roughness = 0.2;
 
 
-
-window_glass_material.metallic = 1;
+window_glass_material.albedoColor = new BABYLON.Color3(1,1,1);
+window_glass_material.metallic = 0.1;
 window_glass_material.roughness = 0.1;
+window_glass_material.alpha = 0.2;
 
-window_glass_material.metallic = 0.9;
-window_glass_material.roughness = 0.2;
+
 
 
 var window_glass = BABYLON.MeshBuilder.CreateBox("window_glass", {height: 0.01, width: 0.7, depth: 1});

@@ -193,7 +193,7 @@ window.scene.getMeshByName('wall_roof_clone_inside_' + i ).material=window.scene
 }
 
 
-
+//buildRound();
 }
 
 
@@ -242,7 +242,7 @@ function color1_1Select()
 
 window.appState['color1']=0;
 setColor();
-
+buildRound();
 }
 
 
@@ -262,6 +262,7 @@ function color1_2Select()
 
 window.appState['color1']=1;
 setColor();
+buildRound();
 }
 
 
@@ -281,6 +282,7 @@ function color2_1Select()
 
 window.appState['color2']=0;
 setColor();
+buildRound();
 }
 
 
@@ -300,4 +302,5 @@ function color2_2Select()
 
 window.appState['color2']=1;
 setColor();
+buildRound();
 }

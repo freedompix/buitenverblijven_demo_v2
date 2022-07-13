@@ -514,6 +514,188 @@ if (window.appState['house2width'] == window.appState['width'] && window.appStat
 }
 
 
+if (window.appState['house1on']==true)
+{
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+for(let i=1; i<=4; i++)
+{
+let iName;
+if(i==1) iName = 'front';
+if(i==2) iName = 'back';
+if(i==3) iName = 'left';
+if(i==4) iName = 'right';
+
+//mesh.isEnabled()
+for(let ii=1; ii<=2; ii++)
+{
+
+console.log(window.scene.getMeshByName('house_' + ii +'_window_' + i).isEnabled());
+if (window.scene.getMeshByName('house_' + ii +'_window_' + i).isEnabled() == true)
+{
+
+
+
+
+
+
+
+
+
+
+
+  if (window.scene.getMeshByName('wallTempClone') != null) window.scene.getMeshByName('wallTempClone').dispose();
+  if (window.scene.getMeshByName('boxCut') != null) window.scene.getMeshByName('boxCut').dispose();
+  if (window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted') != null) window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted').dispose();
+
+
+  window.scene.getMeshByName('wall_house' + ii + '_' + iName).clone('wallTempClone');
+  window.scene.getMeshByName('wallTempClone').makeGeometryUnique();
+  window.scene.getMeshByName('wallTempClone').bakeCurrentTransformIntoVertices();
+
+
+  let boxCut = BABYLON.MeshBuilder.CreateBox("boxCut", {height: 0.9, width: 0.8, depth: 0.8});
+  boxCut.position.y = 1.5;
+  boxCut.position.x = window.scene.getMeshByName('house_' + ii + '_window_' + i).position.x;
+  boxCut.position.z = window.scene.getMeshByName('house_' + ii + '_window_' + i).position.z;
+
+
+  let aCSG = BABYLON.CSG.FromMesh(window.scene.getMeshByName('boxCut'));
+  let bCSG = BABYLON.CSG.FromMesh(window.scene.getMeshByName('wallTempClone'));
+  let subCSG = bCSG.subtract(aCSG);
+  let newMesh = subCSG.toMesh('wall_house' + ii + '_' + iName + '_cuted',   window.scene.getMeshByName('wall_house' + ii + '_' + iName).material, window.scene);
+  //newMesh.position = new BABYLON.Vector3(-5, 3, 0);
+
+
+
+
+//CUTING INNER WALL
+if (window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted_inside') != null) window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted_inside').dispose();
+
+
+
+
+//CUTING INNER WALL
+if (window.scene.getMeshByName('wall_house' + ii +'_' + iName + '_inside').isEnabled() == true)
+{
+
+if (window.scene.getMeshByName('wallTempCloneInside') != null) window.scene.getMeshByName('wallTempCloneInside').dispose();
+
+
+window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_inside').clone('wallTempCloneInside');
+
+let aCSG = BABYLON.CSG.FromMesh(window.scene.getMeshByName('boxCut'));
+let bCSG = BABYLON.CSG.FromMesh(window.scene.getMeshByName('wallTempCloneInside'));
+
+let subCSG = bCSG.subtract(aCSG);
+
+let newMesh = subCSG.toMesh('wall_house' + ii + '_' + iName + '_cuted_inside',   window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_inside').material, window.scene);
+
+
+if (window.appState['color2']==0)
+window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted_inside').material=window.scene.getMaterialByName('wood_dark_0');
+
+if (window.appState['color2']==1)
+window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted_inside').material=window.scene.getMaterialByName('Wood_Material');
+
+if (window.appState['wallInside']==false)
+window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted_inside').setEnabled(false);
+
+console.log('enter inside status' + window.appState['wallInside']);
+
+window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_inside').setEnabled(false);
+window.scene.getMeshByName('wallTempCloneInside').dispose();
+}
+
+
+
+
+
+//CUTING CARCASS
+if (window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted_carcas') != null) window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_cuted_carcas').dispose();
+
+
+//CUTING CARCASS
+if (window.scene.getMeshByName('wall_house' + ii +'_' + iName + '_carcas').isEnabled() == true)
+{
+//wallTempCloneCarcas
+if (window.scene.getMeshByName('wallTempCloneCarcas') != null) window.scene.getMeshByName('wallTempCloneCarcas').dispose();
+
+
+window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_carcas').clone('wallTempCloneCarcas');
+
+let aCSG = BABYLON.CSG.FromMesh(window.scene.getMeshByName('boxCut'));
+let bCSG = BABYLON.CSG.FromMesh(window.scene.getMeshByName('wallTempCloneCarcas'));
+
+let subCSG = bCSG.subtract(aCSG);
+
+let newMesh = subCSG.toMesh('wall_house' + ii + '_' + iName + '_cuted_carcas',   window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_carcas').material, window.scene);
+
+
+
+window.scene.getMeshByName('wall_house' + ii + '_' + iName + '_carcas').setEnabled(false);
+window.scene.getMeshByName('wallTempCloneCarcas').dispose();
+}
+
+
+
+
+
+
+
+  window.scene.getMeshByName('wallTempClone').dispose();
+  window.scene.getMeshByName('wall_house' + ii + '_' + iName).setEnabled(false);
+
+
+  window.scene.getMeshByName('boxCut').dispose();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+}
+}
+
+
+
+
+
+
+
 
 
 
