@@ -263,7 +263,23 @@ window.scene.getMeshByName('wall_big_carcas').material=window.scene.getMaterialB
 //window.scene.getMeshByName('wall_small_0').scaling.z=-1;
 //window.scene.getMeshByName('wall_small_0').flipFaces();
 
+//CREATING BALK ROOF CARKAS
+for (let i=0; i<10; i++)
+{
+window.scene.getMeshByName('1meter_balk').clone('roof_small_balk_min_' + i);
 
+
+window.scene.getMeshByName('roof_small_balk_min_' + i).rotation=new BABYLON.Vector3(0, 0 , 0);
+window.scene.getMeshByName('roof_small_balk_min_' + i).position.y=2.42;
+//window.scene.getMeshByName('flat_roof_bulk_' + i).scaling.x=4.1;
+window.scene.getMeshByName('roof_small_balk_min_' + i).scaling.z=0.33;
+//window.scene.getMeshByName('flat_roof_bulk_' + i).position.y=2.42;
+
+}
+
+
+
+//CREATING BALK ROOF CARKAS
 
 window.scene.getMeshByName('wall_trap_0').material=window.scene.getMaterialByName('wood_dark_0');
 window.scene.getMeshByName('wall_trap_0_carcas').material=window.scene.getMaterialByName('Wood_Material');
