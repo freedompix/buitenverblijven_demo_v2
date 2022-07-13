@@ -970,7 +970,11 @@ window.scene.getMeshByName('flat_roof_15mm' + i).scaling.z=3;
 window.scene.getMeshByName('flat_roof_15mm' + i).position.z=(z/1000)/2 - (i-1) * 0.2 - roofFlatShiftFront + 0.225 + 0.09;
 }
 
-
+if(z==((i-1)*200 + 100))
+{
+window.scene.getMeshByName('flat_roof_15mm' + i).scaling.z=3;
+window.scene.getMeshByName('flat_roof_15mm' + i).position.z=(z/1000)/2 - (i-1) * 0.2 - roofFlatShiftFront + 0.225 + 0.09 - 0.1;
+}
 
 }
 
@@ -1033,6 +1037,49 @@ window.scene.getMaterialByName('RoofTileMaterialFlat').albedoTexture.uScale = 0.
 window.scene.getMaterialByName('RoofTileMaterialFlat').bumpTexture.vScale = 0.65 * (x/1000 );
 window.scene.getMaterialByName('RoofTileMaterialFlat').bumpTexture.uScale = 0.65 * (z/1000 );
 
+  
+ 
+//CREATING BALK ROOF CARKAS
+if (window.appState['rooftype'] == 1)
+{
+for (let i=0; i<10; i++)
+{
+window.scene.getMeshByName('roof_small_balk_min_' + i).setEnabled(false);
+}
+}
+
+if (window.appState['rooftype'] == 0)
+{
+
+for (let i=0; i<10; i++)
+{
+window.scene.getMeshByName('roof_small_balk_min_' + i).setEnabled(true);
+}
+
+for (let i=0; i<5; i++)
+{
+let startZ = z/-2000;
+let stepZ  = z/5000;
+window.scene.getMeshByName('roof_small_balk_min_' + i).position.x= x/-2000 - window.appState['overhangLeft']/1000 - 0.075;
+window.scene.getMeshByName('roof_small_balk_min_' + (i+5)).position.x= x/2000 ;
+
+window.scene.getMeshByName('roof_small_balk_min_' + i).scaling.x = (window.appState['overhangLeft'] + 70)/1000;
+window.scene.getMeshByName('roof_small_balk_min_' + (i+5)).scaling.x = (window.appState['overhangRight'] + 70) /1000;
+
+window.scene.getMeshByName('roof_small_balk_min_' + i).setEnabled(true);
+window.scene.getMeshByName('roof_small_balk_min_' + (i+5)).setEnabled(true);
+
+window.scene.getMeshByName('roof_small_balk_min_' + i).position.z     = startZ + i * stepZ;
+window.scene.getMeshByName('roof_small_balk_min_' + (i+5)).position.z = startZ + i * stepZ;
+
+
+
+}
+
+}
+
+
+//CREATING BALK ROOF CARKAS 
 
 
 updateSections();
@@ -1041,9 +1088,17 @@ elementsUpdate();
 spaceUpdating();
 
 
+if (window.appState['widthLast']!= window.appState['width'] || window.appState['deepthLast']!= window.appState['deepth'])
+{
+
+window.appState['widthLast']  = window.appState['width'];
+window.appState['deepthLast'] = window.appState['deepth'];
+
 window.scene.getCameraByID('camera1').spinTo("radius", 9+x/2000, 200);
 window.scene.getCameraByID('camera1').lowerRadiusLimit=4+x/2000;
 window.scene.getCameraByID('camera1').upperRadiusLimit=20+x/2000;
+//window.scene.getCameraByID('camera1').upperBetaLimit=1.6;
+}
 
 
 window.scene.getLightByName('light_point_2').position.x = 4 + x/2000;
