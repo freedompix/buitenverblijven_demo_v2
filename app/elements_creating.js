@@ -19,7 +19,7 @@ window.appState['house1wall3']=1;
 window.appState['house2wall1']=3;
 window.appState['house2wall4']=1;
 
-window.appState['house1wall1']=1;//
+
 
 window.scene.getMaterialByName('Wood_Material').clone('Wood_Material_Doors');
 window.scene.getMaterialByName('Wood_Material_Doors').metallic = 0;
