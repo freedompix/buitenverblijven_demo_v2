@@ -1,16 +1,38 @@
-function zoomMove(direction)
+function zoomMove(direction, house)
 {
+let x;
+if (house==1) x= -2;
+if (house==2) x= 2;
+
+
 if (direction=='front')
+{
 window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI/2, 200);
+window.scene.getCameraByID('camera1').spinTo("target", new BABYLON.Vector3(x, 1.5, 0), 200);
+window.scene.getCameraByID('camera1').spinTo("radius", 2, 200);
+}
 
 if (direction=='back')
+{
 window.scene.getCameraByID('camera1').spinTo("alpha", Math.PI/2, 200);
+window.scene.getCameraByID('camera1').spinTo("target", new BABYLON.Vector3(x, 1.5, 0), 200);
+window.scene.getCameraByID('camera1').spinTo("radius", 2, 200);
+}
 
 if (direction=='left')
+{
 window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI, 200);
+window.scene.getCameraByID('camera1').spinTo("target", new BABYLON.Vector3(x, 1.5, 0), 200);
+window.scene.getCameraByID('camera1').spinTo("radius", 2, 200);
+}
+
 
 if (direction=='right')
+{
 window.scene.getCameraByID('camera1').spinTo("alpha", 0, 200);
+window.scene.getCameraByID('camera1').spinTo("target", new BABYLON.Vector3(x, 1.5, 0), 200);
+window.scene.getCameraByID('camera1').spinTo("radius", 2, 200);
+}
 
 }
 
