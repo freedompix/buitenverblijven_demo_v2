@@ -1092,8 +1092,8 @@ window.scene.getMeshByName('balk_small_back_right_'  + sectionsNumber2).setEnabl
 window.scene.getMeshByName('balk_small_front_left_' + sectionsNumber2).setEnabled(false);
 window.scene.getMeshByName('balk_small_front_right_' + sectionsNumber2).setEnabled(false);
 
-window.scene.getMeshByName('balk_small_back_right_' + sectionsNumber).setEnabled(false);
-window.scene.getMeshByName('balk_small_front_right_' + sectionsNumber).setEnabled(false);
+//window.scene.getMeshByName('balk_small_back_right_' + sectionsNumber).setEnabled(false);
+//window.scene.getMeshByName('balk_small_front_right_' + sectionsNumber).setEnabled(false);
 window.scene.getMeshByName('balk_small_back_left_' + sectionsNumber).setEnabled(false);
 window.scene.getMeshByName('balk_small_front_left_' + sectionsNumber).setEnabled(false);
 
