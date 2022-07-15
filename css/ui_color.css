@@ -1,3 +1,10 @@
+.tab a:focus.active, .tab a.active
+{
+background-color: red !important;
+color: white !important;
+}
+
+
 .optionColorActive
 {
 border: 1px solid #FF0000;
@@ -103,5 +110,5 @@ left: 24px;
 #builderOptions3
 {
 position: relative;
-height: 400px;	
+height: 400px;
 }
