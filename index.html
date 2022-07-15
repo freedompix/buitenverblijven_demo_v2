@@ -73,7 +73,78 @@ box-shadow: inset 0 0 2px rgba(255,233,233,1.75), 0 0 2px rgba(255, 233, 233, 1.
 
 
 <div id="uiSpace" style="display: none;">
-<div id="closeCross"></div>
+<div id="closeCross" onclick="spaceCloseUIdiv();"></div>
+
+<div id="sectionsList">
+
+
+<div id="sectionsListFront">
+<div class="uiSpaceText">Front sections</div>
+<div class="sectionButton" id="sectionButton0" onclick="spaceOpenUI(0); spaceOpenUIdiv(0);" >1</div>
+<div class="sectionButton" id="sectionButton1" onclick="spaceOpenUI(1); spaceOpenUIdiv(1);"  >2</div>
+<div class="sectionButton" id="sectionButton2" onclick="spaceOpenUI(2); spaceOpenUIdiv(2);" >3</div>
+<div class="sectionButton" id="sectionButton3" onclick="spaceOpenUI(3); spaceOpenUIdiv(3);" >4</div>
+<div class="sectionButton" id="sectionButton4" onclick="spaceOpenUI(4); spaceOpenUIdiv(4);" >5</div>
+<div class="sectionButton" id="sectionButton5" onclick="spaceOpenUI(5); spaceOpenUIdiv(5);" >6</div>
+<div class="sectionButton" id="sectionButton6" onclick="spaceOpenUI(6); spaceOpenUIdiv(6);" >7</div>
+</div>
+
+<div id="sectionsListBack">
+<div class="uiSpaceText">Back sections</div>
+<div class="sectionButton" id="sectionButton7" onclick="spaceOpenUI(7); spaceOpenUIdiv(7);" >1</div>
+<div class="sectionButton" id="sectionButton8" onclick="spaceOpenUI(8); spaceOpenUIdiv(8);" >2</div>
+<div class="sectionButton" id="sectionButton9" onclick="spaceOpenUI(9); spaceOpenUIdiv(9);" >3</div>
+<div class="sectionButton" id="sectionButton10" onclick="spaceOpenUI(10); spaceOpenUIdiv(10);" >4</div>
+<div class="sectionButton" id="sectionButton11" onclick="spaceOpenUI(11); spaceOpenUIdiv(11);" >5</div>
+<div class="sectionButton" id="sectionButton12" onclick="spaceOpenUI(12); spaceOpenUIdiv(12);" >6</div>
+<div class="sectionButton" id="sectionButton13" onclick="spaceOpenUI(13); spaceOpenUIdiv(13);" >7</div>
+</div>
+
+<div id="sectionsListLeft">
+<div class="uiSpaceText">Left sections</div>
+<div class="sectionButton" id="sectionButton14" onclick="spaceOpenUI(14); spaceOpenUIdiv(14);" >1</div>
+<div class="sectionButton" id="sectionButton15" onclick="spaceOpenUI(15); spaceOpenUIdiv(15);" >2</div>
+</div>
+
+<div id="sectionsListRight">
+<div class="uiSpaceText">Right sections</div>
+<div class="sectionButton" id="sectionButton16" onclick="spaceOpenUI(16); spaceOpenUIdiv(16);" >1</div>
+<div class="sectionButton" id="sectionButton17" onclick="spaceOpenUI(17); spaceOpenUIdiv(17);" >2</div>
+</div>
+
+
+</div>
+
+
+<div class="uiSpaceContainer">
+<div class="spaceTriggerText">Wall enabled</div>
+<div style="position:absolute; left: 370px; width: 150px; top: 14px;">
+		<div class="switch">
+			<label>
+
+				<input type="checkbox" id="spaceWall" value="false"  name="spaceWall" onchange="spaceSetWall();">
+				<span class="lever"></span>
+
+			</label>
+		</div>
+</div>
+</div>
+
+<div class="uiSpaceContainer">
+<div class="spaceTriggerText">Align to right</div>
+<div style="position:absolute; left: 370px; width: 150px; top: 14px;">
+		<div class="switch">
+			<label>
+
+				<input type="checkbox" id="spaceDirection" value="false"  name="spaceDirection" onchange="spaceSetDirection();">
+				<span class="lever"></span>
+
+			</label>
+		</div>
+</div>
+</div>
+
+
 
 
 <div id="spaceBlock1">
@@ -83,6 +154,8 @@ box-shadow: inset 0 0 2px rgba(255,233,233,1.75), 0 0 2px rgba(255, 233, 233, 1.
 <div class="uiSpaceButton1" id="uiSpaceButton0_1" onclick="spaceSetUI(0,1);"></div>
 <div class="uiSpaceButton2" id="uiSpaceButton0_2" onclick="spaceSetUI(0,2);"></div>
 <div class="uiSpaceButton3" id="uiSpaceButton0_3" onclick="spaceSetUI(0,3);"></div>
+<div class="uiSpaceButton4" id="uiSpaceButton0_4" onclick="spaceSetUI(0,4);"></div>
+<div class="uiSpaceButton5" id="uiSpaceButton0_5" onclick="spaceSetUI(0,5);"></div>
 
 </div>
 
@@ -94,6 +167,9 @@ box-shadow: inset 0 0 2px rgba(255,233,233,1.75), 0 0 2px rgba(255, 233, 233, 1.
 <div class="uiSpaceButton1" id="uiSpaceButton1_1" onclick="spaceSetUI(1,1);"></div>
 <div class="uiSpaceButton2" id="uiSpaceButton1_2" onclick="spaceSetUI(1,2);"></div>
 <div class="uiSpaceButton3" id="uiSpaceButton1_3" onclick="spaceSetUI(1,3);"></div>
+<div class="uiSpaceButton4" id="uiSpaceButton1_4" onclick="spaceSetUI(1,4);"></div>
+<div class="uiSpaceButton5" id="uiSpaceButton1_5" onclick="spaceSetUI(1,5);"></div>
+
 
 
 </div>
@@ -105,6 +181,9 @@ box-shadow: inset 0 0 2px rgba(255,233,233,1.75), 0 0 2px rgba(255, 233, 233, 1.
 <div class="uiSpaceButton1" id="uiSpaceButton2_1" onclick="spaceSetUI(2,1);"></div>
 <div class="uiSpaceButton2" id="uiSpaceButton2_2" onclick="spaceSetUI(2,2);"></div>
 <div class="uiSpaceButton3" id="uiSpaceButton2_3" onclick="spaceSetUI(2,3);"></div>
+<div class="uiSpaceButton4" id="uiSpaceButton2_4" onclick="spaceSetUI(2,4);"></div>
+<div class="uiSpaceButton5" id="uiSpaceButton2_5" onclick="spaceSetUI(2,5);"></div>
+
 </div>
 
 </div>
@@ -442,11 +521,10 @@ Overhangen verbergen
 	  <div class="row">
 	    <div class="col s12">
 	      <ul class="tabs tabs1">
-	        <li class="tab col s3"><a href="#house1_1" id="tabhouse1_1" onclick="zoomMove('front');" class="active">Front</a></li>
-	        <li class="tab col s3"><a href="#house1_2" id="tabhouse1_2" onclick="zoomMove('back');"  >Back</a></li>
-	        <li class="tab col s3"><a href="#house1_3" id="tabhouse1_3" onclick="zoomMove('left');"  >Left</a></li>
-	        <li class="tab col s3"><a href="#house1_4" id="tabhouse1_4" onclick="zoomMove('right');" >Right</a></li>
-
+	        <li class="tab col s3"><a href="#house1_1" id="tabhouse1_1" onclick="zoomMove('front', 1);" class="active">Front</a></li>
+	        <li class="tab col s3"><a href="#house1_2" id="tabhouse1_2" onclick="zoomMove('back', 1);"  >Back</a></li>
+	        <li class="tab col s3"><a href="#house1_3" id="tabhouse1_3" onclick="zoomMove('left', 1);"  >Left</a></li>
+	        <li class="tab col s3"><a href="#house1_4" id="tabhouse1_4" onclick="zoomMove('right', 1);" >Right</a></li>
 	      </ul>
 	    </div>
 	    <div id="house1_1" class="col s12" style="height: 500px; position: relative; margin-top: 14px;">
@@ -684,7 +762,7 @@ Overhangen verbergen
 			document.getElementById('house2options').style.display='block';
 			document.getElementById('showHouse2').style.display='none';
 			document.getElementById('hideHouse2').style.display='block';
-			setTimeout(window.instance2.select('house2_1'), 20);	 
+			setTimeout(window.instance2.select('house2_1'), 20);
 			return false;">
 			Add doors and window
 			<img src="css/arrow_inactive.png" class="houseSwitcherArrow" style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);
@@ -711,11 +789,10 @@ Overhangen verbergen
 			  <div class="row">
 			    <div class="col s12">
 			      <ul class="tabs tabs2">
-			        <li class="tab col s3"><a href="#house2_1" id="tabhouse2_1" onclick="zoomMove('front');" class="active">Front</a></li>
-			        <li class="tab col s3"><a href="#house2_2" id="tabhouse2_2" onclick="zoomMove('back');" >Back</a></li>
-			        <li class="tab col s3"><a href="#house2_3" id="tabhouse2_3" onclick="zoomMove('left');">Left</a></li>
-			        <li class="tab col s3"><a href="#house2_4" id="tabhouse2_4" onclick="zoomMove('right');">Right</a></li>
-
+			        <li class="tab col s3"><a href="#house2_1" id="tabhouse2_1" onclick="zoomMove('front', 2);" class="active">Front</a></li>
+			        <li class="tab col s3"><a href="#house2_2" id="tabhouse2_2" onclick="zoomMove('back'), 2;" >Back</a></li>
+			        <li class="tab col s3"><a href="#house2_3" id="tabhouse2_3" onclick="zoomMove('left'), 2;">Left</a></li>
+			        <li class="tab col s3"><a href="#house2_4" id="tabhouse2_4" onclick="zoomMove('right'), 2;">Right</a></li>
 			      </ul>
 			    </div>
 			    <div id="house2_1" class="col s12" style="">
