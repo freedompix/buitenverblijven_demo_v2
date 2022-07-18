@@ -1,37 +1,101 @@
 function zoomMove(direction, house)
 {
 let x;
-if (house==1) x= -2;
-if (house==2) x= 2;
+let radiusMax = 0;
+let deltaX = window.appState['width'];
+if (window.appState['house1on']==true) deltaX = deltaX - window.appState['house1width'];
+if (window.appState['house2on']==true) deltaX = deltaX - window.appState['house2width'];
 
+if (window.appState['house1on']==false || window.appState['house2on']==false) deltaX = 4000;
+
+
+if (house==1)
+{
+x = (window.appState['width']/-2 + window.appState['house1width']/2) /1000;
+radiusMax = Math.max(window.appState['house1width'], window.appState['deepth'])/2000;
+}
+
+if (house==2)
+{
+x = (window.appState['width']/ 2 - window.appState['house2width']/2) /1000;
+radiusMax = Math.max(window.appState['house2width'], window.appState['deepth'])/2000;
+}
+
+radiusMax = radiusMax + 4;
 
 if (direction=='front')
 {
 window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI/2, 200);
+window.scene.getCameraByID('camera1').spinTo("beta", Math.PI/2, 200);
 window.scene.getCameraByID('camera1').spinTo("target", new BABYLON.Vector3(x, 1.5, 0), 200);
-window.scene.getCameraByID('camera1').spinTo("radius", 2, 200);
+window.scene.getCameraByID('camera1').spinTo("radius", radiusMax, 200);
+window.scene.getCameraByID('camera1').lowerRadiusLimit=radiusMax;
 }
 
 if (direction=='back')
 {
 window.scene.getCameraByID('camera1').spinTo("alpha", Math.PI/2, 200);
+window.scene.getCameraByID('camera1').spinTo("beta", Math.PI/2, 200);
 window.scene.getCameraByID('camera1').spinTo("target", new BABYLON.Vector3(x, 1.5, 0), 200);
-window.scene.getCameraByID('camera1').spinTo("radius", 2, 200);
+window.scene.getCameraByID('camera1').spinTo("radius", radiusMax, 200);
+window.scene.getCameraByID('camera1').lowerRadiusLimit=radiusMax;
 }
 
 if (direction=='left')
 {
-window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI, 200);
+//window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI, 200);
+
+if (house==1) window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI, 200);
+//7000 / (3500 - deltaX)
+
+if (house==2 && deltaX >= 3500) window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI, 200);
+if (house==2 && deltaX == 3000) window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI/1.26, 200);
+if (house==2 && deltaX == 2500) window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI/1.37, 200);
+if (house==2 && deltaX == 2000) window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI/1.37, 200);
+if (house==2 && deltaX == 1500) window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI/1.50, 200);
+if (house==2 && deltaX == 1000) window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI/1.64, 200);
+if (house==2 && deltaX == 500) window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI/1.85, 200);
+if (house==2 && deltaX == 0) window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI/2, 200);
+
+if (house==2 && deltaX < 3500 && window.appState['house1on']==true && window.appState['house2on']==true)
+x = (window.appState['width']/2 - window.appState['house2width']) /1000;
+
+
+
+
+window.scene.getCameraByID('camera1').spinTo("beta", Math.PI/2, 200);
 window.scene.getCameraByID('camera1').spinTo("target", new BABYLON.Vector3(x, 1.5, 0), 200);
-window.scene.getCameraByID('camera1').spinTo("radius", 2, 200);
+window.scene.getCameraByID('camera1').spinTo("radius", radiusMax, 200);
+window.scene.getCameraByID('camera1').lowerRadiusLimit=radiusMax;
 }
 
 
 if (direction=='right')
 {
-window.scene.getCameraByID('camera1').spinTo("alpha", 0, 200);
+
+//window.scene.getCameraByID('camera1').spinTo("alpha", 0, 200);
+
+
+if (house==2) window.scene.getCameraByID('camera1').spinTo("alpha", 0, 200);
+//7000 / (3500 - deltaX)
+
+if (house==1 && deltaX >= 3500) window.scene.getCameraByID('camera1').spinTo("alpha",  0 , 200);
+if (house==1 && deltaX == 3000) window.scene.getCameraByID('camera1').spinTo("alpha",  0 - (Math.PI - Math.PI/1.26), 200);
+if (house==1 && deltaX == 2500) window.scene.getCameraByID('camera1').spinTo("alpha",  0 - (Math.PI - Math.PI/1.37), 200);
+if (house==1 && deltaX == 2000) window.scene.getCameraByID('camera1').spinTo("alpha",  0 - (Math.PI - Math.PI/1.37), 200);
+if (house==1 && deltaX == 1500) window.scene.getCameraByID('camera1').spinTo("alpha",  0 - (Math.PI - Math.PI/1.50), 200);
+if (house==1 && deltaX == 1000) window.scene.getCameraByID('camera1').spinTo("alpha",  0 - (Math.PI - Math.PI/1.64), 200);
+if (house==1 && deltaX == 500) window.scene.getCameraByID('camera1').spinTo("alpha",   0 - (Math.PI - Math.PI/1.85), 200);
+if (house==1 && deltaX == 0) window.scene.getCameraByID('camera1').spinTo("alpha", -Math.PI/2, 200);
+
+if (house==1 && deltaX < 3500 && window.appState['house1on']==true && window.appState['house2on']==true)
+x = (window.appState['width']/-2 + window.appState['house2width']) /1000;
+
+
+window.scene.getCameraByID('camera1').spinTo("beta", Math.PI/2, 200);
 window.scene.getCameraByID('camera1').spinTo("target", new BABYLON.Vector3(x, 1.5, 0), 200);
-window.scene.getCameraByID('camera1').spinTo("radius", 2, 200);
+window.scene.getCameraByID('camera1').spinTo("radius", radiusMax, 200);
+window.scene.getCameraByID('camera1').lowerRadiusLimit=radiusMax;
 }
 
 }
