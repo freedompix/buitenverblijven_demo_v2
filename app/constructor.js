@@ -1093,7 +1093,8 @@ if (window.appState['widthLast']!= window.appState['width'] || window.appState['
 
 window.appState['widthLast']  = window.appState['width'];
 window.appState['deepthLast'] = window.appState['deepth'];
-
+  
+window.scene.getCameraByID('camera1').spinTo("target", new BABYLON.Vector3(0, 1.5, 0), 200);
 window.scene.getCameraByID('camera1').spinTo("radius", 9+x/2000, 200);
 window.scene.getCameraByID('camera1').lowerRadiusLimit=4+x/2000;
 window.scene.getCameraByID('camera1').upperRadiusLimit=20+x/2000;
