@@ -1060,7 +1060,7 @@ for (let i=0; i<5; i++)
 {
 let startZ = z/-2000;
 let stepZ  = z/5000;
-window.scene.getMeshByName('roof_small_balk_min_' + i).position.x= x/-2000 - window.appState['overhangLeft']/1000 - 0.075;
+window.scene.getMeshByName('roof_small_balk_min_' + i).position.x= x/-2000 - window.appState['overhangLeft']/1000 - 0.07;
 window.scene.getMeshByName('roof_small_balk_min_' + (i+5)).position.x= x/2000 ;
 
 window.scene.getMeshByName('roof_small_balk_min_' + i).scaling.x = (window.appState['overhangLeft'] + 70)/1000;
