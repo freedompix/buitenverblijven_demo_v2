@@ -1082,7 +1082,7 @@ window.scene.getMeshByName('balk_small_front_right_2').setEnabled(false);
 
 if (window.appState['house2on']==true)
 {
-//window.scene.getMeshByName('balk_small_back_left_' + i).setEnabled(false);
+
 let sectionsNumber =window.appState['sectionsNumber'];
 let sectionsNumber2 =window.appState['sectionsNumber']+1;
 
@@ -1092,10 +1092,26 @@ window.scene.getMeshByName('balk_small_back_right_'  + sectionsNumber2).setEnabl
 window.scene.getMeshByName('balk_small_front_left_' + sectionsNumber2).setEnabled(false);
 window.scene.getMeshByName('balk_small_front_right_' + sectionsNumber2).setEnabled(false);
 
-//window.scene.getMeshByName('balk_small_back_right_' + sectionsNumber).setEnabled(false);
-//window.scene.getMeshByName('balk_small_front_right_' + sectionsNumber).setEnabled(false);
 window.scene.getMeshByName('balk_small_back_left_' + sectionsNumber).setEnabled(false);
 window.scene.getMeshByName('balk_small_front_left_' + sectionsNumber).setEnabled(false);
+
+}
+
+
+if (window.appState['house1on']==true && window.appState['house2on']==true)
+{
+let deltaX = window.appState['width'];
+deltaX = deltaX - window.appState['house1width'] - window.appState['house2width'];
+
+if (deltaX == 500)
+{
+window.scene.getMeshByName('balk_small_back_left_2').setEnabled(false);
+window.scene.getMeshByName('balk_small_front_left_2').setEnabled(false);
+
+
+window.scene.getMeshByName('balk_small_back_right_3').setEnabled(false);
+window.scene.getMeshByName('balk_small_front_right_3').setEnabled(false);
+}
 
 }
 
